@@ -1,0 +1,15 @@
+.logo {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+  }
+
+.title {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+}
