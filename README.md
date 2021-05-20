@@ -4,7 +4,7 @@ KE Web Frontend
 Install node.js https://nodejs.org/en/
 Install git https://git-scm.com/downloads
 
-##Git Flow:
+## Git Flow:
 1. Fork this team repo to your own Github account.
 2. Git clone your personal repo t0 anywhere in your computer such as Documents. *Open git bash and enter command: git clone https://github.com/{yourusername}/frontend.git*
 Now you will have the project in your com
@@ -14,7 +14,7 @@ Now you will have the project in your com
 6. Open pull request to the team repo 
 6. Merge if nothing wrong.
 
-##To run the project
+## To run the project
 
 1. Open the folder in some IDE eg Visual Studio Code.
 2. Open the terminal and go to the project path.
