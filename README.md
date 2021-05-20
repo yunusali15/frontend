@@ -8,13 +8,13 @@ Install git https://git-scm.com/downloads
 ### Do Once
 1. Fork this team repo to your own Github account.
 2. Git clone your personal repo to anywhere in your computer such as Documents.   
-Open git bash and enter command: *git clone https://github.com/{yourusername}/frontend.git*       
+To do so, open git bash and enter command eg: *git clone https://github.com/{yourusername}/frontend.git*       
 Now you will have the project in your com.
 ### Every time you want to develop code
 3. To make changes, **always pull from the team repo first** to get latest changes using *git pull*
 4. Recommened to create a new branch for development in your personal git repo using *git branch new-branch-name* and start coding shit.
 5. To update the changes you made to your own repo, stage the files using *git add*, commit it using *git commit* and push the changes using *git push*
-6. Open pull request to the team repo 
+6. Open pull request to the team repo.
 6. Merge if nothing wrong.
 
 ## To run the project
