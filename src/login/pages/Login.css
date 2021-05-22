@@ -1,0 +1,99 @@
+.error {
+  color: red;
+  text-align: center;
+  position: relative;
+  top: 5px;
+}
+
+.login {
+  background: #f7f9fc;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 280px;
+  margin: 20px auto 0;
+  width: 298px;
+  transform: translate(0, 20%);
+}
+
+.login h2 {
+  text-align: center;
+  font-family: "Courier New";
+  color: #f13413;
+}
+
+button[type="submit"] {
+  width: 240px;
+  height: 35px;
+  display: block;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  margin: 25px 0 0 29px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: linear-gradient(to bottom, #3db0a6, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78,
+    0px 10px 5px #999;
+}
+
+button[type="submit"]:active {
+  top: 3px;
+  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d,
+    0px 5px 3px #999;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+  position: relative;
+  top: 5px;
+}
+
+input:focus {
+  border-bottom: 1px solid #E37F00;
+}
+
+
+/* .signup {
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  top: 50px;
+  padding-left: 80px;
+} */
+
+.signup {
+    text-align: center;
+    color: #7f7f7f;
+    display: inline-block;
+    font: 12px/1 sans-serif;
+    left: -19px;
+    position: relative;
+    text-decoration: none;
+    top: 20px;
+    transition: color .4s;
+    padding-left: 100px;
+  }
+  .signup:hover { color: #3b3b3b }
+
