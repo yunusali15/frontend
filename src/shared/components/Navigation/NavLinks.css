@@ -62,7 +62,7 @@
     text-decoration: none;
   }
 
-  .nav-links button {
+  /* .nav-links button {
     border: 1px solid white;
     color: white;
     background: transparent;
@@ -72,5 +72,21 @@
   .nav-links button:active {
     background: #f8df00;
     color: #292929;
+    border: 1px, solid, black;
   }
+} */
+
+.nav-links button {
+  border: 1px solid transparent;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.nav-links button:hover,
+.nav-links button:active {
+  background: #f8df00;
+  border-color: #292929;
+  color: #292929;
+}
 }
