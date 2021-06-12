@@ -32,3 +32,4 @@ TLDR Pull from team repo, develop and push to individual repo. Create PR from ow
 3. Important to type _npm install_ for the first time to download the node_modules folder required for the project as they are not included.
 4. Type _npm start_ to run the project.
 5. Should be able to see it on http://localhost:3000/
+6. EZ is gay
