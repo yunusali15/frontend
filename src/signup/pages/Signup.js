@@ -26,6 +26,7 @@ const Signup = () => {
     });
 
   return (
+    <div className="entire">
     <form className="signup" onSubmit={handleSubmit}>
       <h2>Sign up here</h2>
       <input
@@ -74,6 +75,7 @@ const Signup = () => {
         Sign up
       </button>
     </form>
+    </div>
   );
 };
 export default Signup;
