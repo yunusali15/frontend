@@ -12,6 +12,7 @@ import Vbs from "./vbs/pages/Vbs";
 import Cca from "./cca/pages/Cca";
 import Login from "./login/pages/Login";
 import Signup from "./signup/pages/Signup";
+import SpecificVenue from "./vbs/pages/SpecificVenue";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { LoginContext } from "./shared/context/LoginContext";
 
@@ -32,12 +33,9 @@ const App = () => {
     //routes when logged in
     routes = (
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/vbs" exact>
-          <Vbs />
-        </Route>
+        <Route exact path="/" component={Home}/>
+        <Route path="/vbs" component={Vbs}/>
+        <Route path="/vbs/:venueName" component={SpecificVenue}/>
         <Route path="/finance" exact>
           <Finance />
         </Route>
@@ -57,6 +55,7 @@ const App = () => {
         <Route path="/vbs" exact>
           <Vbs />
         </Route>
+        <Route path="/vbs/:venueName" component={SpecificVenue}/>
         <Route path="/login" exact>
           <Login />
         </Route>
