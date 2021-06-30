@@ -10,6 +10,7 @@ const DATA = [
   { id: 2, timeStart: "10:00", timeEnd: "11:00", selected: false },
   { id: 3, timeStart: "11:00", timeEnd: "12:00", selected: false },
   { id: 4, timeStart: "12:00", timeEnd: "13:00", selected: false },
+  { id: 4, timeStart: "13:00", timeEnd: "14:00", selected: false },
 ];
 
 const BookingPage = () => {
@@ -47,7 +48,7 @@ const BookingPage = () => {
           />
         </div>
       ))}
-      <Link
+      <Link 
         to={{
           pathname: "/vbs/confirmation",
           state: {

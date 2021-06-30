@@ -22,12 +22,6 @@ const DATA = [
       "https://nus.edu.sg/osa/images/default-source/kevii-hall/facilities/squash-court.png?sfvrsn=951c1afb_2",
   },
   {
-    venueName: "Chuan An Room",
-    venueID: "chuanan",
-    venueImage:
-      "https://1.bp.blogspot.com/-k8eJc3se68A/VyR9BzuUbJI/AAAAAAAAEAw/ByN_Kp2rBBoLwDkXqIHrY_exEX3xTevDQCLcB/s640/13105809_10154125039777296_1521117703_o.jpg",
-  },
-  {
     venueName: "Heritage Room",
     venueID: "heritage",
     venueImage:
