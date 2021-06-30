@@ -1,19 +1,37 @@
-import React, { Component } from "react";
+import React, {useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import { Link, useHistory, useParams } from "react-router-dom";
 
-class SpecificVenue extends Component {
-  state = {};
-  render() {
-    return (
-      <div>
-        <h1>{this.props.match.params.venueName}</h1>
-        <img
-          src={this.props.location.state.venueImage}
-          alt="Venue Image Here"
-          class="venueImage"
-        />
-      </div>
-    );
+function SpecificVenue() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const history = useHistory();
+  const minDate = new Date();
+  const venueName = useParams().venueName;
+  minDate.setDate(minDate.getDate() + 3);
+
+  function handleButtonClick() {
+      history.push(`./${venueName}/bookingpage`,{ selectedDate: selectedDate } )
   }
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "center",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <h1>{venueName}</h1>
+      <Calendar
+        minDate={minDate}
+        value={selectedDate}
+        onChange={setSelectedDate}
+      />
+      <button onClick={handleButtonClick}>Choose this Date</button>
+    </div>
+  );
 }
 
 export default SpecificVenue;
