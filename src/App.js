@@ -8,7 +8,8 @@ import {
 
 import Home from "./home/pages/Home";
 import Finance from "./finance/pages/Finance";
-import Vbs from "./vbs/pages/Vbs";
+// import Vbs from "./vbs/pages/Vbs";
+import VenueSelection from './vbs/pages/VenueSelection'
 import Cca from "./cca/pages/Cca";
 import Login from "./login/pages/Login";
 import Signup from "./signup/pages/Signup";
@@ -36,7 +37,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/vbs" component={Vbs}/>
+        <Route path="/vbs" component={VenueSelection}/>
         <Route path="/vbs/confirmation" component={ConfirmationPage}/>
         <Route path="/vbs/:venueName" component={SpecificVenue}/>
         <Route path="/vbs/:venueName/bookingpage" component={BookingPage}/>
@@ -57,7 +58,7 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/vbs">
-          <Vbs />
+          {<VenueSelection/>}
         </Route>
         <Route exact path="/vbs/confirmation" component={ConfirmationPage}/>
         <Route exact path="/vbs/:venueName" component={SpecificVenue}/>
