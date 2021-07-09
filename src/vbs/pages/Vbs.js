@@ -1,7 +1,13 @@
 import React from 'react';
+import ModifiedCalendar from './Calendar';
 
 const Vbs = (props) => {
-    return ( <h2>page for vbs</h2> );
+    return ( 
+    <div>
+        <h2>page for vbs</h2> 
+        <ModifiedCalendar />
+    </div>
+    );
 }
  
 export default Vbs;

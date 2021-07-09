@@ -5,6 +5,7 @@
   "dependencies": {
     "formik": "^2.2.7",
     "react": "^16.11.0",
+    "react-calendar": "^3.4.0",
     "react-dom": "^16.11.0",
     "react-hook-form": "^7.6.4",
     "react-router-dom": "5.2.0",
