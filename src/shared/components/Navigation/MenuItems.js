@@ -11,7 +11,7 @@ export const MenuItems = [
 }, 
 {
     title: 'CONTACT', 
-    url: '/contact',
+    url: '/Contacts',
     cName:"nav-links"
 }, 
 ]
