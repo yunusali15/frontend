@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "add": "^2.0.6",
     "formik": "^2.2.7",
+    "or": "^0.2.0",
     "react": "^16.11.0",
     "react-calendar": "^3.4.0",
     "react-dom": "^16.11.0",
     "react-hook-form": "^7.6.4",
-    "react-router-dom": "5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.2.0",
     "react-transition-group": "^4.4.1",
+    "yarn": "^1.22.10",
     "yup": "^0.32.9"
   },
   "scripts": {

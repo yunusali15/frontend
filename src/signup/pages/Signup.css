@@ -73,3 +73,9 @@
 .signup input:focus {
   border-bottom: 1px solid #e37f00;
 }
+
+.entire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
