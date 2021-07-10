@@ -17,7 +17,6 @@
     font-style: normal;
     font-weight: 800;
     font-size: 35px;
-    letter-spacing: 2px;
     line-height: 49px;
     color: #000000;
     padding-right: 357px;
@@ -43,7 +42,7 @@
 }
 
 .specificVenue {
-    margin-left: 15%;
+    margin-left: 22%;
 
 }
 
@@ -54,11 +53,12 @@
     align-self: center;
     align-items: stretch;
     margin-inline-end: 2%;
+    margin-bottom: 2%;
 }
 .venueImage {
     position: relative;
-    height: 250px;
-    width:370px;
+    height: 230px;
+    width:350px;
 }
 
 .venueName{
@@ -67,7 +67,7 @@
     min-width: 100%;
     position: absolute;
     bottom: 9%;
-    margin-left: 15%;
+    margin-left: 22%;
     height: 12%;
     padding-top: 1%;
     background-color: #000000;
