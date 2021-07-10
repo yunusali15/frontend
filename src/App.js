@@ -12,7 +12,9 @@ import Vbs from "./vbs/pages/Vbs";
 import Cca from "./cca/pages/Cca";
 import Login from "./login/pages/Login";
 import Signup from "./signup/pages/Signup";
-import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import Navbar from "./shared/components/Navigation/NavBar";
+import Services from "./services/pages/Services";
+import Contacts from "./contacts/pages/Contacts";
 import { LoginContext } from "./shared/context/LoginContext";
 
 const App = () => {
@@ -44,6 +46,12 @@ const App = () => {
         <Route path="/cca" exact>
           <Cca />
         </Route>
+        <Route path = "/Services" exact>
+          <Services />
+        </Route>
+        <Router path = "/Contacts" exact>
+          <Contacts/>
+        </Router>
         <Redirect to="/" />
       </Switch>
     );
@@ -73,7 +81,7 @@ const App = () => {
       value={{isLoggedIn: isLoggedIn, login: login, logout: logout }}
     >
       <Router>
-        <MainNavigation />
+        <Navbar/>
         <main>
           {routes}
         </main>
