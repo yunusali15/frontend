@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar';
 import './Calendar.css';
-import TimeSelection from './TimeSelection';
 
 const ReactCalendar = () => {
     
@@ -117,10 +116,8 @@ const ReactCalendar = () => {
 
     return ( 
         <div className="rowFlex">
-            <TimeSelection setTrainingTimes={setTrainingTimesFn}></TimeSelection>
             <div className="container">
                 <div>
-                    <h2>Comm Hall</h2>
                     <Calendar 
                         onChange={onChange} 
                         value={date} 
