@@ -124,14 +124,7 @@ const ReactCalendar = () => {
                         //uncomment this to view data in tiles
                         //tileContent={tileContent}
                     />
-                    <strong>Date Selected:</strong> {simplifiedDate}
                 </div>
-                <p>
-                <button onClick={() => {handleClick()}}>Set Training Day</button>
-                </p>
-                <strong>Date Set: </strong> {trainingDate}
-                <p className="rowFlex">{listTime}</p>
-                <button onClick={() => {clearTimings()}}>Clear</button>
             </div>
         </div>
      );
