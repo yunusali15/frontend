@@ -35,11 +35,11 @@ const App = () => {
     //routes when logged in
     routes = (
       <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/vbs" component={Vbs}/>
-        <Route path="/vbs/confirmation" component={ConfirmationPage}/>
-        <Route path="/vbs/:venueName" component={SpecificVenue}/>
-        <Route path="/vbs/:venueName/bookingpage" component={BookingPage}/>
+        <Route exact path="/" component={Home} />
+        <Route path="/vbs" component={Vbs} />
+        <Route path="/vbs/confirmation" component={ConfirmationPage} />
+        <Route path="/vbs/:venueName" component={SpecificVenue} />
+        <Route path="/vbs/:venueName/bookingpage" component={BookingPage} />
         <Route path="/finance" exact>
           <Finance />
         </Route>
@@ -53,37 +53,45 @@ const App = () => {
     //routes when not logged in
     routes = (
       <Switch>
-        <Route exact path="/" >
+        <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/vbs">
           <Vbs />
         </Route>
-        <Route exact path="/vbs/confirmation" component={ConfirmationPage}/>
-        <Route exact path="/vbs/:venueName" component={SpecificVenue}/>
-        <Route exact path="/vbs/:venueName/bookingpage" component={BookingPage}/>
+        <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
+        <Route exact path="/vbs/:venueName" component={SpecificVenue} />
+        <Route
+          exact
+          path="/vbs/:venueName/bookingpage"
+          component={BookingPage}
+        />
         <Route path="/login" exact>
           <Login />
         </Route>
         <Route path="/signup" exact>
           <Signup />
         </Route>
-        <Redirect to="/" /> 
+        <Redirect to="/" />
       </Switch>
     );
   }
 
   return (
-    <LoginContext.Provider
-      value={{isLoggedIn: isLoggedIn, login: login, logout: logout }}
-    >
-      <Router>
-        <MainNavigation />
-        <main>
-          {routes}
-        </main>
-      </Router>
-    </LoginContext.Provider>
+    <div>
+      <head>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+        </style>
+      </head>
+      <LoginContext.Provider value={{ isLoggedIn, login, logout }}>
+        <Router>
+          <MainNavigation />
+          <main>{routes}</main>
+        </Router>
+      </LoginContext.Provider>
+    </div>
   );
 };
 

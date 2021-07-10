@@ -12,18 +12,17 @@
 }
 
 .rowFlex {
+  width: 50%;
+  padding: 0 0;
+  margin: 0 0;
   display:flex; 
   flex-direction:row;
   justify-content: center;
 }
 
-.container {
-    width: 41rem;
-}
 .react-calendar {
-    width: 90%;
-    max-width: 90%;
-    background: rgba(1, 102, 89, 0.986);
+    width: 100%;
+    background: #346751;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     line-height: 1.125em;
   }

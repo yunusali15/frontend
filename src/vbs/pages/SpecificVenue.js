@@ -26,8 +26,8 @@ function SpecificVenue() {
     >
       <h1>{venueName}</h1>
       <div class='scheduleAndCalendar'>
-        <ScheduleDisplay />
-        <ModifiedCalendar />
+        <ScheduleDisplay selectedDate={selectedDate}/>
+        <ModifiedCalendar selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
       </div>
     </div>
   );
