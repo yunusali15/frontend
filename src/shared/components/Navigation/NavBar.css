@@ -44,6 +44,6 @@
 
 .nav-links:hover {
     transition: all 0.2s ease-out;
-    color:#ECDBBA;
+    text-decoration: underline;
 }
 
