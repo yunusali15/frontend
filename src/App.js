@@ -15,6 +15,9 @@ import Signup from "./signup/pages/Signup";
 import Navbar from "./shared/components/Navigation/NavBar";
 import Services from "./services/pages/Services";
 import Contacts from "./contacts/pages/Contacts";
+import SpecificVenue from "./vbs/pages/SpecificVenue";
+import BookingPage from "./vbs/pages/BookingPage";
+import ConfirmationPage from "./vbs/pages/ConfirmationPage";
 import { LoginContext } from "./shared/context/LoginContext";
 
 const App = () => {
@@ -34,12 +37,11 @@ const App = () => {
     //routes when logged in
     routes = (
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/vbs" exact>
-          <Vbs />
-        </Route>
+        <Route exact path="/" component={Home}/>
+        <Route path="/vbs" component={Vbs}/>
+        <Route path="/vbs/confirmation" component={ConfirmationPage}/>
+        <Route path="/vbs/:venueName" component={SpecificVenue}/>
+        <Route path="/vbs/:venueName/bookingpage" component={BookingPage}/>
         <Route path="/finance" exact>
           <Finance />
         </Route>
@@ -59,19 +61,22 @@ const App = () => {
     //routes when not logged in
     routes = (
       <Switch>
-        <Route path="/" exact>
+        <Route exact path="/" >
           <Home />
         </Route>
-        <Route path="/vbs" exact>
+        <Route exact path="/vbs">
           <Vbs />
         </Route>
+        <Route exact path="/vbs/confirmation" component={ConfirmationPage}/>
+        <Route exact path="/vbs/:venueName" component={SpecificVenue}/>
+        <Route exact path="/vbs/:venueName/bookingpage" component={BookingPage}/>
         <Route path="/login" exact>
           <Login />
         </Route>
         <Route path="/signup" exact>
           <Signup />
         </Route>
-        <Redirect to="/login" />
+        <Redirect to="/" /> 
       </Switch>
     );
   }
