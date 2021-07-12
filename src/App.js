@@ -12,14 +12,16 @@ import Vbs from "./vbs/pages/Vbs";
 import Cca from "./cca/pages/Cca";
 import Login from "./login/pages/Login";
 import Signup from "./signup/pages/Signup";
+import Navbar from "./shared/components/Navigation/NavBar";
+import Services from "./services/pages/Services";
+import Contacts from "./contacts/pages/Contacts";
 import SpecificVenue from "./vbs/pages/SpecificVenue";
-import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import BookingPage from "./vbs/pages/BookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage";
 import { LoginContext } from "./shared/context/LoginContext";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const login = useCallback(() => {
     setIsLoggedIn(true);
@@ -46,6 +48,12 @@ const App = () => {
         <Route path="/cca" exact>
           <Cca />
         </Route>
+        <Route path = "/Services" exact>
+          <Services />
+        </Route>
+        <Router path = "/Contacts" exact>
+          <Contacts/>
+        </Router>
         <Redirect to="/" />
       </Switch>
     );
@@ -78,7 +86,7 @@ const App = () => {
       value={{isLoggedIn: isLoggedIn, login: login, logout: logout }}
     >
       <Router>
-        <MainNavigation />
+        <Navbar/>
         <main>
           {routes}
         </main>
