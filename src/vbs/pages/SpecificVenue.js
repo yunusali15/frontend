@@ -1,6 +1,5 @@
 import React, {useState } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+import ModifiedCalendar from '../components/Calendar'
 import { Link, useHistory, useParams } from "react-router-dom";
 
 function SpecificVenue() {
@@ -24,12 +23,7 @@ function SpecificVenue() {
       }}
     >
       <h1>{venueName}</h1>
-      <Calendar
-        minDate={minDate}
-        value={selectedDate}
-        onChange={setSelectedDate}
-      />
-      <button onClick={handleButtonClick}>Choose this Date</button>
+      <ModifiedCalendar/>
     </div>
   );
 }
