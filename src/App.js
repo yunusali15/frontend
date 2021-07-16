@@ -84,6 +84,10 @@ const App = () => {
           @import
           url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
         </style>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+        </style>
       </head>
       <LoginContext.Provider value={{ isLoggedIn, login, logout }}>
         <Router>

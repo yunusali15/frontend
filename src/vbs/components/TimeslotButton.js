@@ -8,20 +8,20 @@ const TimeslotButton = ({
 }) => {
   const [clicked, setClick] = useState(false);
   function handleButtonClick(time) {
+    let temp = [...selectedTimeslot];
     if (clicked) {
-      setSelectedTimeslot(selectedTimeslot.filter((i) => i.id != time.id));
+      temp = temp.filter((i) => i["id"] != time["id"]);
     } else {
-      selectedTimeslot.push(time);
+      temp.push(time);
     }
-    selectedTimeslot.sort((e1, e2) => (e1.id > e2.id ? 1 : -1));
-    setSelectedTimeslot(selectedTimeslot.filter((i) => true));
-    console.log(selectedTimeslot);
+    temp.sort((e1, e2) => (e1.id > e2.id ? 1 : -1));
+    setSelectedTimeslot(temp);
     setClick(!clicked);
   }
 
   return time.booked ? (
     <button class="timeSlot timeSlotBooked" disabled>
-      <p class="timeSlotText">{time.time}</p>
+      <p class="timeSlotText">{time.timeStart + " - " + time.timeEnd}</p>
     </button>
   ) : (
     <button
@@ -33,7 +33,7 @@ const TimeslotButton = ({
           : { backgroundColor: "#c84b31" }
       }
     >
-      <p class="timeSlotText">{time.time}</p>
+      <p class="timeSlotText">{time.timeStart + " - " + time.timeEnd}</p>
     </button>
   );
 };
