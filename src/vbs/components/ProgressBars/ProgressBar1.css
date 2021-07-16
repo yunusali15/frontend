@@ -4,7 +4,7 @@
     border-radius: 50%;
     background-color: #346751;
     display:inline-block;
-    margin-right:49px;
+    margin-right:48px;
     font-size:12px; 
     font-family: Roboto Condensed;
     font-weight: 300;
@@ -27,7 +27,6 @@
     font-size:12px; 
     font-family: Roboto Condensed;
     font-weight: 300;
-    /* line-height: 18.75px; */
     color: #161616;
     ;
 }

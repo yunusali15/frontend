@@ -1,6 +1,7 @@
 .Venues-page{
     background-color: #FFFFFF;
-    margin-top: 0%;
+    margin-top: 0%; 
+    overflow-x: hidden;
 }
 .Header { 
     width: 100%;
