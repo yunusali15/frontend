@@ -1,18 +1,22 @@
 import React from 'react';
-import { ReactRouter as Router, Link } from "react-router-dom";
+import { ReactRouter as Router, Link, useHistory } from "react-router-dom";
 import './VenueSelection.css'
 import progress from './progress-bar.svg';
 import DATA from './venueDATA';
+import ProgressBar1 from '../components/ProgressBars/ProgressBar1';
+import '../components/ProgressBars/ProgressBar1.css';
 
 const VenueSelection = () => {
-      
+    
     return (
         <div className="Venues-page">
             <div className="Header">
                 <div className="Title">
                 VENUE BOOKING SYSTEM
                 </div>
-                <img src={progress} className='header-image' />
+                <div className='progressbar'>
+                    <ProgressBar1 />
+                </div>
             </div>
             <div className='venues-container'> 
                 {DATA.map((venue) => (
