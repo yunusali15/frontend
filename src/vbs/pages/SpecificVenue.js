@@ -66,7 +66,7 @@ function SpecificVenue() {
           style={{
             flexDirection: "column",
             width: "70%",
-            height: "100%",
+            height: "70vh",
           }}
         >
           <ModifiedCalendar
