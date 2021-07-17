@@ -1,0 +1,73 @@
+.dot1, .dot2, .dot3 {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: #346751;
+    display:inline-block;
+    margin-right:49px;
+    font-size:12px; 
+    font-family: Roboto Condensed;
+    font-weight: 300;
+    /* line-height: 18.75px; */
+    color: #161616;
+    transition: font;
+}
+
+.dot1 :hover, .dot2 :hover, .dot3 :hover, .dot4 :hover {
+    cursor: pointer;
+    font-weight: bold;    
+}
+
+.dot4 {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+    display:inline-block;
+    margin-right:49px;
+    font-size:12px; 
+    font-family: Roboto Condensed;
+    font-weight: 300;
+    /* line-height: 18.75px; */
+    color: #161616;
+    ;
+}
+  
+.caption-venue{
+    display: block;
+    margin-left:-10px;
+}
+.caption-date {
+    display: block;
+    margin-left:-4px
+}
+  
+.caption-details {
+    display: block;
+    margin-left:-11px
+}
+  
+.caption-submit {
+    display: block;
+    margin-left:-9px
+}
+  
+.line1,.line2, .line3  {
+    height:5px;
+    justify-content:center;
+    background-color:#346751;
+    width:64px;
+    margin-top: 2.75px;
+    margin-left:2.5px;
+    border: 0px;
+    display:inline-block;
+  }
+
+.line4 {
+    margin-top: 2.75px;
+    margin-left:2.5px;
+    border: 0px;
+    display:inline-block;
+}
+  
+  
