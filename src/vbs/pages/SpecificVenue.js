@@ -54,11 +54,6 @@ function SpecificVenue() {
   return (
     <div class="mainContainer">
       <h1>{venueName}</h1>
-<<<<<<< HEAD
-      <ModifiedCalendar
-        minDate={minDate}
-        />
-=======
       <div class="scheduleAndCalendar">
         <ScheduleSelect
           selectedDate={selectedDate}
@@ -81,7 +76,6 @@ function SpecificVenue() {
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
         </div>
       </div>
->>>>>>> c8515a33f048fa3320f0e7d162a68cece5cb7dfe
     </div>
   );
 }
