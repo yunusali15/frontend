@@ -104,7 +104,7 @@ const App = () => {
       </head>
       <LoginContext.Provider value={{ isLoggedIn, login, logout }}>
         <Router>
-          <MainNavigation />
+          <Navbar />
           <main>{routes}</main>
         </Router>
       </LoginContext.Provider>
