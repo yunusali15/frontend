@@ -8,18 +8,21 @@ import {
 
 import Home from "./home/pages/Home";
 import Finance from "./finance/pages/Finance";
-import Vbs from "./vbs/pages/Vbs";
+// import Vbs from "./vbs/pages/Vbs";
+import VenueSelection from "./vbs/pages/VenueSelection";
 import Cca from "./cca/pages/Cca";
 import Login from "./login/pages/Login";
 import Signup from "./signup/pages/Signup";
+import Navbar from "./shared/components/Navigation/NavBar";
+import Services from "./services/pages/Services";
+import Contacts from "./contacts/pages/Contacts";
 import SpecificVenue from "./vbs/pages/SpecificVenue";
-import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import BookingPage from "./vbs/pages/BookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage";
 import { LoginContext } from "./shared/context/LoginContext";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const login = useCallback(() => {
     setIsLoggedIn(true);
@@ -36,16 +39,26 @@ const App = () => {
     routes = (
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/vbs" component={Vbs} />
-        <Route path="/vbs/confirmation" component={ConfirmationPage} />
-        <Route path="/vbs/:venueName" component={SpecificVenue} />
-        <Route path="/vbs/:venueName/bookingpage" component={BookingPage} />
+        <Route exact path="/vbs" component={VenueSelection} />
+        <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
+        <Route exact path="/vbs/:venueName" component={SpecificVenue} />
+        <Route
+          exact
+          path="/vbs/:venueName/bookingpage"
+          component={BookingPage}
+        />
         <Route path="/finance" exact>
           <Finance />
         </Route>
         <Route path="/cca" exact>
           <Cca />
         </Route>
+        <Route path="/Services" exact>
+          <Services />
+        </Route>
+        <Router path="/Contacts" exact>
+          <Contacts />
+        </Router>
         <Redirect to="/" />
       </Switch>
     );
@@ -57,7 +70,7 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/vbs">
-          <Vbs />
+          {<VenueSelection />}
         </Route>
         <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
         <Route exact path="/vbs/:venueName" component={SpecificVenue} />

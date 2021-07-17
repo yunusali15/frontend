@@ -1,0 +1,79 @@
+.Venues-page{
+    background-color: #FFFFFF;
+    margin-top: 0%; 
+    overflow-x: hidden;
+}
+.Header { 
+    width: 100%;
+    margin-top: 54px;
+    margin-left: 72px;
+    height: 96px;
+    padding-bottom: 48px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.Title {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 48px;
+    color: #000000;
+    display: inline-block;
+}
+
+.progressbar {
+    display: inline-block;
+    line-height: 16px;
+    margin-inline-start: 40%;
+}
+
+.venues-container {
+    display:flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: initial;
+    border: #FFFFFF;
+
+}
+
+.specificVenue {
+    margin-left: 22%;
+
+}
+
+.venue {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    align-items: stretch;
+    margin-inline-end: 2%;
+    margin-bottom: 2%;
+}
+.venueImage {
+    position: relative;
+    height: 230px;
+    width:350px;
+}
+
+.venueName{
+    display: flex;
+    padding-left: 5%;
+    min-width: 100%;
+    position: absolute;
+    bottom: 9%;
+    margin-left: 22%;
+    height: 12%;
+    padding-top: 1%;
+    background-color: #000000;
+    opacity: 50%;
+    color: #FFFFFF;
+    letter-spacing: 1.5px;
+
+    font-family: Roboto Condensed;
+
+}
