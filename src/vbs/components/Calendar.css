@@ -119,17 +119,15 @@
   .react-calendar__decade-view .react-calendar__tile,
   .react-calendar__century-view .react-calendar__tile {
     padding: 2em 0.5em;
-    
   }
   .react-calendar__tile {
     max-width: 100%;
     text-align: center;
     padding: 1.8em 1.5em;
     background: none;
-    border-radius: 50%;
-    color:white
+    color:white;
   }
-
+  
   .react-calendar__month-view__days__day--neighboringMonth {
     /* color: #757575; */
     color: black;
@@ -143,6 +141,7 @@
   .react-calendar__tile:enabled:focus {
     background: #ECDBBA;
     color:black;
+    font-weight: bold;
   }
   
   .react-calendar__tile--now:enabled:hover,
@@ -166,15 +165,15 @@
   .react-calendar__tile--active:enabled:hover,
   .react-calendar__tile--active:enabled:focus {
     background: #ECDBBA;
-    border-radius: 50%;
   }
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
+    font-weight: bold;
   }
   
   .react-calendar__tile, .react-calendar__month-view__days__day, .react-calendar__month-view__days__day--weekend {
     font-family: 'Roboto Condensed';
     font-style: normal;
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
  }

@@ -23,7 +23,9 @@ function SpecificVenue() {
       }}
     >
       <h1>{venueName}</h1>
-      <ModifiedCalendar/>
+      <ModifiedCalendar
+        minDate={minDate}
+        />
     </div>
   );
 }
