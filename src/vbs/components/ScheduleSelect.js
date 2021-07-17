@@ -10,7 +10,11 @@ const ScheduleDisplay = ({
 }) => {
   return (
     <div class="mainScheduleContainer">
-      <p class="selectedDateDisplay">{selectedDate.toDateString()}</p>
+      <p class="selectedDateDisplay">
+        {`${selectedDate.getDate()} ${selectedDate
+          .toDateString()
+          .substring(4, 7)} ${selectedDate.getFullYear()}`}
+      </p>
       <div class="timeSlotContainer">
         <p class="schedulePreview">Schedule Preview</p>
         <div class="timeSlots">
@@ -22,6 +26,14 @@ const ScheduleDisplay = ({
               setSelectedTimeslot={setSelectedTimeslot}
             />
           ))}
+        </div>
+      </div>
+      <div class="legend">
+        <div class="legendBox" style={{ backgroundColor: "#346751" }}>
+          Available
+        </div>
+        <div class="legendBox" style={{ backgroundColor: "#888888" }}>
+          Unavailable
         </div>
       </div>
     </div>

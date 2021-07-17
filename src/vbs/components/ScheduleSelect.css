@@ -9,7 +9,10 @@
 .selectedDateDisplay {
   color: #ecdbba;
   font-family: "Raleway", sans-serif;
-  font-size: 2rem;
+  font-size: 4rem;
+  display: flex;
+  flex-direction: row;
+  margin: 2% 0;
 }
 
 .timeSlotContainer {
@@ -21,7 +24,8 @@
 
 .schedulePreview {
   color: white;
-  margin: 0 0;
+  margin: 2% 0;
+  font-size: 2rem;
   font-family: Roboto Condensed;
 }
 
@@ -67,4 +71,20 @@
   text-align: center;
   color: white;
   margin: 0 0;
+}
+
+.legend {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-family: Roboto Condensed;
+  width: 75%;
+  justify-content: flex-start;
+}
+
+.legendBox {
+  width: 45%;
+  height: 100%;
+  margin-right: 5%;
+  text-align: center;
 }
