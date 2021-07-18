@@ -43,9 +43,6 @@ const App = () => {
         <Route path="/vbs/confirmation" component={ConfirmationPage}/>
         <Route path="/vbs/:venueName" component={SpecificVenue}/>
         <Route path="/vbs/:venueName/BookingPage" component={BookingPage}/>
-        <Route>
-          <Route path="/TestBookingpage" component={TestBookingPage}/>
-        </Route>
         <Route path="/finance" exact>
           <Finance />
         </Route>
