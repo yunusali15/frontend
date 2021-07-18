@@ -69,9 +69,7 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/vbs">
-          {<VenueSelection />}
-        </Route>
+        <Route exact path="/vbs" component={VenueSelection}></Route>
         <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
         <Route exact path="/vbs/:venueName" component={SpecificVenue} />
         <Route

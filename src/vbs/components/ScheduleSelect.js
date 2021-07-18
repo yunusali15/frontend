@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ScheduleSelect.css";
 import TimeslotButton from "./TimeslotButton";
 
-const ScheduleDisplay = ({
+const ScheduleSelect = ({
   timeslots,
   selectedDate,
   selectedTimeslot,
@@ -11,9 +11,11 @@ const ScheduleDisplay = ({
   return (
     <div class="mainScheduleContainer">
       <p class="selectedDateDisplay">
-        {`${selectedDate.getDate()} ${selectedDate
-          .toDateString()
-          .substring(4, 7)} ${selectedDate.getFullYear()}`}
+        {selectedDate
+          ? `${selectedDate.getDate()} ${selectedDate
+              .toDateString()
+              .substring(4, 7)} ${selectedDate.getFullYear()}`
+          : "Select Date"}
       </p>
       <div class="timeSlotContainer">
         <p class="schedulePreview">Schedule Preview</p>
@@ -40,4 +42,4 @@ const ScheduleDisplay = ({
   );
 };
 
-export default ScheduleDisplay;
+export default ScheduleSelect;

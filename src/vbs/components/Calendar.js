@@ -3,6 +3,9 @@ import Calendar from "react-calendar";
 import "./Calendar.css";
 
 const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
+  const minDate = new Date();
+  minDate.setDate(new Date().getDate() + 3);
+
   //DATA here is for my own personal use and is only for reading purposes
 
   const [DATA, setDATA] = useState([
@@ -97,6 +100,7 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
       <Calendar
         onChange={onChange}
         value={date}
+        minDate={minDate}
         //uncomment this to view data in tiles
         //tileContent={tileContent}
       />

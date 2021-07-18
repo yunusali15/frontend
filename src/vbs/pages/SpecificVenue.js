@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ModifiedCalendar from "../components/Calendar";
 import ScheduleSelect from "../components/ScheduleSelect";
 import SelectedDisplay from "../components/SelectedDisplay";
 import { Link, useHistory, useParams } from "react-router-dom";
+import ProgressBar2 from "../components/ProgressBars/ProgressBar2";
 import "./SpecificVenue.css";
 
 //data meant to be HTTP Requested from backend
@@ -40,20 +41,27 @@ const DATA = [
 ];
 
 function SpecificVenue() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
   const [timeslots, setTimeslots] = useState(DATA);
   const [selectedTimeslot, setSelectedTimeslot] = useState([]);
 
-  const history = useHistory();
   const venueName = useParams().venueName;
-
-  function handleButtonClick() {
-    history.push(`./${venueName}/bookingpage`, { selectedDate: selectedDate });
-  }
 
   return (
     <div class="mainContainer">
-      <h1>{venueName}</h1>
+      <div class="statusBar">
+        <h1
+          style={{
+            fontFamily: '"Raleway", sans-serif',
+            fontSize: "2rem",
+            margin: "0 0",
+          }}
+        >
+          Venue Booking System
+        </h1>
+        <ProgressBar2 />
+      </div>
+      <h1 class="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
         <ScheduleSelect
           selectedDate={selectedDate}
@@ -66,7 +74,7 @@ function SpecificVenue() {
           style={{
             flexDirection: "column",
             width: "70%",
-            height: "100%",
+            height: "70vh",
           }}
         >
           <ModifiedCalendar
@@ -75,6 +83,36 @@ function SpecificVenue() {
           />
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
         </div>
+      </div>
+      <div className="bottomNavigation">
+        <Link class="backButton" to="/vbs">
+          Back
+        </Link>
+        {selectedDate && selectedTimeslot.length ? (
+          <p></p>
+        ) : (
+          <p
+            style={{
+              fontFamily: '"Roboto Condensed", sans-serif',
+              margin: "1% 0",
+            }}
+          >
+            Select Date and Time to Submit
+          </p>
+        )}
+        {selectedDate && selectedTimeslot.length > 0 ? (
+          <Link
+            to={{
+              pathname: `/vbs/${venueName}/bookingpage`,
+              state: { selectedDate, selectedTimeslot },
+            }}
+            class="submitButton enabled"
+          >
+            Submit
+          </Link>
+        ) : (
+          <div class="submitButton disabled">Submit</div>
+        )}
       </div>
     </div>
   );
