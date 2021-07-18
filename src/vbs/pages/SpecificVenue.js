@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ModifiedCalendar from "../components/Calendar";
 import ScheduleSelect from "../components/ScheduleSelect";
 import SelectedDisplay from "../components/SelectedDisplay";
@@ -46,10 +46,6 @@ function SpecificVenue() {
 
   const history = useHistory();
   const venueName = useParams().venueName;
-
-  function handleButtonClick() {
-    history.push(`./${venueName}/bookingpage`, { selectedDate: selectedDate });
-  }
 
   return (
     <div class="mainContainer">

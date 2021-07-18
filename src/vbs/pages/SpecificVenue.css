@@ -15,3 +15,13 @@
   width: 70%;
   height: 70vh;
 }
+
+@media only screen and (max-width: 880px) {
+  .scheduleAndCalendar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 70vh;
+  }
+}

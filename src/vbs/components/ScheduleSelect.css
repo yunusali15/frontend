@@ -27,7 +27,7 @@
 .schedulePreview {
   color: white;
   margin: 2% 0;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: Roboto Condensed;
 }
 
@@ -87,6 +87,6 @@
 .legendBox {
   width: 45%;
   height: 100%;
-  margin-right: 5%;
+  margin-right: 2%;
   text-align: center;
 }
