@@ -13,7 +13,7 @@
 
 .rowFlex {
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   padding: 0 0;
   margin: 0 0;
   display: flex;
@@ -25,7 +25,7 @@
 .react-calendar {
   margin-left: auto;
   margin-right: auto;
-  height: 60vh;
+  height: 50vh;
   background: #346751;
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
   line-height: 1.125em;

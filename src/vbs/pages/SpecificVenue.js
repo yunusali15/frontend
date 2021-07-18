@@ -3,6 +3,7 @@ import ModifiedCalendar from "../components/Calendar";
 import ScheduleSelect from "../components/ScheduleSelect";
 import SelectedDisplay from "../components/SelectedDisplay";
 import { Link, useHistory, useParams } from "react-router-dom";
+import ProgressBar2 from "../components/ProgressBars/ProgressBar2";
 import "./SpecificVenue.css";
 
 //data meant to be HTTP Requested from backend
@@ -48,6 +49,18 @@ function SpecificVenue() {
 
   return (
     <div class="mainContainer">
+      <div class="statusBar">
+        <h1
+          style={{
+            fontFamily: '"Raleway", sans-serif',
+            fontSize: "2rem",
+            margin: "0 0",
+          }}
+        >
+          Venue Booking System
+        </h1>
+        <ProgressBar2 />
+      </div>
       <h1 class="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
         <ScheduleSelect
