@@ -44,12 +44,11 @@ function SpecificVenue() {
   const [timeslots, setTimeslots] = useState(DATA);
   const [selectedTimeslot, setSelectedTimeslot] = useState([]);
 
-  const history = useHistory();
   const venueName = useParams().venueName;
 
   return (
     <div class="mainContainer">
-      <h1>{venueName}</h1>
+      <h1 class="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
         <ScheduleSelect
           selectedDate={selectedDate}

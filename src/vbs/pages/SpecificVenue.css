@@ -8,6 +8,13 @@
   background-color: inherit;
 }
 
+.banner {
+  width: 70%;
+  background-color: #ecdbba;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+
 .scheduleAndCalendar {
   display: flex;
   flex-direction: row;
@@ -17,11 +24,8 @@
 }
 
 @media only screen and (max-width: 880px) {
-  .scheduleAndCalendar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  .scheduleAndCalendar,
+  .banner {
     width: 100%;
-    height: 70vh;
   }
 }

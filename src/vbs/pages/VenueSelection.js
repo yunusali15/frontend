@@ -1,7 +1,6 @@
 import React from "react";
 import { ReactRouter as Router, Link, useHistory } from "react-router-dom";
 import "./VenueSelection.css";
-import progress from "./progress-bar.svg";
 import DATA from "./venueDATA";
 import ProgressBar1 from "../components/ProgressBars/ProgressBar1";
 import "../components/ProgressBars/ProgressBar1.css";
