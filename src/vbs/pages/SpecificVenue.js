@@ -40,7 +40,7 @@ const DATA = [
 ];
 
 function SpecificVenue() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
   const [timeslots, setTimeslots] = useState(DATA);
   const [selectedTimeslot, setSelectedTimeslot] = useState([]);
 
@@ -70,6 +70,36 @@ function SpecificVenue() {
           />
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
         </div>
+      </div>
+      <div className="bottomNavigation">
+        <Link class="backButton" to="/vbs">
+          Back
+        </Link>
+        {selectedDate && selectedTimeslot.length ? (
+          <p></p>
+        ) : (
+          <p
+            style={{
+              fontFamily: '"Roboto Condensed", sans-serif',
+              margin: "1% 0",
+            }}
+          >
+            Select Date and Time to Submit
+          </p>
+        )}
+        {selectedDate && selectedTimeslot.length > 0 ? (
+          <Link
+            to={{
+              pathname: `/vbs/${venueName}/bookingpage`,
+              state: { selectedDate, selectedTimeslot },
+            }}
+            class="submitButton enabled"
+          >
+            Submit
+          </Link>
+        ) : (
+          <div class="submitButton disabled">Submit</div>
+        )}
       </div>
     </div>
   );
