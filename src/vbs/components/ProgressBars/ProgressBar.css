@@ -1,10 +1,11 @@
-.dot1, .dot2 {
+/* FOR VENUE SELECTION PAGE  */
+.updatedDot {
     height: 16px;
     width: 16px;
     border-radius: 50%;
     background-color: #346751;
     display:inline-block;
-    margin-right:49px;
+    margin-right:48px;
     font-size:12px; 
     font-family: Roboto Condensed;
     font-weight: 300;
@@ -12,23 +13,22 @@
     transition: font;
 }
 
-.dot1 :hover, .dot2 :hover, .dot3 :hover, .dot4 :hover {
+.updatedDot :hover {
     cursor: pointer;
     font-weight: bold;    
 }
 
-.dot3, .dot4 {
+.dot {
     height: 16px;
     width: 16px;
     border-radius: 50%;
     background-color: #C4C4C4;
     display:inline-block;
-    margin-right:49px;
+    margin-right:48px;
     font-size:12px; 
     font-family: Roboto Condensed;
     font-weight: 300;
     color: #161616;
-    ;
 }
   
 .caption-venue{
@@ -50,7 +50,7 @@
     margin-left:-9px
 }
   
-.line1, .line2 {
+.updatedLine {
     height:5px;
     justify-content:center;
     background-color:#346751;
@@ -61,7 +61,7 @@
     display:inline-block;
   }
 
-.line3 {
+.line {
     height:5px;
     justify-content:center;
     background-color: #C4C4C4;
@@ -70,13 +70,12 @@
     margin-left:2.5px;
     border: 0px;
     display:inline-block;
-  }
+}
 
 .line4 {
     margin-top: 2.75px;
-    margin-left:2.5px;
+    width: 0%;
     border: 0px;
     display:inline-block;
 }
-  
-  
+

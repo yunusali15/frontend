@@ -1,12 +1,11 @@
 .Venues-page{
     background-color: #FFFFFF;
-    margin-top: 0%; 
     overflow-x: hidden;
 }
 .Header { 
     width: 100%;
     margin-top: 54px;
-    margin-left: 72px;
+    margin-left: 80px;
     height: 96px;
     padding-bottom: 48px;
     white-space: nowrap;
@@ -22,36 +21,30 @@
     line-height: 48px;
     color: #000000;
     display: inline-block;
+    min-width: 72%;
 }
 
 .progressbar {
     display: inline-block;
     line-height: 16px;
-    margin-inline-start: 40%;
+    vertical-align: -16px;
+    margin-right: 0%;
 }
 
 .venues-container {
-    display:flex;
+    display: flex;
     flex-direction: row; 
     flex-wrap: wrap;
-    justify-content: flex-start; 
-    align-items: initial;
+    justify-content: center;
+    margin-right: 1.25%;
     border: #FFFFFF;
 
 }
 
-.specificVenue {
-    margin-left: 22%;
-
-}
 
 .venue {
     position: relative;
-    text-align: center;
-    justify-content: center;
-    align-self: center;
-    align-items: stretch;
-    margin-inline-end: 2%;
+    margin-inline-start: 2%;
     margin-bottom: 2%;
 }
 .venueImage {
@@ -63,10 +56,9 @@
 .venueName{
     display: flex;
     padding-left: 5%;
-    min-width: 100%;
+    width: 100%;
     position: absolute;
     bottom: 9%;
-    margin-left: 22%;
     height: 12%;
     padding-top: 1%;
     background-color: #000000;
