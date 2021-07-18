@@ -17,6 +17,7 @@ import Services from "./services/pages/Services";
 import Contacts from "./contacts/pages/Contacts";
 import SpecificVenue from "./vbs/pages/SpecificVenue";
 import BookingPage from "./vbs/pages/BookingPage";
+import TestBookingPage from "./vbs/pages/TestBookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage";
 import { LoginContext } from "./shared/context/LoginContext";
 
@@ -41,7 +42,10 @@ const App = () => {
         <Route path="/vbs" component={Vbs}/>
         <Route path="/vbs/confirmation" component={ConfirmationPage}/>
         <Route path="/vbs/:venueName" component={SpecificVenue}/>
-        <Route path="/vbs/:venueName/bookingpage" component={BookingPage}/>
+        <Route path="/vbs/:venueName/BookingPage" component={BookingPage}/>
+        <Route>
+          <Route path="/TestBookingpage" component={TestBookingPage}/>
+        </Route>
         <Route path="/finance" exact>
           <Finance />
         </Route>

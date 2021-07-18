@@ -19,7 +19,8 @@ const BookingPage = () => {
   const [timeIntervals, setTimeIntervals] = useState(DATA);
   const [cca, setCCA] = useState('');
   const [purpose, setPurpose] = useState('');
-
+ 
+  
   function handleTimeSelect(id) {
     DATA[id].selected = !DATA[id].selected;
     setTimeIntervals(DATA);
@@ -36,23 +37,12 @@ const BookingPage = () => {
         <label htmlFor="purpose">Purpose</label>
         <textarea id="purpose" type="text" cols="80" rows="10" value={purpose} onChange={event => setPurpose(event.target.value)} />
       </form>
-      {timeIntervals.map((time) => (
-        <div>
-          <label
-            htmlFor={time.id.toString}
-          >{`From ${time.timeStart} to ${time.timeEnd}`}</label>
-          <input
-            type="checkbox"
-            id={time.id.toString}
-            onChange={() => handleTimeSelect(time.id)}
-          />
-        </div>
-      ))}
+
+      ))
       <Link 
         to={{
           pathname: "/vbs/confirmation",
           state: {
-            timeIntervals: timeIntervals,
             venueName: venueName,
             selectedDate: selectedDate,
             cca: cca,
@@ -60,7 +50,7 @@ const BookingPage = () => {
           },
         }}
       >
-        Submit Request
+        Submit
       </Link>
     </div>
   );
