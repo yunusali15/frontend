@@ -1,9 +1,9 @@
 import React from "react";
-import { ReactRouter as Router, Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./VenueSelection.css";
 import DATA from "./venueDATA";
-import ProgressBar1 from "../components/ProgressBars/ProgressBar1";
-import "../components/ProgressBars/ProgressBar1.css";
+import ProgressBar from "../components/ProgressBars/ProgressBar";
+import "../components/ProgressBars/ProgressBar.css";
 
 const VenueSelection = () => {
   return (
@@ -11,7 +11,7 @@ const VenueSelection = () => {
       <div className="Header">
         <div className="Title">VENUE BOOKING SYSTEM</div>
         <div className="progressbar">
-          <ProgressBar1 />
+          <ProgressBar stage="1" />
         </div>
       </div>
       <div className="venues-container">
