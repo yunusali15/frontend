@@ -14,10 +14,9 @@
 }
 
 .NavbarItems {
-    background-color:#C84B31;
-    height:96px;
-    width:100%;
-    position:fixed;
+  background-color: #c84b31;
+  height: 96px;
+  width: 100%;
 }
 
 .nav-menu {
