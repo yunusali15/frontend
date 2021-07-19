@@ -6,6 +6,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import ProgressBar2 from "../components/ProgressBars/ProgressBar2";
 import "./SpecificVenue.css";
 
+import "./SpecificVenue.css";
 //data meant to be HTTP Requested from backend
 const DATA = [
   { id: 0, timeStart: "0900 ", timeEnd: "0930", booked: false },
@@ -47,6 +48,10 @@ function SpecificVenue() {
 
   const venueName = useParams().venueName;
 
+  function handleButtonClick() {
+    history.push(`./${venueName}/bookingpage`, { selectedDate: selectedDate });
+  }
+  function callDay(clikedDay) { console.log(clikedDay)};
   return (
     <div class="mainContainer">
       <div class="statusBar">
@@ -80,7 +85,9 @@ function SpecificVenue() {
           <ModifiedCalendar
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
+            
           />
+          
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
         </div>
       </div>

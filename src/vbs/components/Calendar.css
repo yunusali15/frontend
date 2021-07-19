@@ -165,7 +165,13 @@
   background-color: #e6e6e6;
 }
 
-.react-calendar__month-view__days__day--neighboringMonth {
-  color: black;
-  font-family: "Raleway", sans-serif;
-}
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .highlight {
+    background: #ECDBBA;
+    color: black;
+    font-weight: bold;
+ }

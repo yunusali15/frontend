@@ -100,6 +100,19 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
       <Calendar
         onChange={onChange}
         value={date}
+        tileClassName={({ date, view }) => {
+          // date will return every date visible on calendar and view will view type (eg. month)
+            if(selectedDate.toDateString() === date.toDateString()){
+              console.log(date);
+              return 'highlight'; // your class name
+            }
+            // console.log(date.toDateString());
+            // console.log(selectedDate.toDateString());
+            
+           
+   
+         }}
+        //  onClickDay={(value) => setDate(value)}
         minDate={minDate}
         //uncomment this to view data in tiles
         //tileContent={tileContent}
