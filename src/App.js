@@ -8,7 +8,8 @@ import {
 
 import Home from "./home/pages/Home";
 import Finance from "./finance/pages/Finance";
-import Vbs from "./vbs/pages/Vbs";
+// import Vbs from "./vbs/pages/Vbs";
+import VenueSelection from "./vbs/pages/VenueSelection";
 import Cca from "./cca/pages/Cca";
 import Login from "./login/pages/Login";
 import Signup from "./signup/pages/Signup";
@@ -39,21 +40,22 @@ const App = () => {
     routes = (
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/vbs" component={Vbs}/>
-        <Route path="/vbs/confirmation" component={ConfirmationPage}/>
-        <Route path="/vbs/:venueName" component={SpecificVenue}/>
-        <Route path="/vbs/:venueName/BookingPage" component={BookingPage}/>
+        <Route exact path="/vbs" component={VenueSelection} />
+        <Route exact path="/vbs/confirmation" component={ConfirmationPage}/>
+        <Route exact path="/vbs/:venueName" component={SpecificVenue}/>
+        <Route exact path="/vbs/:venueName/bookingpage" component={BookingPage}/>
+
         <Route path="/finance" exact>
           <Finance />
         </Route>
         <Route path="/cca" exact>
           <Cca />
         </Route>
-        <Route path = "/Services" exact>
+        <Route path="/Services" exact>
           <Services />
         </Route>
-        <Router path = "/Contacts" exact>
-          <Contacts/>
+        <Router path="/Contacts" exact>
+          <Contacts />
         </Router>
         <Redirect to="/" />
       </Switch>
@@ -62,37 +64,47 @@ const App = () => {
     //routes when not logged in
     routes = (
       <Switch>
-        <Route exact path="/" >
+        <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/vbs">
-          <Vbs />
-        </Route>
-        <Route exact path="/vbs/confirmation" component={ConfirmationPage}/>
-        <Route exact path="/vbs/:venueName" component={SpecificVenue}/>
-        <Route exact path="/vbs/:venueName/bookingpage" component={BookingPage}/>
+        <Route exact path="/vbs" component={VenueSelection}></Route>
+        <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
+        <Route exact path="/vbs/:venueName" component={SpecificVenue} />
+        <Route
+          exact
+          path="/vbs/:venueName/bookingpage"
+          component={BookingPage}
+        />
         <Route path="/login" exact>
           <Login />
         </Route>
         <Route path="/signup" exact>
           <Signup />
         </Route>
-        <Redirect to="/" /> 
+        <Redirect to="/" />
       </Switch>
     );
   }
 
   return (
-    <LoginContext.Provider
-      value={{isLoggedIn: isLoggedIn, login: login, logout: logout }}
-    >
-      <Router>
-        <Navbar/>
-        <main>
-          {routes}
-        </main>
-      </Router>
-    </LoginContext.Provider>
+    <div>
+      <head>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+        </style>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+        </style>
+      </head>
+      <LoginContext.Provider value={{ isLoggedIn, login, logout }}>
+        <Router>
+          <Navbar />
+          <main>{routes}</main>
+        </Router>
+      </LoginContext.Provider>
+    </div>
   );
 };
 
