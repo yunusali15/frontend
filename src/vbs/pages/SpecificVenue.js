@@ -48,11 +48,11 @@ function SpecificVenue() {
 
   return (
     <div class="mainContainer">
-      <h1 className="banner">{venueName}</h1>
       <div class="statusBar">
         <h1 className="vbs">VENUE BOOKING SYSTEM</h1>
         <ProgressBar stage="2" />
       </div>
+      <h1 className="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
         <ScheduleSelect
           selectedDate={selectedDate}

@@ -22,7 +22,9 @@
   background-color: #ecdbba;
   text-align: center;
   font-family: "Raleway", sans-serif;
-  margin: 1% 0;
+  margin: 0 0;
+  margin-bottom: 1%;
+  padding: 0.5%;
 }
 
 .vbs {
