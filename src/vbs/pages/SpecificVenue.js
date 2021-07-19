@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import ModifiedCalendar from "../components/Calendar";
 import ScheduleSelect from "../components/ScheduleSelect";
 import SelectedDisplay from "../components/SelectedDisplay";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProgressBar from "../components/ProgressBars/ProgressBar";
-import "./SpecificVenue.css";
-
 import "./SpecificVenue.css";
 //data meant to be HTTP Requested from backend
 const DATA = [
@@ -48,27 +46,13 @@ function SpecificVenue() {
 
   const venueName = useParams().venueName;
 
-  function handleButtonClick() {
-    window.history.push(`./${venueName}/bookingpage`, {
-      selectedDate: selectedDate,
-    });
-  }
-
   return (
     <div class="mainContainer">
+      <h1 className="banner">{venueName}</h1>
       <div class="statusBar">
-        <h1
-          style={{
-            fontFamily: '"Raleway", sans-serif',
-            fontSize: "2rem",
-            margin: "0 0",
-          }}
-        >
-          Venue Booking System
-        </h1>
+        <h1 className="vbs">VENUE BOOKING SYSTEM</h1>
         <ProgressBar stage="2" />
       </div>
-      <h1 class="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
         <ScheduleSelect
           selectedDate={selectedDate}
