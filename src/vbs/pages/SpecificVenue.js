@@ -49,7 +49,7 @@ function SpecificVenue() {
   const venueName = useParams().venueName;
 
   function handleButtonClick() {
-    history.push(`./${venueName}/bookingpage`, { selectedDate: selectedDate });
+    window.history.push(`./${venueName}/bookingpage`, { selectedDate: selectedDate });
   }
   function callDay(clikedDay) { console.log(clikedDay)};
   return (
