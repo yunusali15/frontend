@@ -176,3 +176,9 @@
     color: black;
     font-family: 'Raleway', sans-serif;
   }
+
+  .highlight {
+    background: #ECDBBA;
+    color: black;
+    font-weight: bold;
+ }

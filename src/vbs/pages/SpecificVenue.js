@@ -3,8 +3,8 @@ import ModifiedCalendar from "../components/Calendar";
 import ScheduleSelect from "../components/ScheduleSelect";
 import SelectedDisplay from "../components/SelectedDisplay";
 import { Link, useHistory, useParams } from "react-router-dom";
-import "./SpecificVenue.css";
 
+import "./SpecificVenue.css";
 //data meant to be HTTP Requested from backend
 const DATA = [
   { id: 0, timeStart: "0900 ", timeEnd: "0930", booked: false },
@@ -50,7 +50,7 @@ function SpecificVenue() {
   function handleButtonClick() {
     history.push(`./${venueName}/bookingpage`, { selectedDate: selectedDate });
   }
-
+  function callDay(clikedDay) { console.log(clikedDay)};
   return (
     <div class="mainContainer">
       <h1>{venueName}</h1>
@@ -72,7 +72,9 @@ function SpecificVenue() {
           <ModifiedCalendar
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
+            
           />
+          
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
         </div>
       </div>
