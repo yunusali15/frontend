@@ -5,7 +5,6 @@ import "./Calendar.css";
 const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
   const minDate = new Date();
   minDate.setDate(new Date().getDate() + 3);
-
   //DATA here is for my own personal use and is only for reading purposes
 
   const [DATA, setDATA] = useState([
@@ -100,19 +99,21 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
       <Calendar
         onChange={onChange}
         value={date}
+        // onClickDay={(value) => setSelectedDate(value)}
         tileClassName={({ date, view }) => {
           // date will return every date visible on calendar and view will view type (eg. month)
+          
+          try {
             if(selectedDate.toDateString() === date.toDateString()){
-              console.log(date);
-              return 'highlight'; // your class name
+              return 'highlight'; // css class to highlight tile even after click away
             }
-            // console.log(date.toDateString());
-            // console.log(selectedDate.toDateString());
-            
-           
-   
+          }
+          catch(err) {
+            if (err instanceof TypeError) {
+              ; //initial selectedDate is null, resulting in error. just ignore
+            }
+          }
          }}
-        //  onClickDay={(value) => setDate(value)}
         minDate={minDate}
         //uncomment this to view data in tiles
         //tileContent={tileContent}
