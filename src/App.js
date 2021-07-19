@@ -69,9 +69,7 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/vbs">
-          {<VenueSelection />}
-        </Route>
+        <Route exact path="/vbs" component={VenueSelection}></Route>
         <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
         <Route exact path="/vbs/:venueName" component={SpecificVenue} />
         <Route
@@ -91,14 +89,24 @@ const App = () => {
   }
 
   return (
-    <LoginContext.Provider
-      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
-    >
-      <Router>
-        <Navbar />
-        <main>{routes}</main>
-      </Router>
-    </LoginContext.Provider>
+    <div>
+      <head>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+        </style>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+        </style>
+      </head>
+      <LoginContext.Provider value={{ isLoggedIn, login, logout }}>
+        <Router>
+          <Navbar />
+          <main>{routes}</main>
+        </Router>
+      </LoginContext.Provider>
+    </div>
   );
 };
 
