@@ -39,11 +39,15 @@ const App = () => {
     //routes when logged in
     routes = (
       <Switch>
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={Home} />
         <Route exact path="/vbs" component={VenueSelection} />
-        <Route exact path="/vbs/confirmation" component={ConfirmationPage}/>
-        <Route exact path="/vbs/:venueName" component={SpecificVenue}/>
-        <Route exact path="/vbs/:venueName/bookingpage" component={BookingPage}/>
+        <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
+        <Route exact path="/vbs/:venueName" component={SpecificVenue} />
+        <Route
+          exact
+          path="/vbs/:venueName/bookingpage"
+          component={BookingPage}
+        />
 
         <Route path="/finance" exact>
           <Finance />

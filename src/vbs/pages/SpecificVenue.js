@@ -3,7 +3,7 @@ import ModifiedCalendar from "../components/Calendar";
 import ScheduleSelect from "../components/ScheduleSelect";
 import SelectedDisplay from "../components/SelectedDisplay";
 import { Link, useHistory, useParams } from "react-router-dom";
-import ProgressBar2 from "../components/ProgressBars/ProgressBar2";
+import ProgressBar from "../components/ProgressBars/ProgressBar";
 import "./SpecificVenue.css";
 
 import "./SpecificVenue.css";
@@ -49,9 +49,11 @@ function SpecificVenue() {
   const venueName = useParams().venueName;
 
   function handleButtonClick() {
-    window.history.push(`./${venueName}/bookingpage`, { selectedDate: selectedDate });
+    window.history.push(`./${venueName}/bookingpage`, {
+      selectedDate: selectedDate,
+    });
   }
-  function callDay(clikedDay) { console.log(clikedDay)};
+
   return (
     <div class="mainContainer">
       <div class="statusBar">
@@ -64,7 +66,7 @@ function SpecificVenue() {
         >
           Venue Booking System
         </h1>
-        <ProgressBar2 />
+        <ProgressBar stage="2" />
       </div>
       <h1 class="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
@@ -85,9 +87,8 @@ function SpecificVenue() {
           <ModifiedCalendar
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
-            
           />
-          
+
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
         </div>
       </div>
