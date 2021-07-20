@@ -1,57 +1,63 @@
-import React, { useState } from "react";
-import { set } from "react-hook-form";
-import { useLocation, useParams } from "react-router";
-import { Link } from "react-router-dom";
 import "./BookingPage.css";
-
-const DATA = [
-  { id: 0, timeStart: "08:00", timeEnd: "09:00", selected: false },
-  { id: 1, timeStart: "09:00", timeEnd: "10:00", selected: false },
-  { id: 2, timeStart: "10:00", timeEnd: "11:00", selected: false },
-  { id: 3, timeStart: "11:00", timeEnd: "12:00", selected: false },
-  { id: 4, timeStart: "12:00", timeEnd: "13:00", selected: false },
-  { id: 4, timeStart: "13:00", timeEnd: "14:00", selected: false },
-];
+import React, { useState } from "react";
 
 const BookingPage = () => {
-  const { venueName } = useParams();
-  const { selectedDate } = useLocation().state;
-  const [timeIntervals, setTimeIntervals] = useState(DATA);
-  const [cca, setCCA] = useState('');
-  const [purpose, setPurpose] = useState('');
- 
-  
-  function handleTimeSelect(id) {
-    DATA[id].selected = !DATA[id].selected;
-    setTimeIntervals(DATA);
-    console.log(id);
-    console.log(DATA[id].selected);
-  }
-
+  const [cca, setCCA] = useState("");
   return (
     <div class="mainDiv">
-      <h1>{`Book ${venueName} on ${selectedDate.toDateString()}`}</h1>
-      <form action="">
-        <label htmlFor="CCA">CCA </label>
-        <input id="CCA" type="text" style={{ width: "50%" }} value={cca} onChange={event => setCCA(event.target.value)} />
-        <label htmlFor="purpose">Purpose</label>
-        <textarea id="purpose" type="text" cols="80" rows="10" value={purpose} onChange={event => setPurpose(event.target.value)} />
-      </form>
+      <h1 class="Venue">Venue Booking System</h1>
+      <div class="contents">
+        <div class="Titles">
+          <h2>VENUE</h2>
+          <h2>TIME</h2>
+          <h2>EMAIL</h2>
+          <h2>PURPOSE</h2>
+        </div>
+        <div class="box">
+          <form action="">
+            <h3>Communal Hall</h3>
+            <h3>4 July 2021</h3>
+            <br></br>
+            <input
+              type="text"
+              id="Email"
+              name="Email"
+              placeholder="e0123456@u.nus.edu.sg"
+              required
+            ></input>
+            <div class="Purpose">
+              <input type="radio" id="CCA" name="Purpose" value="CCA"></input>
+              <label for="CCA">CCA</label>
+              <input
+                type="radio"
+                id="Personal"
+                name="Purpose"
+                value="Personal"
+              ></input>
+              <label for="Personal">Personal</label>
+            </div>
+            <input
+              type="text"
+              id="HallCCA"
+              name="HallCCA"
+              placeholder="Hall CCA"
+              required
+            ></input>
+            <br></br>
+            <input
+              type="text"
+              id="Details"
+              name="Details"
+              placeholder="Details"
+            ></input>
+          </form>
+        </div>
+      </div>
 
-      ))
-      <Link 
-        to={{
-          pathname: "/vbs/confirmation",
-          state: {
-            venueName: venueName,
-            selectedDate: selectedDate,
-            cca: cca,
-            purpose: purpose
-          },
-        }}
-      >
-        Submit
-      </Link>
+      <div className="Buttons">
+        <input type="button" value="BACK" name="Back"></input>
+        <input type="button" value="SUBMIT" name="Submit"></input>
+      </div>
     </div>
   );
 };

@@ -18,7 +18,6 @@ import Services from "./services/pages/Services";
 import Contacts from "./contacts/pages/Contacts";
 import SpecificVenue from "./vbs/pages/SpecificVenue";
 import BookingPage from "./vbs/pages/BookingPage";
-import TestBookingPage from "./vbs/pages/TestBookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage";
 import { LoginContext } from "./shared/context/LoginContext";
 
