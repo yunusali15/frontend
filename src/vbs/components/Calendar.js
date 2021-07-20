@@ -102,18 +102,17 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
         // onClickDay={(value) => setSelectedDate(value)}
         tileClassName={({ date, view }) => {
           // date will return every date visible on calendar and view will view type (eg. month)
-          
+
           try {
-            if(selectedDate.toDateString() === date.toDateString()){
-              return 'highlight'; // css class to highlight tile even after click away
+            if (selectedDate.toDateString() === date.toDateString()) {
+              return "highlight"; // css class to highlight tile even after click away
             }
-          }
-          catch(err) {
+          } catch (err) {
             if (err instanceof TypeError) {
-              ; //initial selectedDate is null, resulting in error. just ignore
+              //initial selectedDate is null, resulting in error. just ignore
             }
           }
-         }}
+        }}
         minDate={minDate}
         //uncomment this to view data in tiles
         //tileContent={tileContent}
