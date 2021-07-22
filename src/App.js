@@ -43,7 +43,7 @@ const App = () => {
         <Route exact path="/vbs" component={VenueSelection} />
         <Route exact path="/vbs/confirmation" component={ConfirmationPage}/>
         <Route exact path="/vbs/:venueName" component={SpecificVenue}/>
-        <Route exact path="/vbs/:venueName/bookingpage" component={BookingPage}/>
+        <Route exact path="/vbs/:venueName/bookingpage" component={TestBookingPage}/>
 
         <Route path="/finance" exact>
           <Finance />
@@ -73,7 +73,7 @@ const App = () => {
         <Route
           exact
           path="/vbs/:venueName/bookingpage"
-          component={BookingPage}
+          component={TestBookingPage}
         />
         <Route path="/login" exact>
           <Login />
