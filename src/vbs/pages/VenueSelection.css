@@ -2,70 +2,58 @@
     background-color: #FFFFFF;
     overflow-x: hidden;
 }
-.Header { 
-    width: 100%;
-    margin-top: 54px;
-    margin-left: 80px;
-    height: 96px;
-    padding-bottom: 48px;
-    white-space: nowrap;
-    overflow-x: hidden;
-    overflow-y: hidden;
+.Header {
+    height: 7vw;
+    margin-top: 4vw;
+    margin-left: 6vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .Title {
     font-family: Raleway;
     font-style: normal;
     font-weight: 800;
-    font-size: 32px;
-    line-height: 48px;
+    font-size: 2.5vw;
+    line-height: 4vw;
     color: #000000;
-    display: inline-block;
-    min-width: 72%;
 }
 
 .progressbar {
-    display: inline-block;
-    line-height: 16px;
-    vertical-align: -16px;
-    margin-right: 0%;
+    line-height: 2.75vh;
+    padding-top: 0.75vw;
+    padding-right: 6vw;
 }
 
 .venues-container {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-right: 1.25%;
     border: #FFFFFF;
-
+    margin-left: 5vw;
+    margin-bottom: 8vw;
 }
 
 
 .venue {
-    position: relative;
-    margin-inline-start: 2%;
-    margin-bottom: 2%;
-}
-.venueImage {
-    position: relative;
-    height: 230px;
-    width:350px;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    justify-content: flex-end;
+    width: 28vw;
+    height: 19vw;
+    margin: 1vw;
 }
 
-.venueName{
-    display: flex;
-    padding-left: 5%;
-    width: 100%;
-    position: absolute;
-    bottom: 9%;
-    height: 12%;
-    padding-top: 1%;
+.venueName {
+    color: #FFFFFF;
     background-color: #000000;
     opacity: 50%;
-    color: #FFFFFF;
     letter-spacing: 1.5px;
-
+    font-size: 1.125vw;
     font-family: Roboto Condensed;
-
+    padding-left: 0.75vw;
+    padding-bottom: 0.75vw;
+    padding-top: 0.5vw;
 }

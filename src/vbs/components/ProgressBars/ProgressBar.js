@@ -10,46 +10,15 @@ function ProgressBar (props) {
     
     if (props.stage==='1') {
         return ( 
-            <div class='container'>
-                    <div class='updatedDot' contentEditable="false">
-                        <div><span class='updatedLine'></span></div>
-                        <p class="caption-venue">
+            <div className='containers'>
+                    <div className='updatedDot' contentEditable="false">
+                        <div><span className='updatedLine'></span></div>
+                        <p className="caption-venue">
                         VENUE
                         </p>
                     </div>
-                <div class='dot' contentEditable="false">
-                    <div><span class='line'></span></div>
-                    <p class="caption-date">
-                        DATE
-                    </p>
-                </div>
-                <div class='dot' contentEditable="false">
-                    <div><span class='line'></span></div>
-                    <p class="caption-details">
-                    DETAILS
-                    </p>
-                </div>
-                <div class='dot' contentEditable="false">
-                    <div><span class='line4'></span></div>
-                    <p class="caption-submit">
-                        SUBMIT
-                    </p>
-                </div>
-            </div>
-        )
-    }
-
-    else if(props.stage==='2') {
-        return ( 
-            <div class='container'>
-                    <div class='updatedDot' contentEditable="false" onClick={() => history.goBack()}>
-                        <div><span class='updatedLine'></span></div>
-                        <p class="caption-venue">
-                        VENUE
-                        </p>
-                    </div>
-                <div class='updatedDot' contentEditable="false" onClick={() => window.location.reload(false)}>
-                    <div><span class='updatedLine'></span></div>
+                <div className='dot' contentEditable="false">
+                    <div><span className='line'></span></div>
                     <p className="caption-date">
                         DATE
                     </p>
@@ -60,7 +29,38 @@ function ProgressBar (props) {
                     DETAILS
                     </p>
                 </div>
+                <div className='dot4' contentEditable="false">
+                    <div><span className='line4'></span></div>
+                    <p className="caption-submit">
+                        SUBMIT
+                    </p>
+                </div>
+            </div>
+        )
+    }
+
+    else if(props.stage==='2') {
+        return ( 
+            <div className='containers'>
+                    <div className='updatedDot' contentEditable="false" onClick={() => history.goBack()}>
+                        <div><span className='updatedLine'></span></div>
+                        <p className="caption-venue">
+                        VENUE
+                        </p>
+                    </div>
+                <div className='updatedDot' contentEditable="false" onClick={() => window.location.reload(false)}>
+                    <div><span className='updatedLine'></span></div>
+                    <p className="caption-date">
+                        DATE
+                    </p>
+                </div>
                 <div className='dot' contentEditable="false">
+                    <div><span className='line'></span></div>
+                    <p className="caption-details">
+                    DETAILS
+                    </p>
+                </div>
+                <div className='dot4' contentEditable="false">
                     <div><span className='line4'></span></div>
                     <p className="caption-submit">
                         SUBMIT
@@ -72,7 +72,7 @@ function ProgressBar (props) {
 
     else if(props.stage==='3') {
         return ( 
-            <div className='container'>
+            <div className='containers'>
                     <div className='updatedDot' contentEditable="false" onClick={() => history.goBack(2)}>
                         <div><span className='updatedLine'></span></div>
                         <p className="caption-venue">
@@ -91,7 +91,7 @@ function ProgressBar (props) {
                     DETAILS
                     </p>
                 </div>
-                <div className='dot' contentEditable="false">
+                <div className='dot4' contentEditable="false">
                     <div><span className='line4'></span></div>
                     <p className="caption-submit">
                         SUBMIT
@@ -103,7 +103,7 @@ function ProgressBar (props) {
 
     else {
         return ( 
-            <div className='container'>
+            <div className='containers'>
                     <div className='updatedDot' contentEditable="false" onClick={() => history.goBack(3)}>
                         <div><span className='updatedLine'></span></div>
                         <p className="caption-venue">
@@ -122,7 +122,7 @@ function ProgressBar (props) {
                     DETAILS
                     </p>
                 </div>
-                <div className='updatedDot' contentEditable="false" onClick={() => window.location.reload(false)}>
+                <div className='updatedDot4' contentEditable="false" onClick={() => window.location.reload(false)}>
                     <div><span className='line4'></span></div>
                     <p className="caption-submit">
                         SUBMIT

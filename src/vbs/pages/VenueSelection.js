@@ -20,17 +20,14 @@ const VenueSelection = () => {
             </div>
             <div className='venues-container'> 
                 {DATA.map((venue) => (
-                    <div className="venue">
-                    <Link
-                    to={{ pathname: `./vbs/${venue.venueName}`, state: venue }}
-                    className="specificVenue"
+                    <div className="venue" 
+                    style={{backgroundImage: `url(${venue.venueImage})`}}
                     >
-                    <img
-                        src={venue.venueImage}
-                        alt="Venue Image Here"
-                        className="venueImage"
-                    />
-                    <div className="venueName">{venue.venueName}</div>
+                    <div className='venueName'>
+                    {venue.venueName}
+                    </div>
+                    <Link
+                    to={{ pathname: `./vbs/${venue.venueName}`, state: venue }}>
                     </Link>
                     </div> 
                 ))}

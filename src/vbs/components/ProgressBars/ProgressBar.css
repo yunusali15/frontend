@@ -1,12 +1,17 @@
 /* FOR VENUE SELECTION PAGE  */
+
+.containers{
+    display: flex;
+}
+
 .updatedDot {
-    height: 16px;
-    width: 16px;
+    height: 2.65vh;
+    width: 1.25vw;
     border-radius: 50%;
     background-color: #346751;
     display:inline-block;
-    margin-right:48px;
-    font-size:12px; 
+    margin-right:4vw;
+    font-size: 1vw; 
     font-family: Roboto Condensed;
     font-weight: 300;
     color: #161616;
@@ -19,61 +24,81 @@
 }
 
 .dot {
-    height: 16px;
-    width: 16px;
+    height: 2.65vh;
+    width: 1.25vw;
     border-radius: 50%;
     background-color: #C4C4C4;
     display:inline-block;
-    margin-right:48px;
-    font-size:12px; 
+    margin-right:4vw;
+    font-size: 1vw; 
     font-family: Roboto Condensed;
     font-weight: 300;
+    color: #161616;
+}
+
+.dot4 {
+    height: 2.65vh;
+    width: 1.25vw;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+    display:inline-block;
+    font-size: 1vw; 
+    font-family: Roboto Condensed;
+    font-weight: 300;
+    color: #161616;
+}
+
+.updatedDot4 {
+    
+    height: 2.65vh;
+    width: 1.25vw;
+    border-radius: 50%;
+    display:inline-block;
+    font-size: 1vw; 
+    font-family: Roboto Condensed;
+    font-weight: 300;
+    font-size: 1vw;
     color: #161616;
 }
   
 .caption-venue{
     display: block;
-    margin-left:-10px;
+    margin-left:-0.8vw;
 }
 .caption-date {
     display: block;
-    margin-left:-4px
+    margin-left:-0.4vw;
 }
   
 .caption-details {
     display: block;
-    margin-left:-11px
+    margin-left:-1vw;
 }
   
 .caption-submit {
     display: block;
-    margin-left:-9px
+    margin-left:-0.8vw;
 }
   
 .updatedLine {
-    height:5px;
-    justify-content:center;
+    height:1vh;
     background-color:#346751;
-    width:64px;
-    margin-top: 2.75px;
-    margin-left:2.5px;
+    width:5.3vw;
+    margin-left:1vw;
     border: 0px;
     display:inline-block;
   }
 
 .line {
-    height:5px;
-    justify-content:center;
-    background-color: #C4C4C4;
-    width:64px;
-    margin-top: 2.75px;
-    margin-left:2.5px;
+    height:1vh;
+    background-color:#C4C4C4;
+    width:5.3vw;
+    margin-left:1vw;
     border: 0px;
     display:inline-block;
 }
 
 .line4 {
-    margin-top: 2.75px;
     width: 0%;
     border: 0px;
     display:inline-block;
