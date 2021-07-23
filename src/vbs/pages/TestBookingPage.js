@@ -2,6 +2,7 @@ import "./TestBookingPage.css";
 import React, {useState} from "react";
 import {useRef} from "react";
 import { useLocation, useParams } from "react-router";
+import ProgressBar from "../components/ProgressBars/ProgressBar";
 
 const DATA = [
     { id: 0, timeStart: "08:00", timeEnd: "09:00", selected: false },
@@ -30,7 +31,13 @@ const TestBookingPage = () => {
  
     return (
         <div class="mainDiv">
-            <h1 class = "Venue">Venue Booking System</h1>
+            <div class = "bar" >
+                <h1 class = "Venue">Venue Booking System</h1>
+                <div className="progressbar">
+                    <ProgressBar/>
+                </div>
+                
+            </div>
             <div class = "contents">
                 <form action="">
                     <div class = "row">

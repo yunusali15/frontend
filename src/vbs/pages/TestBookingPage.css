@@ -4,7 +4,7 @@
 .mainDiv {
     flex-direction: column;
     background-color: white;
-    height: 630px;
+    height: 100vh;
     display:flex;
 }
 
@@ -22,11 +22,20 @@
     font-family:Raleway, Light 300;
     font-style:normal;
     font-weight:800;
-    font-size: 36px;
-    float: left;
+    font-size: 32px;
+    float:left;
     position:absolute;
     left:5vw;
-    top:12vh
+    top:12vh;
+    line-height: 48px;
+    display: inline-block;
+    min-width: 72%;
+}
+
+.progressbar{
+    margin-top:-11vh;
+    float:right;
+    margin-left:70vw;
 }
 
 .Titles {
@@ -126,5 +135,5 @@ input[name = Back] {
     margin:1vh;
     border-color:#C84B31;
     position:relative;
-    align-items:left;
+    left:-75%;
 }
