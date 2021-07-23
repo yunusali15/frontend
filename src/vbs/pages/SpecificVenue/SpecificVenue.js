@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import ModifiedCalendar from "../components/Calendar";
-import ScheduleSelect from "../components/ScheduleSelect";
-import SelectedDisplay from "../components/SelectedDisplay";
+import ModifiedCalendar from "../../pages/SpecificVenue/components/Calendar";
+import ScheduleSelect from "../../pages/SpecificVenue/components/ScheduleSelect";
+import SelectedDisplay from "../../pages/SpecificVenue/components/SelectedDisplay";
 import { Link, useParams } from "react-router-dom";
-import ProgressBar from "../components/ProgressBars/ProgressBar";
+import ProgressBar from "../../shared/ProgressBars/ProgressBar";
 import "./SpecificVenue.css";
 //data meant to be HTTP Requested from backend
 const DATA = [

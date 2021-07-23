@@ -39,7 +39,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   border: #ffffff;
 }
 
@@ -55,7 +55,6 @@
 
 .venueName {
   display: flex;
-  padding-left: 5%;
   width: 100%;
   position: absolute;
   bottom: 9%;
