@@ -6,6 +6,7 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
   const minDate = new Date();
   minDate.setDate(new Date().getDate() + 3);
   //DATA here is for my own personal use and is only for reading purposes
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
   const [DATA, setDATA] = useState([
     {
@@ -114,6 +115,11 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
           }
         }}
         minDate={minDate}
+        minDetail="year"
+        nextLabel=">"
+        prevLabel="<"
+        next2Label=""
+        prev2Label=""
         //uncomment this to view data in tiles
         //tileContent={tileContent}
       />
