@@ -26,7 +26,13 @@ function ProgressBar(props) {
           </div>
           <p class="caption-details">DETAILS</p>
         </div>
-        <div class="dot" contentEditable="false">
+        <div
+          class="dot"
+          style={{ marginRight: "0" }}
+          contentEditable="false"
+          m
+          start
+        >
           <div>
             <span class="line4"></span>
           </div>

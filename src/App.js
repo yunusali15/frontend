@@ -9,16 +9,16 @@ import {
 import Home from "./home/pages/Home";
 import Finance from "./finance/pages/Finance";
 // import Vbs from "./vbs/pages/Vbs";
-import VenueSelection from "./vbs/pages/VenueSelection";
+import VenueSelection from "./vbs/pages/VenueSelection/VenueSelection";
 import Cca from "./cca/pages/Cca";
 import Login from "./login/pages/Login";
 import Signup from "./signup/pages/Signup";
 import Navbar from "./shared/components/Navigation/NavBar";
 import Services from "./services/pages/Services";
 import Contacts from "./contacts/pages/Contacts";
-import SpecificVenue from "./vbs/pages/SpecificVenue";
-import BookingPage from "./vbs/pages/BookingPage";
-import ConfirmationPage from "./vbs/pages/ConfirmationPage";
+import SpecificVenue from "./vbs/pages/SpecificVenue/SpecificVenue";
+import BookingPage from "./vbs/pages/BookingPage/BookingPage";
+import ConfirmationPage from "./vbs/pages/ConfirmationPage/ConfirmationPage";
 import { LoginContext } from "./shared/context/LoginContext";
 
 const App = () => {

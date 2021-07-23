@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./VenueSelection.css";
 import DATA from "./venueDATA";
-import ProgressBar from "../components/ProgressBars/ProgressBar";
-import "../components/ProgressBars/ProgressBar.css";
+import ProgressBar from "../../shared/ProgressBars/ProgressBar";
 
 const VenueSelection = () => {
   return (
@@ -25,6 +24,7 @@ const VenueSelection = () => {
                 src={venue.venueImage}
                 alt="Venue Image Here"
                 className="venueImage"
+                stylee
               />
               <div className="venueName">{venue.venueName}</div>
             </Link>
