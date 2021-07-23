@@ -3,7 +3,7 @@ import ModifiedCalendar from "../../pages/SpecificVenue/components/Calendar";
 import ScheduleSelect from "../../pages/SpecificVenue/components/ScheduleSelect";
 import SelectedDisplay from "../../pages/SpecificVenue/components/SelectedDisplay";
 import { Link, useParams } from "react-router-dom";
-import ProgressBar from "../../shared/ProgressBars/ProgressBar";
+import StatusBar from "../../shared/StatusBar";
 import "./SpecificVenue.css";
 //data meant to be HTTP Requested from backend
 const DATA = [
@@ -49,8 +49,7 @@ function SpecificVenue() {
   return (
     <div class="mainContainer">
       <div class="statusBar">
-        <h1 className="vbs">VENUE BOOKING SYSTEM</h1>
-        <ProgressBar stage="2" />
+        <StatusBar stage="2" />
       </div>
       <h1 className="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
