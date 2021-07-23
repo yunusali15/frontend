@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import {useRef} from "react";
 import { useLocation, useParams } from "react-router";
 import ProgressBar from "../components/ProgressBars/ProgressBar";
+import { Link } from "react-router-dom";
 
 const DATA = [
     { id: 0, timeStart: "08:00", timeEnd: "09:00", selected: false },
@@ -58,9 +59,11 @@ const TestBookingPage = () => {
                         
                     <div class = "row">
                         <h2 class = "Titles">PURPOSE</h2>
-                        <input type ="radio" id="CCA" name="Purpose" value ="CCA" onClick = {OnClick}></input>
+                        <input type ="radio" id="CCA" name="Purpose" value ="CCA" onClick = {OnClick}
+                        value={cca} onChange={event => setCCA(event.target.value)}></input>
                         <label for="CCA">CCA</label>
-                        <input type ="radio" id="Personal" name="Purpose" value ="Personal" onClick = {OnClick}></input>
+                        <input type ="radio" id="Personal" name="Purpose" value ="Personal" onClick = {OnClick}
+                        value={purpose} onChange={event => setPurpose(event.target.value)}></input>
                         <label for="Personal">Personal</label>
                         
                     </div>
@@ -74,8 +77,25 @@ const TestBookingPage = () => {
             </div>
 
             <div className = "Buttons">
-                <input type = "button" value = "BACK" name = "Back"></input>
-                <input type="button" value="SUBMIT" name="Submit"></input> 
+            <Link class="backButton" to={{
+                pathname:"/vbs/{venueName}",
+            }}>
+                Back
+            </Link>
+            <Link class = "submitButton"
+                to={{
+                pathname: "/vbs/confirmation",
+                
+                state: {
+                venueName: venueName,
+                selectedDate: selectedDate,
+                cca: cca,
+            purpose: purpose
+          },
+        }}
+      >
+        Submit
+      </Link> 
             </div>
             
             

@@ -23,7 +23,6 @@
     font-style:normal;
     font-weight:800;
     font-size: 32px;
-    float:left;
     position:absolute;
     left:5vw;
     top:12vh;
@@ -33,7 +32,7 @@
 }
 
 .progressbar{
-    margin-top:-11vh;
+    margin-top:-9vh;
     float:right;
     margin-left:70vw;
 }
@@ -112,7 +111,7 @@ input[name=Details] {
     margin-bottom:5vh;
 }
 
-input[name = Submit] {
+.submitButton {
     background-color:grey;
     color:white;
     font-family: Roboto Light 300;
@@ -121,11 +120,18 @@ input[name = Submit] {
     width:15vw;
     right:10px;
     position:relative;
-    left: 75%;
-    margin:1vh;
+    left: 200%;
+    bottom: 7vh;
 }
 
-input[name = Back] {
+.Buttons{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.backButton {
     background-color:white;
     color:#C84B31;
     font-family: Roboto Light 300;
@@ -135,5 +141,17 @@ input[name = Back] {
     margin:1vh;
     border-color:#C84B31;
     position:relative;
-    left:-75%;
+    left:-200%;
+    bottom:-2vh;
+}
+
+@media only screen and (max-width: 1000px) {
+    .Venue{
+        font-size:120%;
+    }
+
+    .progressbar{
+        height:100%;
+        width:80%;
+    }
 }

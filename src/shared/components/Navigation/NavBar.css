@@ -47,7 +47,21 @@
 }
 
 @media only screen and (max-width: 1000px) {
-  .NavbarItems {
-    width: 100%;
+  .navbar-name{
+    font-size:180%;
   }
+  
+  .NavbarItems{
+    width:100%;
+  }
+
+  .nav-menu{
+    width:100%;
+  }
+
+  .nav-links{
+    font-size:100%;
+
+  }
+
 }
