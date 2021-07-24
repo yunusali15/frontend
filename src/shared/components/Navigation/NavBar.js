@@ -6,7 +6,7 @@ class Navbar extends Component {
     render() {
         return(
             <nav className= "NavbarItems">
-                <h1 className="navbar-name">KE WEB</h1>
+                <div className="navbar-name">KE WEB</div>
                 <div className='nav-menu'>
                     {MenuItems.map((item, index) => {
                         return (
