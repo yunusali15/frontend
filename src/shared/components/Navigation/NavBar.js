@@ -6,8 +6,8 @@ class Navbar extends Component {
     render() {
         return(
             <nav className= "NavbarItems">
-                <ul className='nav-menu'>
                 <h1 className="navbar-name">KE WEB</h1>
+                <div className='nav-menu'>
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
@@ -16,7 +16,7 @@ class Navbar extends Component {
                             </li>
                         )
                     })}
-                </ul>
+                </div>
             </nav>
         )
     }
