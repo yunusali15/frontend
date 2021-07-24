@@ -24,6 +24,11 @@
   font-family: "Raleway", sans-serif;
   margin: 0 0;
   margin-bottom: 1%;
+  padding: 0.5%;
+}
+
+.vbs {
+  font-family: "Raleway", sans-serif;
 }
 
 .scheduleAndCalendar {
@@ -45,7 +50,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 1%;
+  margin: 1% 0;
 }
 
 .backButton {
@@ -91,8 +96,9 @@
 @media only screen and (max-width: 1000px) {
   .scheduleAndCalendar,
   .banner,
-  .statusBar {
-    width: 100%;
+  .statusBar,
+  .statusBarContainer {
+    width: 100vw;
   }
 
   .bottomNavigation {

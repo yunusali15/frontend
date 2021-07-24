@@ -59,16 +59,18 @@
   cursor: pointer;
 }
 .react-calendar__navigation {
-  height: 44px;
-  margin-bottom: 1em;
   font-family: "Raleway", sans-serif;
+  height: 5vh;
+  margin-top: 0.8vh;
+  margin-bottom: 1.2vh;
 }
+
 .react-calendar__navigation button {
   min-width: 44px;
   background: none;
   font-family: "Raleway", sans-serif;
   font-weight: bold;
-  font-size: 1.6em;
+  font-size: 4vh;
   color: #ecdbba;
 }
 .react-calendar__navigation button:enabled:hover,
@@ -79,6 +81,25 @@
 }
 .react-calendar__navigation button[disabled] {
 }
+
+.react-calendar__navigation__prev-button {
+  padding-left: 10%;
+}
+
+.react-calendar__navigation__next-button {
+  padding-right: 10%;
+}
+
+.react-calendar__navigation__prev2-button {
+  display: none;
+  pointer-events: none;
+}
+
+.react-calendar__navigation__next2-button {
+  display: none;
+  pointer-events: none;
+}
+
 .react-calendar__month-view__weekdays {
   text-align: center;
   text-transform: uppercase;
@@ -109,21 +130,24 @@
   color: rgb(82, 82, 82);
 }
 
-.react-calendar__year-view .react-calendar__tile,
 .react-calendar__decade-view .react-calendar__tile,
 .react-calendar__century-view .react-calendar__tile {
   padding: 2em 0.5em;
 }
+.react-calendar__year-view .react-calendar__tile {
+  padding: 1.9em 0.5em;
+}
+
 .react-calendar__tile {
   max-width: 100%;
   text-align: center;
   /* padding: 0.75em 0.5em; */
-  padding: 1.8em 1.5em;
+  padding: 2vh 2vw;
   background: none;
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
   color: #ecdbba;
   /* border-radius: 50%; */
-  font-size: 1rem;
+  font-size: 2.5vh;
 }
 .react-calendar__tile:disabled {
   color: black;
@@ -165,13 +189,13 @@
   background-color: #e6e6e6;
 }
 
-  .react-calendar__month-view__days__day--neighboringMonth {
-    color: black;
-    font-family: 'Raleway', sans-serif;
-  }
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: black;
+  font-family: "Raleway", sans-serif;
+}
 
-  .highlight {
-    background: #ECDBBA;
-    color: black;
-    font-weight: bold;
- }
+.highlight {
+  background: #ecdbba;
+  color: black;
+  font-weight: bold;
+}

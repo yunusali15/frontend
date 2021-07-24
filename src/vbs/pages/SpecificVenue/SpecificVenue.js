@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import ModifiedCalendar from "../components/Calendar";
-import ScheduleSelect from "../components/ScheduleSelect";
-import SelectedDisplay from "../components/SelectedDisplay";
-import { Link, useHistory, useParams } from "react-router-dom";
-import ProgressBar from "../components/ProgressBars/ProgressBar";
-import "./SpecificVenue.css";
-
+import ModifiedCalendar from "../../pages/SpecificVenue/components/Calendar";
+import ScheduleSelect from "../../pages/SpecificVenue/components/ScheduleSelect";
+import SelectedDisplay from "../../pages/SpecificVenue/components/SelectedDisplay";
+import { Link, useParams } from "react-router-dom";
+import StatusBar from "../../shared/StatusBar";
 import "./SpecificVenue.css";
 //data meant to be HTTP Requested from backend
 const DATA = [
@@ -48,25 +46,12 @@ function SpecificVenue() {
 
   const venueName = useParams().venueName;
 
-  function handleButtonClick() {
-    window.history.push(`./${venueName}/bookingpage`, { selectedDate: selectedDate });
-  }
-  function callDay(clikedDay) { console.log(clikedDay)};
   return (
     <div class="mainContainer">
       <div class="statusBar">
-        <h1
-          style={{
-            fontFamily: '"Raleway", sans-serif',
-            fontSize: "2rem",
-            margin: "0 0",
-          }}
-        >
-          Venue Booking System
-        </h1>
-        <ProgressBar/>
+        <StatusBar stage="2" />
       </div>
-      <h1 class="banner">{venueName}</h1>
+      <h1 className="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
         <ScheduleSelect
           selectedDate={selectedDate}
@@ -85,9 +70,8 @@ function SpecificVenue() {
           <ModifiedCalendar
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
-            
           />
-          
+
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
         </div>
       </div>
