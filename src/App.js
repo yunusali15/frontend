@@ -42,7 +42,7 @@ const App = () => {
         <Route
           exact
           path="/vbs/:venueName/bookingpage"
-          component={BookingPage}
+          component={TestBookingPage}
         />
         <Router path="/Contacts" exact>
           <Contacts />
