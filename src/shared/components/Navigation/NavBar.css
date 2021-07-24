@@ -7,38 +7,41 @@
   font-style: normal;
   font-weight: 800;
   font-size: 42px;
-  position: absolute;
-  left: 5vw;
-  top: -4vh;
+  margin-left: 5vw;
 }
 
 .NavbarItems {
   background-color: #c84b31;
-  height: 15vh;
+  height: 10vh;
   width: 100%;
-  margin-top: -5vh;
 }
 
 .nav-menu {
   display: flex;
+  height: 10vh;
   flex-direction: row;
   text-align: center;
   list-style: none;
-  justify-content: flex-end;
-  padding: 3vh;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-right {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .nav-links {
   color: #ffffff;
-  font-family: Roboto Light 300;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
   line-height: 10vh;
   text-align: center;
   text-decoration: none;
-  margin-right: 5vw;
-  top: -4vh;
 }
 
 .nav-links:hover {

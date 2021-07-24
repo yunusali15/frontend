@@ -11,7 +11,7 @@ import Home from "./home/pages/Home";
 //Venue Booking System
 import VenueSelection from "./vbs/pages/VenueSelection/VenueSelection";
 import SpecificVenue from "./vbs/pages/SpecificVenue/SpecificVenue";
-import BookingPage from "./vbs/pages/BookingPage/BookingPage";
+import TestBookingPage from "./vbs/pages/TestBookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage/ConfirmationPage";
 
 import Navbar from "./shared/components/Navigation/NavBar";

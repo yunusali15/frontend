@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   background-color: inherit;
 }
@@ -39,11 +39,11 @@
   height: 65vh;
 }
 
-@media only screen and (max-width: 1150px) {
+/* @media only screen and (max-width: 1150px) {
   .selectedDateDisplay {
     font-size: 1.5rem;
   }
-}
+} */
 
 .bottomNavigation {
   width: 70%;
@@ -99,6 +99,10 @@
   .statusBar,
   .statusBarContainer {
     width: 100vw;
+  }
+
+  .selectedDateDisplay {
+    font-size: 3vw;
   }
 
   .bottomNavigation {
