@@ -59,6 +59,9 @@
   cursor: pointer;
 }
 
+.timeSlotSelected:hover {
+}
+
 .timeSlotSelected {
   background-color: #c84b31;
   cursor: pointer;
