@@ -48,7 +48,7 @@ function SpecificVenue() {
 
   return (
     <div class="mainContainer">
-      <StatusBar stage="2" />
+      <StatusBar stage={2} />
       <h1 className="banner">{venueName}</h1>
       <div class="scheduleAndCalendar">
         <ScheduleSelect
