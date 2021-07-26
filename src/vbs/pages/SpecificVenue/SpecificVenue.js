@@ -126,50 +126,73 @@ function SpecificVenue() {
   } else {
     return (
       <div class="mainContainer">
-        <StatusBar stage={2} />
-        <h1 className="banner">{venueName}</h1>
-        <div class="scheduleAndCalendar">
-          <Modal
-            isOpen={isModalOpen}
-            style={{
-              overlay: {
-                backgroundColor: "grey",
-              },
-              content: {
-                padding: "0 0",
-                border: "0 0",
-              },
-            }}
-          >
-            <ScheduleSelect
-              selectedDate={selectedDate}
-              timeslots={timeslots}
-              setTimeslots={setTimeslots}
-              selectedTimeslot={selectedTimeslot}
-              setSelectedTimeslot={setSelectedTimeslot}
-              isMobile={isMobile}
-            />
-          </Modal>
-          <div
-            style={{
+        <StatusBar stage={2} isMobile={isMobile} />
+        <h1 className="banner bannerMobile">{venueName}</h1>
+        <Modal
+          isOpen={isModalOpen}
+          style={{
+            overlay: {
+              backgroundColor: "grey",
+            },
+            content: {
+              padding: "0 0",
+              border: "0 0",
+              backgroundColor: "black",
+              display: "flex",
               flexDirection: "column",
-              width: "70%",
-              height: "70vh",
-            }}
-          >
-            <ModifiedCalendar
-              selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
-            />
-
-            <SelectedDisplay selectedTimeslot={selectedTimeslot} />
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            },
+          }}
+        >
+          <ScheduleSelect
+            selectedDate={selectedDate}
+            timeslots={timeslots}
+            setTimeslots={setTimeslots}
+            selectedTimeslot={selectedTimeslot}
+            setSelectedTimeslot={setSelectedTimeslot}
+            isMobile={isMobile}
+          />
+          <SelectedDisplay selectedTimeslot={selectedTimeslot} />
+          <div className="bottomNavigation">
+            <div
+              class="submitButton enabled buttonMobile"
+              onClick={() => setIsModalOpen(false)}
+            >
+              Back
+            </div>
+            {selectedDate && selectedTimeslot.length > 0 ? (
+              <Link
+                to={{
+                  pathname: `/vbs/${venueName}/bookingpage`,
+                  state: { selectedDate, selectedTimeslot },
+                }}
+                class="submitButton enabled"
+              >
+                Submit
+              </Link>
+            ) : (
+              <div class="submitButton disabled">Submit</div>
+            )}
           </div>
+        </Modal>
+        <div
+          style={{
+            flexDirection: "column",
+            width: "95%",
+          }}
+        >
+          <ModifiedCalendar
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            isMobile={isMobile}
+          />
         </div>
         <div className="bottomNavigation">
-          <Link class="backButton" to="/vbs">
+          <Link class="backButton buttonMobile" to="/vbs">
             Back
           </Link>
-          {selectedDate && (
+          {!selectedDate && (
             <p
               style={{
                 fontFamily: '"Roboto Condensed", sans-serif',
@@ -180,11 +203,14 @@ function SpecificVenue() {
             </p>
           )}
           {selectedDate ? (
-            <div class="submitButton enabled" onClick={setIsModalOpen}>
+            <div
+              class="submitButton enabled buttonMobile"
+              onClick={setIsModalOpen}
+            >
               Next
             </div>
           ) : (
-            <div class="submitButton disabled">Next</div>
+            <div class="submitButton disabled buttonMobile">Next</div>
           )}
         </div>
       </div>

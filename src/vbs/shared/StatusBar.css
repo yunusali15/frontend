@@ -6,3 +6,17 @@
   width: 70vw;
   height: 10vh;
 }
+
+.statusBarContainerMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
+  height: 20vh;
+  margin: 0 0;
+}
+
+.vbsMobile {
+  font-size: 20px;
+}
