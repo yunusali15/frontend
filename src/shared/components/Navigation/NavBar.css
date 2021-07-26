@@ -7,6 +7,7 @@
   font-style: normal;
   font-weight: 800;
   font-size: 42px;
+  text-decoration: none;
 }
 
 .NavbarItems {
@@ -30,20 +31,23 @@
 
 .navbar-right {
   width: 30vw;
+  height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .nav-links {
   color: #ffffff;
   font-family: "Roboto", sans-serif;
-  font-style: normal;
   font-weight: 300;
   font-size: 18px;
-  line-height: 10vh;
-  text-align: center;
   text-decoration: none;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
 }
 
 .nav-links:nth-of-type(2) {
@@ -51,8 +55,7 @@
 }
 
 .nav-links:hover {
-  transition: all 0.2s ease-out;
-  text-decoration: underline;
+  border-bottom: 5px solid #ecdbba;
 }
 
 @media only screen and (max-width: 1200px) {
