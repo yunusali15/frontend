@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 import ModifiedCalendar from "../../pages/SpecificVenue/components/Calendar";
 import ScheduleSelect from "../../pages/SpecificVenue/components/ScheduleSelect";
 import SelectedDisplay from "../../pages/SpecificVenue/components/SelectedDisplay";
 import { Link, useParams } from "react-router-dom";
 import StatusBar from "../../shared/StatusBar";
 import "./SpecificVenue.css";
+import Modal from "react-modal";
+
 //data meant to be HTTP Requested from backend
 const DATA = [
   { id: 0, timeStart: "0900 ", timeEnd: "0930", booked: false },
@@ -43,68 +46,150 @@ function SpecificVenue() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [timeslots, setTimeslots] = useState(DATA);
   const [selectedTimeslot, setSelectedTimeslot] = useState([]);
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const venueName = useParams().venueName;
 
-  return (
-    <div class="mainContainer">
-      <StatusBar stage={2} />
-      <h1 className="banner">{venueName}</h1>
-      <div class="scheduleAndCalendar">
-        <ScheduleSelect
-          selectedDate={selectedDate}
-          timeslots={timeslots}
-          setTimeslots={setTimeslots}
-          selectedTimeslot={selectedTimeslot}
-          setSelectedTimeslot={setSelectedTimeslot}
-        />
-        <div
-          style={{
-            flexDirection: "column",
-            width: "70%",
-            height: "70vh",
-          }}
-        >
-          <ModifiedCalendar
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-          />
+  Modal.setAppElement("#root");
 
-          <SelectedDisplay selectedTimeslot={selectedTimeslot} />
+  //to determine if isMobile
+  function handleWindowSizeChange() {
+    setIsMobile(window.innerWidth < 500);
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  if (!isMobile) {
+    return (
+      <div class="mainContainer">
+        <StatusBar stage={2} />
+        <h1 className="banner">{venueName}</h1>
+        <div class="scheduleAndCalendar">
+          <ScheduleSelect
+            selectedDate={selectedDate}
+            timeslots={timeslots}
+            setTimeslots={setTimeslots}
+            selectedTimeslot={selectedTimeslot}
+            setSelectedTimeslot={setSelectedTimeslot}
+          />
+          <div
+            style={{
+              flexDirection: "column",
+              width: "70%",
+              height: "70vh",
+            }}
+          >
+            <ModifiedCalendar
+              selectedDate={selectedDate}
+              setSelectedDate={setSelectedDate}
+            />
+
+            <SelectedDisplay selectedTimeslot={selectedTimeslot} />
+          </div>
+        </div>
+        <div className="bottomNavigation">
+          <Link class="backButton" to="/vbs">
+            Back
+          </Link>
+          {selectedDate && selectedTimeslot.length ? (
+            <p></p>
+          ) : (
+            <p
+              style={{
+                fontFamily: '"Roboto Condensed", sans-serif',
+                margin: "1% 0",
+              }}
+            >
+              Select Date and Time to Submit
+            </p>
+          )}
+          {selectedDate && selectedTimeslot.length > 0 ? (
+            <Link
+              to={{
+                pathname: `/vbs/${venueName}/bookingpage`,
+                state: { selectedDate, selectedTimeslot },
+              }}
+              class="submitButton enabled"
+            >
+              Submit
+            </Link>
+          ) : (
+            <div class="submitButton disabled">Submit</div>
+          )}
         </div>
       </div>
-      <div className="bottomNavigation">
-        <Link class="backButton" to="/vbs">
-          Back
-        </Link>
-        {selectedDate && selectedTimeslot.length ? (
-          <p></p>
-        ) : (
-          <p
+    );
+  } else {
+    return (
+      <div class="mainContainer">
+        <StatusBar stage={2} />
+        <h1 className="banner">{venueName}</h1>
+        <div class="scheduleAndCalendar">
+          <Modal
+            isOpen={isModalOpen}
             style={{
-              fontFamily: '"Roboto Condensed", sans-serif',
-              margin: "1% 0",
+              overlay: {
+                backgroundColor: "grey",
+              },
+              content: {
+                padding: "0 0",
+                border: "0 0",
+              },
             }}
           >
-            Select Date and Time to Submit
-          </p>
-        )}
-        {selectedDate && selectedTimeslot.length > 0 ? (
-          <Link
-            to={{
-              pathname: `/vbs/${venueName}/bookingpage`,
-              state: { selectedDate, selectedTimeslot },
+            <ScheduleSelect
+              selectedDate={selectedDate}
+              timeslots={timeslots}
+              setTimeslots={setTimeslots}
+              selectedTimeslot={selectedTimeslot}
+              setSelectedTimeslot={setSelectedTimeslot}
+              isMobile={isMobile}
+            />
+          </Modal>
+          <div
+            style={{
+              flexDirection: "column",
+              width: "70%",
+              height: "70vh",
             }}
-            class="submitButton enabled"
           >
-            Submit
+            <ModifiedCalendar
+              selectedDate={selectedDate}
+              setSelectedDate={setSelectedDate}
+            />
+
+            <SelectedDisplay selectedTimeslot={selectedTimeslot} />
+          </div>
+        </div>
+        <div className="bottomNavigation">
+          <Link class="backButton" to="/vbs">
+            Back
           </Link>
-        ) : (
-          <div class="submitButton disabled">Submit</div>
-        )}
+          {selectedDate && (
+            <p
+              style={{
+                fontFamily: '"Roboto Condensed", sans-serif',
+                margin: "1% 0",
+              }}
+            >
+              Select Date to proceed
+            </p>
+          )}
+          {selectedDate ? (
+            <div class="submitButton enabled" onClick={setIsModalOpen}>
+              Next
+            </div>
+          ) : (
+            <div class="submitButton disabled">Next</div>
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default SpecificVenue;

@@ -7,9 +7,13 @@ const ScheduleSelect = ({
   selectedDate,
   selectedTimeslot,
   setSelectedTimeslot,
+  isMobile,
 }) => {
   return (
-    <div class="mainScheduleContainer">
+    <div
+      className="mainScheduleContainer"
+      style={isMobile ? { width: "100%" } : { width: "30%" }}
+    >
       <p class="selectedDateDisplay">
         {selectedDate
           ? `${selectedDate.getDate()} ${selectedDate
