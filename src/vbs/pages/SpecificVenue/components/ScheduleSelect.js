@@ -18,7 +18,7 @@ const ScheduleSelect = ({
           : "Select Date"}
       </p>
       <div class="timeSlotContainer">
-        <p class="schedulePreview">Schedule Preview</p>
+        <p class="schedulePreview">{"Select Timeslot(s)"}</p>
         <div class="timeSlots">
           {timeslots.map((time) => (
             <TimeslotButton

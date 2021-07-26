@@ -5,29 +5,6 @@
   flex-direction: column;
   align-items: center;
 }
-.Header {
-  height: 7vw;
-  margin-top: 4vw;
-  margin-left: 6vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.Title {
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 2.5vw;
-  line-height: 4vw;
-  color: #000000;
-}
-
-.progressbar {
-  line-height: 2.75vh;
-  padding-top: 0.75vw;
-  padding-right: 6vw;
-}
 
 .venues-container {
   display: flex;
@@ -44,7 +21,7 @@
   background-size: cover;
   justify-content: flex-end;
   width: 20vw;
-  height: 25vh;
+  height: 13vw;
 }
 
 .venueLink:nth-of-type(3n-1) {
@@ -71,6 +48,34 @@
   background-color: rgba(00, 00, 00, 0.5);
 
   letter-spacing: 1.5px;
-  font-size: 1.125vw;
+  font-size: 20px;
   font-family: Roboto Condensed;
+}
+
+@media only screen and (max-width: 1200px) {
+  .venues-container {
+    width: 95vw;
+  }
+
+  .venue {
+    width: 28vw;
+    height: 18vw;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .venue {
+    width: 45vw;
+    height: 30vw;
+  }
+
+  .venueLink:nth-of-type(3n-1) {
+    margin: 0 0;
+    margin-bottom: 2.5vh;
+  }
+
+  .venueLink:nth-of-type(2n-1) {
+    margin-right: 5vw;
+    margin-bottom: 2.5vh;
+  }
 }

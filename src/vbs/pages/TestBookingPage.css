@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   background-color: white;
-  height: 100vh;
   display: flex;
 }
 
@@ -106,13 +105,16 @@
   justify-content: center;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
   .Venue {
     font-size: 40px;
   }
 
-  .progressbar {
-    height: 100%;
-    width: 80%;
+  .bottomNavigation {
+    width: 95vw;
+  }
+
+  .contents {
+    width: 100vw;
   }
 }
