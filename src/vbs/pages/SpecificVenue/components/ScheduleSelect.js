@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ScheduleSelect.css";
 import TimeslotButton from "./TimeslotButton";
+import { FaBeer } from "react-icons/fa";
 
 const ScheduleSelect = ({
   timeslots,
@@ -14,13 +15,16 @@ const ScheduleSelect = ({
       className="mainScheduleContainer"
       style={isMobile ? { width: "100%" } : { width: "30%" }}
     >
-      <p class="selectedDateDisplay">
-        {selectedDate
-          ? `${selectedDate.getDate()} ${selectedDate
-              .toDateString()
-              .substring(4, 7)} ${selectedDate.getFullYear()}`
-          : "Select Date"}
-      </p>
+      <div className="topNavigationMobile">
+        <p></p>
+        <p class="selectedDateDisplay">
+          {selectedDate
+            ? `${selectedDate.getDate()} ${selectedDate
+                .toDateString()
+                .substring(4, 7)} ${selectedDate.getFullYear()}`
+            : "Select Date"}
+        </p>
+      </div>
       <div class="timeSlotContainer">
         <p class="schedulePreview">{"Select Timeslot(s)"}</p>
         <div class="timeSlots">

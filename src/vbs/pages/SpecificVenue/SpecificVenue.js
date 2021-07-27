@@ -192,16 +192,6 @@ function SpecificVenue() {
           <Link class="backButton buttonMobile" to="/vbs">
             Back
           </Link>
-          {!selectedDate && (
-            <p
-              style={{
-                fontFamily: '"Roboto Condensed", sans-serif',
-                margin: "1% 0",
-              }}
-            >
-              Select Date to proceed
-            </p>
-          )}
           {selectedDate ? (
             <div
               class="submitButton enabled buttonMobile"
@@ -213,6 +203,16 @@ function SpecificVenue() {
             <div class="submitButton disabled buttonMobile">Next</div>
           )}
         </div>
+        {!selectedDate && (
+          <p
+            style={{
+              fontFamily: '"Roboto Condensed", sans-serif',
+              margin: "1% 0",
+            }}
+          >
+            Select Date to proceed
+          </p>
+        )}
       </div>
     );
   }

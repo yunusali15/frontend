@@ -17,6 +17,7 @@
   height: 10%;
   font-weight: bold;
   margin: 5% 0;
+  justify-content: center;
 }
 
 .timeSlotContainer {
