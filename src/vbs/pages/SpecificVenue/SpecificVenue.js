@@ -155,11 +155,8 @@ function SpecificVenue() {
             isMobile={isMobile}
           />
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
-          <div className="bottomNavigation">
-            <div
-              class="submitButton enabled buttonMobile"
-              onClick={() => setIsModalOpen(false)}
-            >
+          <div className="bottomNavigationModal">
+            <div class="backButtonMobile" onClick={() => setIsModalOpen(false)}>
               Back
             </div>
             {selectedDate && selectedTimeslot.length > 0 ? (
@@ -168,12 +165,12 @@ function SpecificVenue() {
                   pathname: `/vbs/${venueName}/bookingpage`,
                   state: { selectedDate, selectedTimeslot },
                 }}
-                class="submitButton enabled"
+                class="submitButtonMobile enabled "
               >
                 Submit
               </Link>
             ) : (
-              <div class="submitButton disabled">Submit</div>
+              <div class="submitButtonMobile disabled">Submit</div>
             )}
           </div>
         </Modal>

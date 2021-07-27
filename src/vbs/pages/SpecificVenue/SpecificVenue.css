@@ -72,7 +72,7 @@
 }
 
 .buttonMobile {
-  padding: 2% 15%;
+  width: 48%;
 }
 
 .enabled {
@@ -130,5 +130,38 @@
     margin: 5% 0;
     width: 95%;
     height: 10%;
+  }
+
+  .bottomNavigationModal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+  }
+
+  .backButtonMobile {
+    border: 1px solid #c84b31;
+    color: #c84b31;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    width: 48%;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .submitButtonMobile {
+    color: white;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+    height: 35px;
   }
 }
