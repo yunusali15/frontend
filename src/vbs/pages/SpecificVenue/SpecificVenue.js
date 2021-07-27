@@ -147,6 +147,7 @@ function SpecificVenue() {
         >
           <ScheduleSelect
             selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
             timeslots={timeslots}
             setTimeslots={setTimeslots}
             selectedTimeslot={selectedTimeslot}

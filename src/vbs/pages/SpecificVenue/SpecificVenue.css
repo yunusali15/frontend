@@ -87,6 +87,15 @@
   background-color: #888888;
 }
 
+.IconTopNavigationMobile {
+  color: #ecdbba;
+  font-size: 33px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 35px;
+}
+
 @media only screen and (max-width: 1200px) and (min-width: 501px) {
   .scheduleAndCalendar,
   .banner {
@@ -116,8 +125,10 @@
   .topNavigationMobile {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     margin: 5% 0;
+    width: 95%;
+    height: 10%;
   }
 }
