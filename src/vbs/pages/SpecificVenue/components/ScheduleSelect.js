@@ -33,9 +33,15 @@ const ScheduleSelect = ({
     >
       {isMobile ? (
         <div className="topNavigationMobile">
-          <p className="IconTopNavigationMobile" onClick={handleBackButton}>
-            {selectedDate > minDate ? <MdKeyboardArrowLeft /> : ""}
-          </p>
+          {selectedDate > minDate ? (
+            <p className="IconTopNavigationMobile" onClick={handleBackButton}>
+              <MdKeyboardArrowLeft />
+            </p>
+          ) : (
+            <p className="IconTopNavigationMobile" style={{ color: "grey" }}>
+              <MdKeyboardArrowLeft />
+            </p>
+          )}
           )
           <p class="selectedDateDisplay">{`${selectedDate.getDate()} ${selectedDate
             .toDateString()

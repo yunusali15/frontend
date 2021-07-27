@@ -23,5 +23,8 @@
   .selectedDisplayContainer {
     align-items: flex-start;
     padding: 2% 0;
+    width: 90%;
+    height: 15vh;
+    overflow-y: scroll;
   }
 }
