@@ -1,10 +1,9 @@
 .mainScheduleContainer {
   background-color: black;
-  width: 30%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .selectedDateDisplay {
@@ -13,10 +12,11 @@
   font-size: 40px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 75%;
-  height: 10%;
   font-weight: bold;
-  margin: 5% 0;
+  margin: 0 0;
+  justify-content: center;
 }
 
 .timeSlotContainer {
@@ -24,7 +24,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 75%;
-  height: 50vh;
+  height: 75%;
 }
 
 .schedulePreview {
@@ -45,6 +45,7 @@
 .timeSlot {
   width: 48%;
   height: 2vh;
+  min-height: 15px;
   padding: 1px 0;
   margin-bottom: 1vh;
   border: none;
@@ -57,9 +58,6 @@
 .timeSlotAvailable {
   background-color: #346751;
   cursor: pointer;
-}
-
-.timeSlotSelected:hover {
 }
 
 .timeSlotSelected {
@@ -85,7 +83,7 @@
   color: white;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 1.5vh;
-  justify-content: flex-start;
+  justify-content: center;
   width: 75%;
 }
 
@@ -97,6 +95,51 @@
 
 .legendBox:first-of-type {
   margin-right: 0.5vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .mainScheduleContainer {
+    height: 55vh;
+    min-height: 400px;
+  }
+
+  .timeSlot:nth-of-type(2n-1) {
+    margin-right: 2.5vw;
+  }
+
+  .timeSlotText {
+    font-size: 20px;
+  }
+
+  .legend {
+    width: 90%;
+    font-size: 20px;
+  }
+
+  .legendBox:first-of-type {
+    margin-right: 2.5vw;
+  }
+
+  .legendBox {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timeSlotContainer {
+    width: 90%;
+    overflow-y: scroll;
+    height: 70%;
+  }
+
+  .timeSlot {
+    height: 35px;
+  }
+
+  .schedulePreview {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (max-width: 1450px) {

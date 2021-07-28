@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -20,6 +20,7 @@ import { LoginContext } from "./shared/context/LoginContext";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  let routes;
 
   const login = useCallback(() => {
     setIsLoggedIn(true);
@@ -28,8 +29,6 @@ const App = () => {
   const logout = useCallback(() => {
     setIsLoggedIn(false);
   }, []);
-
-  let routes;
 
   if (isLoggedIn) {
     //routes when logged in
