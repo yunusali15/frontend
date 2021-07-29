@@ -1,7 +1,32 @@
-.statusBarContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 70vw;
+@media (min-width: 421px) {
+  .statusBarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 70vw;
+  }
+
+  .progressBar {
+    display: block;
+  }
+}
+
+@media (max-width:420px) {
+  .statusBarContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    margin-bottom: 8vw;
+  }
+
+  .vbs {
+    font-size: 8vw;
+    margin: 5vw 10vw;
+  }
+
+  
+
 }

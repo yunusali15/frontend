@@ -7,7 +7,7 @@ function ProgressBar(props) {
 
   if (props.stage === "1") {
     return (
-      <div class="container">
+      <div class="progressBarContainers">
         <div class="updatedDot" contentEditable="false">
           <div>
             <span class="updatedLine"></span>
@@ -42,7 +42,7 @@ function ProgressBar(props) {
     );
   } else if (props.stage === "2") {
     return (
-      <div class="container">
+      <div class="progressBarContainers">
         <div
           class="updatedDot"
           contentEditable="false"
@@ -79,7 +79,7 @@ function ProgressBar(props) {
     );
   } else if (props.stage === "3") {
     return (
-      <div className="container">
+      <div className="progressBarContainers">
         <div
           className="updatedDot"
           contentEditable="false"
@@ -122,7 +122,7 @@ function ProgressBar(props) {
     );
   } else {
     return (
-      <div className="container">
+      <div className="progressBarContainers">
         <div
           className="updatedDot"
           contentEditable="false"
