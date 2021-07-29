@@ -1,21 +1,33 @@
-.statusBarContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 70vw;
-  height: 10vh;
+
+@media (min-width: 421px) {
+  .statusBarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 70vw;
+  }
+
+  .progressBar {
+    display: block;
+  }
 }
 
-.statusBarContainerMobile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 95vw;
-  margin: 0 0;
-}
+@media (max-width:420px) {
+  .statusBarContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    margin-bottom: 8vw;
+  }
 
-.vbsMobile {
-  font-size: 20px;
+  .vbs {
+    font-size: 8vw;
+    margin: 5vw 10vw;
+  }
+
+  
+
 }
