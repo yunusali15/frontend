@@ -3,11 +3,19 @@ import "./NavBar.css";
 import {MenuItems} from "./MenuItems";
 
 class Navbar extends Component {
+    state = {clicked: false};
+    handleClick = () => {
+        this.setState = {clicked: !this.state.clicked}
+    }
+
     render() {
         return(
             <nav className= "NavbarItems">
                 <div className="navbar-name">KE WEB</div>
-                <div className='nav-menu'>
+                <div className = "menu-icon" onClick = {this.handleClick}>
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>

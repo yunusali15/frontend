@@ -68,14 +68,12 @@ const TestBookingPage = () => {
                     <input type = "text" id = "Details" name= "Details" placeholder = "Details"></input>
                 </div>
     
-                    
-                
             </form>
             
 
             <div className = "Buttonsection">
                 <Link class="bButton" to={{
-                pathname:"/vbs/{venueName}",
+                pathname:`/vbs/${venueName}`,
                 }}>
                 Back
                 </Link>

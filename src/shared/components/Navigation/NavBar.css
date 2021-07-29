@@ -44,3 +44,25 @@
   text-decoration: underline;
 }
 
+.menu-icon{
+  position:relative;
+  display:flex;
+}
+
+@media screen and (max-width: 420px) {
+  .NavbarItems{
+    overflow:hidden;
+  }
+
+  .nav-menu{
+    position:flex;
+    flex-direction:column;
+    width:100%;
+    height:10vh;
+  }
+
+  .menu-icon{
+    display:flex;
+    color:#ecdbba;
+  }
+}
