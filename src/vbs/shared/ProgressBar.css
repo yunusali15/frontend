@@ -1,234 +1,145 @@
 /* FOR VENUE SELECTION PAGE  */
 
-
-.progressBarContainers{
-    display: inline-flex;
-}
-
-.updatedDot {
-    height: 1.25vw;
-    width: 1.25vw;
-    border-radius: 50%;
-    background-color: #346751;
-    display: inline-flex;
-    margin-right:4vw;
-    font-size: 1vw; 
-    font-family: Roboto Condensed;
-    font-weight: 300;
-    color: #161616;
-    transition: font;
-}
-
-.updated {
-  background-color: #346751;
+.progressBarContainers {
+  display: inline-flex;
 }
 
 .dot {
-    height: 1.25vw;
-    width: 1.25vw;
-    border-radius: 50%;
-    background-color: #C4C4C4;
-    display:inline-flex;
-    margin-right:4vw;
-    font-size: 1vw; 
-    font-family: Roboto Condensed;
-    font-weight: 300;
-    color: #161616;
+  height: 1.25vw;
+  width: 1.25vw;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  display: inline-flex;
+  margin-right: 4vw;
+  font-size: 1vw;
+  font-family: Roboto Condensed;
+  font-weight: 300;
+  color: #161616;
+}
+
+.updated {
+  background-color: #346751 !important;
 }
 
 .dot4 {
-    height: 1.25vw;
-    width: 1.25vw;
-    border-radius: 50%;
-    background-color: #C4C4C4;
-    display:inline-flex;
-    font-size: 1vw; 
-    font-family: Roboto Condensed;
-    font-weight: 300;
-    color: #161616;
+  height: 1.25vw;
+  width: 1.25vw;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  display: inline-flex;
+  font-size: 1vw;
+  font-family: Roboto Condensed;
+  font-weight: 300;
+  color: #161616;
 }
 
 .updatedDot4 {
-    
-    height: 1.25vw;
-    width: 1.25vw;
-    border-radius: 50%;
-    display:inline-flex;
-    font-size: 1vw; 
-    font-family: Roboto Condensed;
-    font-weight: 300;
-    font-size: 1vw;
-    color: #161616;
+  height: 1.25vw;
+  width: 1.25vw;
+  border-radius: 50%;
+  display: inline-flex;
+  font-size: 1vw;
+  font-family: Roboto Condensed;
+  font-weight: 300;
+  font-size: 1vw;
+  color: #161616;
 }
-  
-.caption-venue{
-    display: inline-flex;
-    justify-content: flex-start;
-    margin-left:-7.5vw;
-    line-height: 2.5vw;
+
+.caption-venue {
+  display: inline-flex;
+  justify-content: flex-start;
+  margin-left: -7.5vw;
+  line-height: 2.5vw;
 }
 .caption-date {
-    display: inline-flex;
-    justify-content: flex-start;
-    margin-left:-6.75vw;
-    line-height: 2.5vw;
+  display: inline-flex;
+  justify-content: flex-start;
+  margin-left: -6.75vw;
+  line-height: 2.5vw;
 }
-  
+
 .caption-details {
-    display: inline-flex;
-    justify-content: flex-start;
-    margin-left:-7.5vw;
-    line-height: 2.5vw;
+  display: inline-flex;
+  justify-content: flex-start;
+  margin-left: -7.5vw;
+  line-height: 2.5vw;
 }
-  
+
 .caption-submit {
-    display: inline-flex;
-    justify-content: flex-start;
-    line-height: 2.5vw;
-    margin-left: -1vw;
+  display: inline-flex;
+  justify-content: flex-start;
+  line-height: 2.5vw;
+  margin-left: -1vw;
 }
-  
-.updatedLine {
-    height:0.45vw;
-    background-color:#346751;
-    width:5.3vw;
-    margin-left:1vw;
-    border: 0px;
-    display:inline-flex;
-    margin-top: 0.25vw;
-  }
 
 .line {
-    height:0.45vw;
-    background-color:#C4C4C4;
-    width:5.3vw;
-    margin-left:1vw;
-    border: 0px;
-    display:inline-flex;
-    margin-top: 0.25vw;
+  height: 0.45vw;
+  background-color: #c4c4c4;
+  width: 5.3vw;
+  margin-left: 1vw;
+  border: 0px;
+  display: inline-flex;
+  margin-top: 0.25vw;
 }
 
-.line4 {
-    width: 0%;
+@media (max-width: 420px) {
+  .progressBarContainers {
+    display: inline-flex;
+    width: 90vw;
+  }
+
+  .dot {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    display: inline-flex;
+    margin-right: 15vw;
+    font-size: 2.5vw;
+    font-family: Roboto Condensed;
+    font-weight: 300;
+    color: #161616;
+  }
+
+  .updated :hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .caption-venue {
+    display: inline-flex;
+    justify-content: flex-start;
+    margin-left: -22vw;
+    line-height: 12vw;
+  }
+  .caption-date {
+    display: inline-flex;
+    justify-content: flex-start;
+    margin-left: -21vw;
+    line-height: 12vw;
+  }
+
+  .caption-details {
+    display: inline-flex;
+    justify-content: flex-start;
+    margin-left: -22vw;
+    line-height: 12vw;
+  }
+
+  .caption-submit {
+    display: inline-flex;
+    justify-content: flex-start;
+    margin-left: -1.5vw;
+    line-height: 12vw;
+  }
+
+  .line {
+    height: 1.75vw;
+    background-color: #c4c4c4;
+    width: 18vw;
+    margin-left: 3vw;
     border: 0px;
-    display:inline-flex;
-    margin-top: 0.25vw;
-}
-
-@media (max-width:420px) {
-
-    .progressBarContainers{
-        display: inline-flex;
-    }
-    
-    .updatedDot {
-        height: 5vw;
-        width: 5vw;
-        border-radius: 50%;
-        background-color: #346751;
-        display: inline-flex;
-        margin-right: 15vw;
-        font-size: 2.5vw; 
-        font-family: Roboto Condensed;
-        font-weight: 300;
-        color: #161616;
-        transition: font;
-    }
-    
-    .updatedDot :hover {
-        cursor: pointer;
-        font-weight: bold;    
-    }
-    
-    .dot {
-        height: 5vw;
-        width: 5vw;
-        border-radius: 50%;
-        background-color: #C4C4C4;
-        display:inline-flex;
-        margin-right: 15vw;
-        font-size: 2.5vw; 
-        font-family: Roboto Condensed;
-        font-weight: 300;
-        color: #161616;
-    }
-    
-    .dot4 {
-        height: 5vw;
-        width: 5vw;
-        border-radius: 50%;
-        background-color: #C4C4C4;
-        display:inline-flex;
-        font-size: 2.5vw; 
-        font-family: Roboto Condensed;
-        font-weight: 300;
-        color: #161616;
-    }
-    
-    .updatedDot4 {
-        
-        height: 5vw;
-        width: 5vw;
-        border-radius: 50%;
-        display:inline-flex;
-        font-size: 2.5vw; 
-        font-family: Roboto Condensed;
-        font-weight: 300;
-        color: #584949;
-    }
-      
-    .caption-venue{
-        display: inline-flex;
-        justify-content: flex-start;
-        margin-left:-22vw;
-        line-height: 12vw;
-    }
-    .caption-date {
-        display: inline-flex;
-        justify-content: flex-start;
-        margin-left:-21vw;
-        line-height: 12vw;
-    }
-      
-    .caption-details {
-        display: inline-flex;
-        justify-content: flex-start;
-        margin-left:-22vw;
-        line-height: 12vw;
-    }
-      
-    .caption-submit {
-        display: inline-flex;
-        justify-content: flex-start;
-        margin-left:-1.5vw;
-        line-height: 12vw;
-    }
-      
-    .updatedLine {
-        height: 1.75vw;
-        background-color:#346751;
-        width: 18vw;
-        margin-left: 3vw;
-        border: 0px;
-        display:inline-flex;
-        margin-top: 1.5vw;
-      }
-    
-    .line {
-        height: 1.75vw;
-        background-color:#C4C4C4;
-        width: 18vw;
-        margin-left: 3vw;
-        border: 0px;
-        display:inline-flex;
-        margin-top: 1.5vw;
-    }
-    
-    .line4 {
-        height: 1.75vw;
-        width: 0%;
-        border: 0px;
-        display:inline-flex;
-        margin-top: 1.5vw;
-    }
+    display: inline-flex;
+    margin-top: 1.5vw;
+  }
 }
