@@ -1,5 +1,6 @@
 /* FOR VENUE SELECTION PAGE  */
 
+
 .progressBarContainers{
     display: inline-flex;
 }
@@ -18,9 +19,8 @@
     transition: font;
 }
 
-.updatedDot :hover {
-    cursor: pointer;
-    font-weight: bold;    
+.updated {
+  background-color: #346751;
 }
 
 .dot {

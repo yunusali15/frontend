@@ -5,29 +5,6 @@
   flex-direction: column;
   align-items: center;
 }
-.Header {
-  height: 7vw;
-  margin-top: 4vw;
-  margin-left: 6vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.Title {
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 2.5vw;
-  line-height: 4vw;
-  color: #000000;
-}
-
-.progressbar {
-  line-height: 2.75vh;
-  padding-top: 0.75vw;
-  padding-right: 6vw;
-}
 
 .venues-container {
   display: flex;
@@ -38,18 +15,18 @@
   justify-content: flex-start;
 }
 
+.venueLink:nth-of-type(3n-1) {
+  margin: 0 5vw;
+  margin-bottom: 2.5vh;
+}
+
 .venue {
   display: flex;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-end;
   width: 20vw;
-  height: 25vh;
-}
-
-.venueLink:nth-of-type(3n-1) {
-  margin: 0 5vw;
-  margin-bottom: 2.5vh;
+  height: 13vw;
 }
 
 .venueLink {
@@ -63,14 +40,78 @@
   justify-content: flex-start;
   align-items: center;
   padding-left: 3%;
-
   height: 20%;
   width: 100%;
-
   color: #ffffff;
   background-color: rgba(00, 00, 00, 0.5);
-
   letter-spacing: 1.5px;
-  font-size: 1.125vw;
   font-family: Roboto Condensed;
+  font-size: 25px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .venues-container {
+    width: 95vw;
+  }
+  .venue {
+    width: 45vw;
+    height: 30vw;
+  }
+
+  .venueLink:nth-of-type(3n-1) {
+    margin: 0 0;
+    margin-bottom: 2.5vh;
+  }
+
+  .venueLink:nth-of-type(2n-1) {
+    margin-right: 5vw;
+    margin-bottom: 2.5vh;
+  }
+}
+
+@media (max-width: 420px) {
+  .Venues-page {
+    background-color: #ffffff;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .venues-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: #ffffff;
+    width: 80vw;
+    justify-content: flex-start;
+  }
+
+  .venue {
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    justify-content: flex-end;
+    width: 80vw;
+    height: 53vw;
+  }
+
+  .venueLink {
+    margin-bottom: 2.5vh;
+    text-decoration: none;
+  }
+
+  .venueName {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 3%;
+    height: 20%;
+    width: 100%;
+    color: #ffffff;
+    background-color: rgba(00, 00, 00, 0.5);
+    letter-spacing: 1.5px;
+    font-family: Roboto Condensed;
+  }
 }

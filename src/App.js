@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -11,7 +11,7 @@ import Home from "./home/pages/Home";
 //Venue Booking System
 import VenueSelection from "./vbs/pages/VenueSelection/VenueSelection";
 import SpecificVenue from "./vbs/pages/SpecificVenue/SpecificVenue";
-import BookingPage from "./vbs/pages/BookingPage/BookingPage";
+import TestBookingPage from "./vbs/pages/TestBookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage/ConfirmationPage";
 
 import Navbar from "./shared/components/Navigation/NavBar";
@@ -20,6 +20,7 @@ import { LoginContext } from "./shared/context/LoginContext";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  let routes;
 
   const login = useCallback(() => {
     setIsLoggedIn(true);
@@ -28,8 +29,6 @@ const App = () => {
   const logout = useCallback(() => {
     setIsLoggedIn(false);
   }, []);
-
-  let routes;
 
   if (isLoggedIn) {
     //routes when logged in

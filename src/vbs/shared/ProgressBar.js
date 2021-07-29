@@ -2,8 +2,9 @@ import React from "react";
 import { useHistory } from "react-router";
 import "./ProgressBar.css";
 
-function ProgressBar(props) {
+function ProgressBar({ stage }) {
   let history = useHistory();
+
 
   if (props.stage === "1") {
     return (
@@ -38,7 +39,9 @@ function ProgressBar(props) {
           </div>
           <p class="caption-submit">SUBMIT</p>
         </div>
+        <p class="caption-venue">VENUE</p>
       </div>
+
     );
   } else if (props.stage === "2") {
     return (
@@ -75,6 +78,7 @@ function ProgressBar(props) {
           </div>
           <p className="caption-submit">SUBMIT</p>
         </div>
+        <p class="caption-date">DATE</p>
       </div>
     );
   } else if (props.stage === "3") {
@@ -118,6 +122,7 @@ function ProgressBar(props) {
           </div>
           <p className="caption-submit">SUBMIT</p>
         </div>
+        <p class="caption-details">DETAILS</p>
       </div>
     );
   } else {
@@ -163,9 +168,10 @@ function ProgressBar(props) {
           </div>
           <p className="caption-submit">SUBMIT</p>
         </div>
+        <p class="caption-submit">SUBMIT</p>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default ProgressBar;
