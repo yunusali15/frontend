@@ -7,43 +7,63 @@
   font-style: normal;
   font-weight: 800;
   font-size: 42px;
-  line-height: 35px;
-  position: absolute;
-  left: 70px;
-  top: -5px;
+  text-decoration: none;
 }
 
 .NavbarItems {
   background-color: #c84b31;
-  height: 96px;
+  height: 10vh;
   width: 100%;
-  /* position: fixed; */
+  display: flex;
+  justify-content: center;
 }
 
 .nav-menu {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
+  display: flex;
+  height: 10vh;
+  width: 70vw;
+  flex-direction: row;
   text-align: center;
-  grid-gap: 10px;
   list-style: none;
-  margin-top: 0px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-right {
+  width: 30vw;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
   justify-content: flex-end;
-  padding: 24px;
+  align-items: center;
 }
 
 .nav-links {
   color: #ffffff;
-  font-family: Roboto Light 300;
-  font-style: normal;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 49px;
-  text-align: center;
+  font-size: 18px;
   text-decoration: none;
-  padding: 43px 55px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+}
+
+.nav-links:nth-of-type(2) {
+  margin: 0 10%;
 }
 
 .nav-links:hover {
-  transition: all 0.2s ease-out;
-  text-decoration: underline;
+  border-bottom: 5px solid #ecdbba;
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-menu {
+    width: 95vw;
+  }
+
+  .navbar-right {
+    width: 50vw;
+  }
 }

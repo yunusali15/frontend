@@ -1,0 +1,50 @@
+/* FOR VENUE SELECTION PAGE  */
+
+.containers {
+  display: flex;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  display: inline-block;
+  margin-right: 4vw;
+  font-size: 1vw;
+  font-family: Roboto Condensed;
+  font-weight: 300;
+  color: #161616;
+}
+
+.updated {
+  background-color: #346751;
+}
+
+.updated:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dot:last-child {
+  margin-right: 0;
+}
+
+.line {
+  height: 1vh;
+  background-color: #c4c4c4;
+  width: 5.3vw;
+  margin-left: 10px;
+  border: 0px;
+  display: inline-block;
+}
+
+.updatedLine {
+  background-color: #346751;
+}
+
+.line4 {
+  width: 0%;
+  border: 0px;
+  display: inline-block;
+}
