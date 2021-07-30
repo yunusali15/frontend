@@ -72,13 +72,6 @@ function SpecificVenue() {
           <StatusBar stage={2} />
           <h1 className="banner">{venueName}</h1>
           <div class="scheduleAndCalendar">
-            <ScheduleSelect
-              selectedDate={selectedDate}
-              timeslots={timeslots}
-              setTimeslots={setTimeslots}
-              selectedTimeslot={selectedTimeslot}
-              setSelectedTimeslot={setSelectedTimeslot}
-            />
             <div
               style={{
                 flexDirection: "column",
@@ -93,6 +86,13 @@ function SpecificVenue() {
 
               <SelectedDisplay selectedTimeslot={selectedTimeslot} />
             </div>
+            <ScheduleSelect
+              selectedDate={selectedDate}
+              timeslots={timeslots}
+              setTimeslots={setTimeslots}
+              selectedTimeslot={selectedTimeslot}
+              setSelectedTimeslot={setSelectedTimeslot}
+            />
           </div>
           <div className="bottomNavigation">
             <Link class="backButton" to="/vbs">
