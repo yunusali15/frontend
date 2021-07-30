@@ -135,7 +135,7 @@ function SpecificVenue() {
             isOpen={isModalOpen}
             style={{
               overlay: {
-                backgroundColor: "grey",
+                backgroundColor: "rgba(179, 179, 179, 0.74)",
               },
               content: {
                 padding: "0 0",

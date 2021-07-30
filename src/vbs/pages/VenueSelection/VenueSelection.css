@@ -1,6 +1,5 @@
 .Venues-page {
   background-color: #ffffff;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +9,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: #ffffff;
   width: 70vw;
   justify-content: flex-start;
 }
@@ -69,49 +67,17 @@
   }
 }
 
-@media (max-width: 420px) {
-  .Venues-page {
-    background-color: #ffffff;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+@media (max-width: 500px) {
   .venues-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border: #ffffff;
     width: 80vw;
-    justify-content: flex-start;
   }
 
   .venue {
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-    justify-content: flex-end;
     width: 80vw;
     height: 53vw;
   }
 
   .venueLink {
     margin-bottom: 2.5vh;
-    text-decoration: none;
-  }
-
-  .venueName {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 3%;
-    height: 20%;
-    width: 100%;
-    color: #ffffff;
-    background-color: rgba(00, 00, 00, 0.5);
-    letter-spacing: 1.5px;
-    font-family: Roboto Condensed;
   }
 }
