@@ -129,7 +129,7 @@ function SpecificVenue() {
     } else {
       return (
         <div class="mainContainer">
-          <StatusBar stage={2} isMobile={isMobile} />
+          <StatusBar stage={2} />
           <h1 className="banner bannerMobile">{venueName}</h1>
           <Modal
             isOpen={isModalOpen}

@@ -2,10 +2,10 @@ import React from "react";
 import "./StatusBar.css";
 import ProgressBar from "./ProgressBar";
 
-const StatusBar = ({ stage, isMobile }) => {
+const StatusBar = ({ stage }) => {
   return (
     <div className="statusBarContainer">
-      <h1 className={isMobile ? "vbsMobile" : "vbs"}>VENUE BOOKING SYSTEM</h1>
+      <h1 className="vbs">VENUE BOOKING SYSTEM</h1>
       <ProgressBar stage={stage} />
     </div>
   );
