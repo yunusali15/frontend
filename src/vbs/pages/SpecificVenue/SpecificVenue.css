@@ -96,18 +96,20 @@
   min-width: 35px;
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 501px) {
+@media only screen and (max-width: 1200px) {
   .scheduleAndCalendar,
   .banner {
     width: 95vw;
   }
 
-  .statusBarContainer {
-    width: 95vw;
-  }
-
   .bottomNavigation {
     width: 95vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .venueName {
+    font-size: 20px;
   }
 }
 
