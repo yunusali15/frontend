@@ -133,6 +133,7 @@ function SpecificVenue() {
           <h1 className="banner bannerMobile">{venueName}</h1>
           <Modal
             isOpen={isModalOpen}
+            onRequestClose={() => setIsModalOpen(false)}
             style={{
               overlay: {
                 backgroundColor: "rgba(179, 179, 179, 0.74)",
