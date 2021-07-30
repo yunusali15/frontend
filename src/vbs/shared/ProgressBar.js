@@ -1,11 +1,12 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import "./ProgressBar.css";
 import { BsCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function ProgressBar({ stage }) {
   let history = useHistory();
+  let { venueName } = useParams("venueName");
   return (
     <div className="progressBarContainer">
       <div className="dotsAndLines">
@@ -22,27 +23,21 @@ function ProgressBar({ stage }) {
         </div>
       </div>
       <div className="links">
-        {stage > 1 ? (
-          <Link className="link enabled" to="../vbs">
+        {stage > 1 && stage < 4 ? (
+          <Link className="link enabled" to="/vbs">
             VENUE
           </Link>
         ) : (
           <Link className="link">VENUE</Link>
         )}
-        {stage > 2 ? (
-          <Link className="link enabled" to="../vbs">
+        {stage > 2 && stage < 4 ? (
+          <Link className="link enabled" to={`/vbs/${venueName}`}>
             DETAILS
           </Link>
         ) : (
           <Link className="link">DETAILS</Link>
         )}
-        {stage > 3 ? (
-          <Link className="link enabled" to="../vbs">
-            DATE
-          </Link>
-        ) : (
-          <Link className="link">DATE</Link>
-        )}
+        <Link className="link">DETAILS</Link>
         <Link className="link">SUBMIT</Link>
       </div>
     </div>
