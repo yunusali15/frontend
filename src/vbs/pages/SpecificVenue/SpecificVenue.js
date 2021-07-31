@@ -70,7 +70,7 @@ function SpecificVenue() {
 
   //to determine if isMobile
   function handleWindowSizeChange() {
-    setIsMobile(window.innerWidth < 500);
+    setIsMobile(window.innerWidth <= 500);
   }
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
@@ -159,7 +159,7 @@ function SpecificVenue() {
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
           <div className="bottomNavigationModal">
             <div
-              className="backButtonMobile"
+              className="backButton modal"
               onClick={() => setIsModalOpen(false)}
             >
               Back

@@ -135,6 +135,11 @@
     height: 10vh;
   }
 
+  .backButton.modal {
+    width: 48%;
+    height: 35px;
+  }
+
   .selectedDateDisplay {
     height: 100%;
     width: 100%;
