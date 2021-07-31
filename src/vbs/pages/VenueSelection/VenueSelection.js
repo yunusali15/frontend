@@ -7,7 +7,7 @@ import StatusBar from "../../shared/StatusBar";
 const VenueSelection = () => {
   return (
     <div className="Venues-page">
-      <StatusBar stage="1" />
+      <StatusBar stage={1} />
       <div className="venues-container">
         {DATA.map((venue) => (
           <Link

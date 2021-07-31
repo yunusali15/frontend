@@ -4,4 +4,46 @@
   justify-content: space-between;
   align-items: center;
   width: 70vw;
+  height: 10vh;
+  min-height: 100px;
+}
+
+.progressBar {
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .statusBarContainer {
+    width: 93vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .vbs {
+    margin: 0 0;
+  }
+  .statusBarContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    margin-top: 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  .vbs {
+    font-size: 20px;
+  }
+
+  .statusBarContainer {
+    width: 95vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .statusBarContainer {
+    width: 90vw;
+  }
 }
