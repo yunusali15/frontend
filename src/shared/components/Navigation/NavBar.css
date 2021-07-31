@@ -3,19 +3,21 @@
 
 .navbar-name {
   color: #ecdbba;
-  font-family: Raleway, Light 300;
+  font-family: 'Raleway', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 42px;
-  text-decoration: none;
+  margin-left:5vw;
 }
 
 .NavbarItems {
   background-color: #c84b31;
   height: 10vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .nav-menu {
@@ -23,11 +25,10 @@
   height: 10vh;
   width: 70vw;
   flex-direction: row;
-  text-align: center;
-  list-style: none;
-  justify-content: space-between;
-  align-items: center;
-}
+  justify-content:space-around;
+  align-items:center;
+  width:50%;
+  list-style:none;
 
 .navbar-right {
   width: 30vw;
@@ -40,30 +41,62 @@
 
 .nav-links {
   color: #ffffff;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
   font-weight: 300;
   font-size: 18px;
-  text-decoration: none;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  box-sizing: content-box;
+  text-align: center;
+  text-decoration:none;
 }
 
 .nav-links:nth-of-type(2) {
   margin: 0 10%;
 }
 
-.nav-links:hover {
-  border-bottom: 5px solid #ecdbba;
+.menu-icon{
+  display:none;
 }
 
-@media only screen and (max-width: 1200px) {
-  .nav-menu {
-    width: 95vw;
+@media screen and (max-width: 800px) {
+  .NavbarItems{
+    display:flex;
+    flex-direction:column;
+    height:15vh;
   }
 
-  .navbar-right {
-    width: 50vw;
+  .navbar-name{
+    display:flex;
+    flex-direction:row;
+    width:80%;
+    height:100%;
+    justify-content:space-between;
+    align-items:center;
+  }
+  
+
+  .nav-menu{
+    display:none;
+  }
+
+  .menu-icon{
+    display:flex;
+    color:#ecdbba;
+  }
+
+  .nav-menu-active{
+    text-align:center;
+    width:100%;
+    display:flex;
+    transition: all 0.5s ease;
+    display:flex;
+    flex-direction:column;
+    background-color:#c84b31;
+    list-style:none;
+    z-index:1;
+    height:20vh;
+  }
+
+  li{
+    margin-bottom:2vh;
   }
 }

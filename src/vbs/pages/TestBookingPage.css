@@ -2,79 +2,122 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 .mainDiv {
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  display: flex;
+    flex-direction: column;
+    background-color: white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.contents {
-  display: flex;
-  flex-direction: column;
-  width: 70vw;
-  background-color: #ecdbba;
-  justify-content: space-evenly;
-  padding: 5vh 5vw;
+.Statusbar{
+    flex-direction:center;
+    margin-left:5vw;
+    height:15vh;
 }
 
-.Venue {
-  font-family: Raleway, Light 300;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 32px;
-  position: absolute;
-  left: 5vw;
-  top: 12vh;
-  line-height: 48px;
-  display: inline-block;
-  min-width: 72%;
+.contents{
+    display:flex;
+    flex-direction: column;
+    width:70%;
+    background-color: #ECDBBA;
+    justify-content: center;
 }
 
-.progressbar {
-  margin-top: -9vh;
-  float: right;
-  margin-left: 70vw;
-}
 
 .Titles {
-  color: #c84b31;
-  font-family: Raleway, Light 300;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 24px;
-  text-align: right;
-  width: 15vw;
-  margin-right: 3vw;
+    color:#C84B31;
+    font-family:'Raleway', sans-serif;
+    font-style:normal;
+    font-weight:800;
+    font-size:24px;
+    margin-right:3vw;
+    text-align:right;
+    width:10vw;
 }
 
 .row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 6vh;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
 }
 
-.black {
-  color: black;
-  font-family: Roboto Light 300;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
+.black{
+    color:black;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight:300;
+    font-size:20px;
 }
 
-.active {
-  width: 100%;
-  height: 10vh;
-  margin-bottom: 2vh;
-  margin-top: 1vh;
+input[name=Email]{
+    height:5vh;
+    width:50%;
 }
 
-@media only screen and (max-width: 1200px) {
-  .Venue {
-    font-size: 40px;
-  }
 
-  .contents {
-    width: 100vw;
-  }
+.active{
+    width:100%;
+    height:20vh;
+    visibility: visible;
+    display:flex;
+    flex-direction:column;
+    margin-left:13vw;
+}
+
+.inactive{
+    visibility: hidden;
+}
+
+input[name= HallCCA] {
+    height:5vh;
+    width:50%;
+}
+
+input[name= VenueSize] {
+    height:5vh;
+    width:50%;
+}
+
+input[name=Details] {
+    height:10vh;
+    width:70%;
+}
+
+.sButton {
+    background-color:grey;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    height:8vh;
+    width:15vw;
+    text-align:center;
+}
+
+.Buttonsection{
+    margin-top:2vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:70%;
+}
+
+.bButton{
+    background-color:white;
+    color:#C84B31;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    height:8vh;
+    width:15vw;
+    border-color:#C84B31;
+    justify-content:center;
+    align-items:center;
+    border-style:solid;
+    text-align:center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .Statusbar{
+        height:100%;
+        width:80%;
+    }
 }

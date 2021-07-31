@@ -2,7 +2,7 @@ import "./TestBookingPage.css";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useLocation, useParams } from "react-router";
-import ProgressBar from "../shared/ProgressBar";
+import StatusBar from "../shared/StatusBar";
 import { Link } from "react-router-dom";
 import StatusBar from "../shared/StatusBar";
 
@@ -24,36 +24,74 @@ const TestBookingPage = () => {
   const [isActive, setIsActive] = useState("");
   const OnClick = () => setIsActive(!isActive);
 
-  function handleTimeSelect(id) {
-    DATA[id].selected = !DATA[id].selected;
-    setTimeIntervals(DATA);
-    console.log(id);
-    console.log(DATA[id].selected);
-  }
+    function handleTimeSelect(id) {
+        DATA[id].selected = !DATA[id].selected;
+        setTimeIntervals(DATA);
+        console.log(id);
+        console.log(DATA[id].selected);
+      }
+ 
+    return (
+        <div class="mainDiv">
+            <div class="Statusbar">
+                <StatusBar stage="3" />
+            </div>
+            <form class = "contents" action="">
+                <div class = "row">
+                    <h2 class = "Titles">VENUE</h2>
+                    <h3 class = "black">{venueName}</h3>
+                </div>
 
-  return (
-    <div class="mainDiv">
-      <StatusBar stage={3} />
-      <form className="contents" action="">
-        <div class="row">
-          <h2 class="Titles">VENUE</h2>
-          <h3 class="black">{venueName}</h3>
-        </div>
+                <div class = "row">
+                    <h2 class = "Titles">TIME</h2>
+                    <h3 class = "black">{selectedDate.toDateString()}</h3> 
+                </div>
+                    
+                <div class = "row">
+                    <h2 class = "Titles">EMAIL</h2>
+                    <input type = "text" id = "Email" name="Email" placeholder = "e0123456@u.nus.edu.sg" required></input>
+                        
+                </div>
+                        
+                <div class = "row">
+                    <h2 class = "Titles">PURPOSE</h2>
+                    <input type ="radio" id="CCA" name="Purpose" value ="CCA" 
+                        value={cca} onChange={event => setCCA(event.target.value), OnClick}></input>
+                    <label for="CCA">CCA</label>
+                    <input type ="radio" id="Personal" name="Purpose" value ="Personal" 
+                        value={purpose} onChange={event => setPurpose(event.target.value), OnClick}></input>
+                    <label for="Personal">Personal</label>
+                        
+                </div>
+                <div className = {isActive ? "active": "inactive"}>
+                    <input type = "text" id = "HallCCA" name = "HallCCA" placeholder = "Hall CCA" required></input>
+                    <input type = "text" id = "VenueSize" name = "VenueSize" placeholder = "Venue Size" required></input>
+                    <input type = "text" id = "Details" name= "Details" placeholder = "Details"></input>
+                </div>
+    
+            </form>
+            
 
-        <div class="row">
-          <h2 class="Titles">TIME</h2>
-          <h3 class="black">{selectedDate.toDateString()}</h3>
-        </div>
+            <div className = "Buttonsection">
+                <Link class="bButton" to={{
+                pathname:`/vbs/${venueName}`,
+                }}>
+                Back
+                </Link>
 
-        <div class="row">
-          <h2 class="Titles">EMAIL</h2>
-          <input
-            type="text"
-            id="Email"
-            name="Email"
-            placeholder="e0123456@u.nus.edu.sg"
-            required
-          ></input>
+                <Link class = "sButton"
+                    to={{
+                    pathname: "/vbs/confirmation",
+                state: {
+                venueName: venueName,
+                selectedDate: selectedDate,
+                cca: cca,
+            purpose: purpose
+            },
+            }}
+        >
+            Submit </Link> 
+            </div>
         </div>
 
         <div class="row">
