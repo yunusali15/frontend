@@ -5,7 +5,7 @@ export const MenuItems = [
     cName: "nav-links",
   },
   {
-    title: "Venue Booking System",
+    title: "VENUE BOOKING",
     url: "/vbs",
     cName: "nav-links",
   },

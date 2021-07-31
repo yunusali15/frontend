@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./NavBar.css";
-import {MenuItems} from "./MenuItems";
+import { Link } from "react-router-dom";
+import { MenuItems } from "./MenuItems";
 
 class Navbar extends Component {
     state = {clicked: false};
@@ -33,4 +34,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar
+export default Navbar;

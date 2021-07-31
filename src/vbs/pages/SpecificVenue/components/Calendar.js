@@ -6,7 +6,6 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
   const minDate = new Date();
   minDate.setDate(new Date().getDate() + 3);
   //DATA here is for my own personal use and is only for reading purposes
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
   const [DATA, setDATA] = useState([
     {
@@ -59,6 +58,19 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
   //Child to parent setState functionality
   function setTrainingTimesFn(timings) {
     setTrainingTimes(timings);
+  }
+
+  //Display label of react-calendar
+  function displayLabel(date, label, locale, view) {
+    
+    const monthNamesFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    
+    var month = monthNamesFull[date.getMonth()];
+    var year = date.getFullYear();
+    if (view === 'month') {
+      return `${month}`
+    }
+    return `${year}`
   }
 
   /*---------------------For tile contents*------------------*/
@@ -114,6 +126,7 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
             }
           }
         }}
+        navigationLabel={({ date, label, locale, view }) => displayLabel(date, label, locale, view)}
         minDate={minDate}
         minDetail="year"
         nextLabel=">"

@@ -1,171 +1,52 @@
 import React from "react";
 import { useHistory } from "react-router";
 import "./ProgressBar.css";
+import { BsCircleFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
-function ProgressBar(props) {
+function ProgressBar({ stage }) {
   let history = useHistory();
-
-  if (props.stage === "1") {
-    return (
-      <div class="container">
-        <div class="updatedDot" contentEditable="false">
-          <div>
-            <span class="updatedLine"></span>
-          </div>
-          <p class="caption-venue">VENUE</p>
+  return (
+    <div className="progressBarContainer">
+      <div className="dotsAndLines">
+        <div className="lines">
+          <div className={`line ${stage > 1 ? "updated" : ""}`} />
+          <div className={`line ${stage > 2 ? "updated" : ""}`} />
+          <div className={`line ${stage > 3 ? "updated" : ""}`} />
         </div>
-        <div class="dot" contentEditable="false">
-          <div>
-            <span class="line"></span>
-          </div>
-          <p class="caption-date">DATE</p>
-        </div>
-        <div class="dot" contentEditable="false">
-          <div>
-            <span class="line"></span>
-          </div>
-          <p class="caption-details">DETAILS</p>
-        </div>
-        <div
-          class="dot"
-          style={{ marginRight: "0" }}
-          contentEditable="false"
-          m
-          start
-        >
-          <div>
-            <span class="line4"></span>
-          </div>
-          <p class="caption-submit">SUBMIT</p>
+        <div className="dots">
+          <BsCircleFill className="dot updated" />
+          <BsCircleFill className={`dot ${stage > 1 ? "updated" : ""}`} />
+          <BsCircleFill className={`dot ${stage > 2 ? "updated" : ""}`} />
+          <BsCircleFill className={`dot ${stage > 3 ? "updated" : ""}`} />
         </div>
       </div>
-    );
-  } else if (props.stage === "2") {
-    return (
-      <div class="container">
-        <div
-          class="updatedDot"
-          contentEditable="false"
-          onClick={() => history.goBack()}
-        >
-          <div>
-            <span class="updatedLine"></span>
-          </div>
-          <p class="caption-venue">VENUE</p>
-        </div>
-        <div
-          class="updatedDot"
-          contentEditable="false"
-          onClick={() => window.location.reload(false)}
-        >
-          <div>
-            <span class="updatedLine"></span>
-          </div>
-          <p className="caption-date">DATE</p>
-        </div>
-        <div className="dot" contentEditable="false">
-          <div>
-            <span className="line"></span>
-          </div>
-          <p className="caption-details">DETAILS</p>
-        </div>
-        <div className="dot" contentEditable="false">
-          <div>
-            <span className="line4"></span>
-          </div>
-          <p className="caption-submit">SUBMIT</p>
-        </div>
+      <div className="links">
+        {stage > 1 ? (
+          <Link className="link enabled" to="../vbs">
+            VENUE
+          </Link>
+        ) : (
+          <Link className="link">VENUE</Link>
+        )}
+        {stage > 2 ? (
+          <Link className="link enabled" to="../vbs">
+            DETAILS
+          </Link>
+        ) : (
+          <Link className="link">DETAILS</Link>
+        )}
+        {stage > 3 ? (
+          <Link className="link enabled" to="../vbs">
+            DATE
+          </Link>
+        ) : (
+          <Link className="link">DATE</Link>
+        )}
+        <Link className="link">SUBMIT</Link>
       </div>
-    );
-  } else if (props.stage === "3") {
-    return (
-      <div className="container">
-        <div
-          className="updatedDot"
-          contentEditable="false"
-          onClick={() => history.goBack(2)}
-        >
-          <div>
-            <span className="updatedLine"></span>
-          </div>
-          <p className="caption-venue">VENUE</p>
-        </div>
-        <div
-          className="updatedDot"
-          contentEditable="false"
-          onClick={() => {
-            history.goBack();
-          }}
-        >
-          <div>
-            <span className="updatedLine"></span>
-          </div>
-          <p className="caption-date">DATE</p>
-        </div>
-        <div
-          className="updatedDot"
-          contentEditable="false"
-          onClick={() => window.location.reload(false)}
-        >
-          <div>
-            <span className="updatedLine"></span>
-          </div>
-          <p className="caption-details">DETAILS</p>
-        </div>
-        <div className="dot" contentEditable="false">
-          <div>
-            <span className="line4"></span>
-          </div>
-          <p className="caption-submit">SUBMIT</p>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="container">
-        <div
-          className="updatedDot"
-          contentEditable="false"
-          onClick={() => history.goBack(3)}
-        >
-          <div>
-            <span className="updatedLine"></span>
-          </div>
-          <p className="caption-venue">VENUE</p>
-        </div>
-        <div
-          className="updatedDot"
-          contentEditable="false"
-          onClick={() => history.goBack(2)}
-        >
-          <div>
-            <span className="updatedLine"></span>
-          </div>
-          <p className="caption-date">DATE</p>
-        </div>
-        <div
-          className="updatedDot"
-          contentEditable="false"
-          onClick={() => history.goBack(1)}
-        >
-          <div>
-            <span className="updatedLine"></span>
-          </div>
-          <p className="caption-details">DETAILS</p>
-        </div>
-        <div
-          className="updatedDot"
-          contentEditable="false"
-          onClick={() => window.location.reload(false)}
-        >
-          <div>
-            <span className="line4"></span>
-          </div>
-          <p className="caption-submit">SUBMIT</p>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default ProgressBar;
