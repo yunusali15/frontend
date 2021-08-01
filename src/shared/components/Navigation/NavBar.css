@@ -22,11 +22,10 @@
 
 .nav-menu {
   display: flex;
-  height: 10vh;
-  width: 70vw;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  height: 10vh;
   width: 50%;
   list-style: none;
 }
@@ -62,7 +61,7 @@
   .NavbarItems {
     display: flex;
     flex-direction: column;
-    height: 15vh;
+    height: 10vh;
   }
 
   .navbar-name {
