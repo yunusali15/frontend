@@ -9,7 +9,7 @@
 .selectedDateDisplay {
   color: #ecdbba;
   font-family: "Raleway", sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,8 +23,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 75%;
+  width: 80%;
   height: 75%;
+  overflow-y: scroll;
 }
 
 .schedulePreview {
@@ -39,7 +40,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 2vh;
+  height: 100%;
 }
 
 .timeSlot {
@@ -71,7 +72,7 @@
 
 .timeSlotText {
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 1.5vh;
+  font-size: 15px;
   text-align: center;
   color: white;
   margin: 0 0;
@@ -80,9 +81,10 @@
 .legend {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   color: white;
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 1.5vh;
+  font-size: 18px;
   justify-content: center;
   width: 75%;
 }
@@ -95,6 +97,39 @@
 
 .legendBox:first-of-type {
   margin-right: 0.5vw;
+}
+
+@media only screen and (max-width: 800px) and (min-width: 501px) {
+  .timeSlot {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+
+  .selectedDateDisplay {
+    width: 85%;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .timeSlotContainer {
+    height: 70%;
+  }
+
+  .legend {
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .legendBox {
+    height: unset;
+    width: 100%;
+  }
+
+  .legendBox:first-of-type {
+    margin-right: unset;
+    margin-bottom: 1vh;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -139,11 +174,5 @@
 
   .schedulePreview {
     font-size: 20px;
-  }
-}
-
-@media only screen and (max-width: 1450px) {
-  .selectedDateDisplay {
-    font-size: 33px;
   }
 }
