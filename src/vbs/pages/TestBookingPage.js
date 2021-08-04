@@ -21,7 +21,7 @@ const TestBookingPage = () => {
   const [cca, setCCA] = useState("");
   const [purpose, setPurpose] = useState("");
   const [isActive, setIsActive] = useState("");
-  const OnClick = () => setIsActive(!isActive);
+  // const OnClick = () => setIsActive(!isActive);
 
   function handleTimeSelect(id) {
     DATA[id].selected = !DATA[id].selected;
@@ -31,23 +31,23 @@ const TestBookingPage = () => {
   }
 
   return (
-    <div class="mainDiv">
-      <div class="Statusbar">
+    <div className="mainDiv">
+      <div className="Statusbar">
         <StatusBar stage="3" />
       </div>
-      <form class="contents" action="">
-        <div class="row">
-          <h2 class="Titles">VENUE</h2>
-          <h3 class="black">{venueName}</h3>
+      <form className="contents" action="">
+        <div className="row">
+          <h2 className="Titles">VENUE :</h2>
+          <h3 className="black">{venueName}</h3>
         </div>
 
-        <div class="row">
-          <h2 class="Titles">TIME</h2>
-          <h3 class="black">{selectedDate.toDateString()}</h3>
+        <div className="row">
+          <h2 className="Titles">TIME :</h2>
+          <h3 className="black">{selectedDate.toDateString()}</h3>
         </div>
 
-        <div class="row">
-          <h2 class="Titles">EMAIL</h2>
+        <div className="row">
+          <h2 className="Titles">EMAIL :</h2>
           <input
             type="text"
             id="Email"
@@ -57,15 +57,18 @@ const TestBookingPage = () => {
           ></input>
         </div>
 
-        <div class="row">
-          <h2 class="Titles">PURPOSE</h2>
-          <input
+        <div className="row">
+          <h2 className="Titles">PURPOSE :</h2>
+          <div className='ccaContainer'>
+          <div className="radio-buttons">
+            <input
             type="radio"
             id="CCA"
             name="Purpose"
             value="CCA"
             value={cca}
-            onChange={((event) => setCCA(event.target.value), OnClick)}
+            onChange={((event) => setPurpose(event.target.value))}
+            onClick={() => setIsActive("active")}
           ></input>
           <label for="CCA">CCA</label>
           <input
@@ -74,125 +77,29 @@ const TestBookingPage = () => {
             name="Purpose"
             value="Personal"
             value={purpose}
-            onChange={((event) => setPurpose(event.target.value), OnClick)}
+            onChange={((event) => setPurpose(event.target.value))}
+            onClick={() => setIsActive("inactive")
+            }
           ></input>
           <label for="Personal">Personal</label>
-        </div>
-        <div className={isActive ? "active" : "inactive"}>
-          <input
-            type="text"
-            id="HallCCA"
-            name="HallCCA"
-            placeholder="Hall CCA"
-            required
-          ></input>
-          <input
-            type="text"
-            id="VenueSize"
-            name="VenueSize"
-            placeholder="Venue Size"
-            required
-          ></input>
-          <input
-            type="text"
-            id="Details"
-            name="Details"
-            placeholder="Details"
-          ></input>
-        </div>
-        <div className="Buttonsection">
-          <Link
-            class="bButton"
-            to={{
-              pathname: `/vbs/${venueName}`,
-            }}
-          >
-            Back
-          </Link>
-
-          <Link
-            class="sButton"
-            to={{
-              pathname: "/vbs/confirmation",
-              state: {
-                venueName: venueName,
-                selectedDate: selectedDate,
-                cca: cca,
-                purpose: purpose,
-              },
-            }}
-          >
-            Submit{" "}
-          </Link>
-        </div>
-
-        <div class="row">
-          <h2 class="Titles">PURPOSE</h2>
-          <input
-            type="radio"
-            id="CCA"
-            name="Purpose"
-            value="CCA"
-            value={cca}
-            onChange={(event) => {
-              setPurpose(event.target.value);
-              OnClick();
-            }}
-          ></input>
-          <label for="CCA">CCA</label>
-          <input
-            type="radio"
-            id="Personal"
-            name="Purpose"
-            value="Personal"
-            value={purpose}
-            onChange={(event) => {
-              setPurpose(event.target.value);
-              OnClick();
-            }}
-          ></input>
-          <label for="Personal">Personal</label>
-        </div>
-        {isActive && (
-          <div className="active">
+          </div>
             <input
               type="text"
               id="HallCCA"
               name="HallCCA"
               placeholder="Hall CCA"
+              className={isActive? isActive : 'inactive'}
               required
-            />
-          </div>
-        )}
-        <div className="row">
-          <h2 className="Titles">DETAILS</h2>
-          <input
-            type="text"
-            id="Details"
-            name="HallCCA"
-            placeholder="Hall CCA"
-            required
-          />
+            ></input>
+        </div>
         </div>
         <div className="row">
-          <h2 className="Titles" />
-          <input type="text" id="Details" name="HallCCA" required />
-        </div>
-        <div className="row" style={{ height: "11vh" }}>
-          <h2 className="Titles" />
-          <textarea
-            type="text"
-            id="Details"
-            name="HallCCA"
-            required
-            rows="4"
-            cols="30"
-            style={{ height: "8vh" }}
-          />
+          <h2 className="Titles">DETAILS :</h2>
+          <input type="text" id="Details" name="Details" placeholder="Details"></input>
         </div>
       </form>
       <div className="bottomNavigation">
-        <Link class="backButton" to={`/vbs/${venueName}`}>
+        <Link className="backButton" to={`/vbs/${venueName}`}>
           Back
         </Link>
         {true ? (
@@ -212,12 +119,12 @@ const TestBookingPage = () => {
             to={{
               pathname: `/vbs/confirmation`,
             }}
-            class="submitButton enabled"
+            className="submitButton enabled"
           >
             Submit
           </Link>
         ) : (
-          <div class="submitButton disabled">Submit</div>
+          <div className="submitButton disabled">Submit</div>
         )}
       </div>
     </div>
