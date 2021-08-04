@@ -54,33 +54,36 @@ input[name=Email]{
     width:50%;
 }
 
+#Detail{
+    align-items:flex-start;
+}
+
+.multipleRows{
+    display:flex;
+    flex-direction:column;
+    
+}
+
 
 .active{
     width:100%;
-    height:20vh;
     visibility: visible;
-    display:flex;
-    flex-direction:column;
-    margin-left:13vw;
 }
 
 .inactive{
-    visibility: hidden;
+    display:none;
 }
 
-input[name= HallCCA] {
+#HallCCA{
     height:5vh;
-    width:50%;
+    width:100%;
 }
 
 input[name= VenueSize] {
     height:5vh;
-    width:50%;
-}
-
-input[name=Details] {
-    height:10vh;
-    width:70%;
+    width:100%;
+    margin-top:1vh;
+    margin-bottom:2vh;
 }
 
 .sButton {
@@ -116,8 +119,35 @@ input[name=Details] {
 }
 
 @media only screen and (max-width: 1000px) {
-    .Statusbar{
-        height:100%;
+    .row{
+        flex-direction:column;
+    }
+
+    .Titles{
+        font-size:30px;
+        text-align:left;
         width:80%;
+        margin:1vh;
+    }
+
+    .black{
+        margin:1vh;
+        width: 80%;
+        text-align:left;
+    }
+
+    .contents{
+        width:85%;
+    }
+
+    input[name = Email]{
+        width: 80%;
+    }
+
+    .radio{
+        display:flex;
+        flex-direction:row;
+        width:85%;
+        justify-content:space-around;
     }
 }

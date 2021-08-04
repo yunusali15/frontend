@@ -59,75 +59,7 @@ const TestBookingPage = () => {
 
         <div class="row">
           <h2 class="Titles">PURPOSE</h2>
-          <input
-            type="radio"
-            id="CCA"
-            name="Purpose"
-            value="CCA"
-            value={cca}
-            onChange={((event) => setCCA(event.target.value), OnClick)}
-          ></input>
-          <label for="CCA">CCA</label>
-          <input
-            type="radio"
-            id="Personal"
-            name="Purpose"
-            value="Personal"
-            value={purpose}
-            onChange={((event) => setPurpose(event.target.value), OnClick)}
-          ></input>
-          <label for="Personal">Personal</label>
-        </div>
-        <div className={isActive ? "active" : "inactive"}>
-          <input
-            type="text"
-            id="HallCCA"
-            name="HallCCA"
-            placeholder="Hall CCA"
-            required
-          ></input>
-          <input
-            type="text"
-            id="VenueSize"
-            name="VenueSize"
-            placeholder="Venue Size"
-            required
-          ></input>
-          <input
-            type="text"
-            id="Details"
-            name="Details"
-            placeholder="Details"
-          ></input>
-        </div>
-        <div className="Buttonsection">
-          <Link
-            class="bButton"
-            to={{
-              pathname: `/vbs/${venueName}`,
-            }}
-          >
-            Back
-          </Link>
-
-          <Link
-            class="sButton"
-            to={{
-              pathname: "/vbs/confirmation",
-              state: {
-                venueName: venueName,
-                selectedDate: selectedDate,
-                cca: cca,
-                purpose: purpose,
-              },
-            }}
-          >
-            Submit{" "}
-          </Link>
-        </div>
-
-        <div class="row">
-          <h2 class="Titles">PURPOSE</h2>
+          <div className = "radio">
           <input
             type="radio"
             id="CCA"
@@ -152,45 +84,41 @@ const TestBookingPage = () => {
             }}
           ></input>
           <label for="Personal">Personal</label>
+          </div>
         </div>
-        {isActive && (
-          <div className="active">
-            <input
-              type="text"
+        
+        <div className="row">
+          <h2 className="Titles" id = "Detail">DETAILS</h2>
+          <div className = "multipleRows">
+            {isActive && <div className = "active">
+              <select
               id="HallCCA"
               name="HallCCA"
-              placeholder="Hall CCA"
               required
-            />
+              >
+                <option value='' disabled selected>Hall CCA</option>
+                <option>KE WEB</option>
+              </select>
+              </div>
+            }
+            <input type="text" id="Details" name="VenueSize" placeholder="Venue Size" required />
+            <div className="row" style={{ height: "10vh" }}>
+              <textarea
+              type="text"
+              id="Details"
+              name="HallCCA"
+              placeholder = "Details"
+              required
+              rows="4"
+              cols="60"
+              style={{ height: "8vh" }}
+              />
+            </div>
           </div>
-        )}
-        <div className="row">
-          <h2 className="Titles">DETAILS</h2>
-          <input
-            type="text"
-            id="Details"
-            name="HallCCA"
-            placeholder="Hall CCA"
-            required
-          />
         </div>
-        <div className="row">
-          <h2 className="Titles" />
-          <input type="text" id="Details" name="HallCCA" required />
-        </div>
-        <div className="row" style={{ height: "11vh" }}>
-          <h2 className="Titles" />
-          <textarea
-            type="text"
-            id="Details"
-            name="HallCCA"
-            required
-            rows="4"
-            cols="30"
-            style={{ height: "8vh" }}
-          />
-        </div>
+     
       </form>
+
       <div className="bottomNavigation">
         <Link class="backButton" to={`/vbs/${venueName}`}>
           Back
