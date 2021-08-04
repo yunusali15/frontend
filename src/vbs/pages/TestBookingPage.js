@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useLocation, useParams } from "react-router";
 import StatusBar from "../shared/StatusBar";
 import { Link } from "react-router-dom";
+import ccaDATA from './ccaDATA';
 
 const DATA = [
   { id: 0, timeStart: "08:00", timeEnd: "09:00", selected: false },
@@ -21,8 +22,8 @@ const TestBookingPage = () => {
   const [cca, setCCA] = useState("");
   const [purpose, setPurpose] = useState("");
   const [isActive, setIsActive] = useState("");
-  // const OnClick = () => setIsActive(!isActive);
-
+  
+  
   function handleTimeSelect(id) {
     DATA[id].selected = !DATA[id].selected;
     setTimeIntervals(DATA);
@@ -35,7 +36,7 @@ const TestBookingPage = () => {
       <div className="Statusbar">
         <StatusBar stage="3" />
       </div>
-      <form className="contents" action="">
+      <form className="contents">
         <div className="row">
           <h2 className="Titles">VENUE :</h2>
           <h3 className="black">{venueName}</h3>
@@ -83,21 +84,28 @@ const TestBookingPage = () => {
           ></input>
           <label for="Personal">Personal</label>
           </div>
-            <input
+            <select
               type="text"
               id="HallCCA"
               name="HallCCA"
               placeholder="Hall CCA"
+              value={cca}
               className={isActive? isActive : 'inactive'}
+              onChange={(e) => setCCA(e.target.value)}
               required
-            ></input>
-        </div>
+            >
+              {ccaDATA.map((cca) => (
+                  <option value={cca}>{cca}</option>
+              ))}
+            </select>
+          </div>
         </div>
         <div className="row">
           <h2 className="Titles">DETAILS :</h2>
           <input type="text" id="Details" name="Details" placeholder="Details"></input>
         </div>
       </form>
+      
       <div className="bottomNavigation">
         <Link className="backButton" to={`/vbs/${venueName}`}>
           Back
@@ -115,13 +123,8 @@ const TestBookingPage = () => {
           </p>
         )}
         {true ? (
-          <Link
-            to={{
-              pathname: `/vbs/confirmation`,
-            }}
-            className="submitButton enabled"
-          >
-            Submit
+          <Link to= {{pathname:`/vbs/confirmation`}} className="submitButton enabled">
+          Submit
           </Link>
         ) : (
           <div className="submitButton disabled">Submit</div>

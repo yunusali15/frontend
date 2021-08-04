@@ -83,7 +83,7 @@ input[name=Email]{
     display: none;
 }
 
-input[name= HallCCA] {
+select[name= HallCCA] {
     height:5vh;
     width:25vw;
     max-height: 40px;
@@ -98,7 +98,7 @@ input[name=Details] {
     
 }
 
-.sButton {
+/* .sButton {
     background-color:grey;
     color:white;
     font-family: 'Roboto', sans-serif;
@@ -106,16 +106,16 @@ input[name=Details] {
     height:8vh;
     width:15vw;
     text-align:center;
-}
+} */
 
-.Buttonsection{
+/* .Buttonsection{
     margin-top:2vh;
     display:flex;
     justify-content:space-between;
     align-items:center;
     width:70%;
-}
-
+} */
+/* 
 .bButton{
     background-color:white;
     color:#C84B31;
@@ -128,9 +128,14 @@ input[name=Details] {
     align-items:center;
     border-style:solid;
     text-align:center;
+} */
+
+a input [type=submit] {
+    cursor: pointer;
 }
 
-@media only screen and (max-width: 450px) {
+
+@media only screen and (max-width: 800px) {
     .contents{
         display:flex;
         flex-direction: column;
@@ -204,12 +209,17 @@ input[name=Details] {
         display: none;
     }
     
-    input[name= HallCCA] {
+    select[name= HallCCA] {
         height:5vh;
         width: 50vw;
         max-height: 40px;
         margin-left: unset;
     }
+
+    select option {
+        width: 5vw;
+    }
+    
     
     input[name=Email]{
         height:5vh;
