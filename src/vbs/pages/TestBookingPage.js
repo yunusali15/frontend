@@ -23,6 +23,7 @@ const TestBookingPage = () => {
   const [isActive, setIsActive] = useState("");
   const OnClick = () => setIsActive(!isActive);
 
+
   function handleTimeSelect(id) {
     DATA[id].selected = !DATA[id].selected;
     setTimeIntervals(DATA);
