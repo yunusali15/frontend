@@ -26,11 +26,18 @@ function SpecificVenue() {
 
   function handleSubvenueSelection(e) {
     setSelectedSubvenue(e);
+    console.log(e);
     api
       .get(
-        `api/v1/booking/get?venueId=6100d84eb4051df2f0baef1f&startDate=20210809&endDate=20211225`
+        `api/v1/booking/get?venueId=${e.value}&startDate=20210809&endDate=20211225`
       )
-      .then((res) => setBookedSlots(res.data.bookings));
+      .then((res) => {
+        setBookedSlots(res.data.bookings);
+        setSelectedTimeslot([]);
+        setSelectedDate(null);
+        TIMEDATA.map((i) => (i.selected = false));
+        setTimeslots(TIMEDATA);
+      });
   }
 
   function handleSelectedDateChange(selectedDate) {
@@ -42,6 +49,10 @@ function SpecificVenue() {
 
   function fetchAndSetTimeslots(selectedDate) {
     const parsedDate = parseSelectedDate(selectedDate);
+    //forces program to wait before trying to retrieve
+    while (!bookedSlots) {
+      setTimeout(() => console.log("wait"), 3000);
+    }
     const bookedArray = bookedSlots[`${parsedDate}`];
     console.log(bookedArray);
     TIMEDATA.map((i) => {
@@ -152,7 +163,13 @@ function SpecificVenue() {
     return (
       <div className="mainContainer">
         <StatusBar stage={2} />
-        <h1 className="banner">{venueId}</h1>
+        <SubvenueSelector
+          subvenues={subvenues}
+          handleSubvenueSelection={handleSubvenueSelection}
+          selectedSubvenue={selectedSubvenue}
+          setSelectedSubvenue={setSelectedSubvenue}
+          parentVenue={venue}
+        />
         <div className="specifcVenueCalendarContainerMobile">
           <ModifiedCalendar
             selectedDate={selectedDate}

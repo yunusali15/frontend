@@ -5,7 +5,9 @@ import DATA from "./venueDATA";
 import StatusBar from "../../shared/StatusBar";
 import axios from "axios";
 
-const api = axios.create({ baseURL: "https://britannic.herokuapp.com/" });
+const BASEURL = "https://britannic.herokuapp.com/";
+
+const api = axios.create({ baseURL: BASEURL });
 
 const VenueSelection = () => {
   const [parentVenueArray, setParentVenueArray] = useState([]);
@@ -34,7 +36,7 @@ const VenueSelection = () => {
           >
             <div
               className="venue"
-              style={{ backgroundImage: `url(${venue.image})` }}
+              style={{ backgroundImage: `url(${BASEURL + venue.image})` }}
             >
               <div className="venueName">{venue.name}</div>
             </div>

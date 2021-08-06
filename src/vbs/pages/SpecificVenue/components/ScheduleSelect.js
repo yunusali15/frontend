@@ -60,17 +60,18 @@ const ScheduleSelect = ({
             : "Select Date"}
         </p>
       )}
-      <p class="schedulePreview">{"Select Timeslot(s)"}</p>
+      {selectedDate && <p class="schedulePreview">{"Select Timeslot(s)"}</p>}
       <div class="timeSlotContainer">
         <div class="timeSlots">
-          {timeslots.map((time) => (
-            <TimeslotButton
-              time={time}
-              timeslots={timeslots}
-              selectedTimeslot={selectedTimeslot}
-              setSelectedTimeslot={setSelectedTimeslot}
-            />
-          ))}
+          {selectedDate &&
+            timeslots.map((time) => (
+              <TimeslotButton
+                time={time}
+                timeslots={timeslots}
+                selectedTimeslot={selectedTimeslot}
+                setSelectedTimeslot={setSelectedTimeslot}
+              />
+            ))}
         </div>
       </div>
       <div class="legend">

@@ -31,13 +31,13 @@
   background-color: #ecdbba;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .dropdown__menu div {
   background-color: #ecdbba !important;
   color: black !important;
-  width: 100%;
+  width: 97%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -49,4 +49,10 @@
   font-size: 20px;
   top: 30%;
   position: absolute;
+}
+
+@media only screen and (max-width: 1200px) {
+  .dropdown {
+    width: 95%;
+  }
 }
