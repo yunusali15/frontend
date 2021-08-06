@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import ModifiedCalendar from "../../pages/SpecificVenue/components/Calendar";
 import ScheduleSelect from "../../pages/SpecificVenue/components/ScheduleSelect";
 import SelectedDisplay from "../../pages/SpecificVenue/components/SelectedDisplay";
-import { Link, useParams } from "react-router-dom";
+import SubvenueSelector from "./components/SubvenueSelector";
+import { Link, useLocation, useParams } from "react-router-dom";
 import StatusBar from "../../shared/StatusBar";
-import DATA from "../VenueSelection/venueDATA";
 import "./SpecificVenue.css";
 import Modal from "react-modal";
 
@@ -49,7 +49,14 @@ function SpecificVenue() {
   const [selectedTimeslot, setSelectedTimeslot] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const venueName = useParams().venueName;
+  var selectedSubvenue = undefined;
+  const venueId = useParams().venueId;
+  const venue = useLocation().state.venue;
+  const subvenues = venue.childVenues;
+
+  function handleSubvenueSelection(e) {
+    selectedSubvenue = e.target.value;
+  }
 
   const modalStyle = {
     overlay: {
@@ -72,23 +79,24 @@ function SpecificVenue() {
   function handleWindowSizeChange() {
     setIsMobile(window.innerWidth <= 500);
   }
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
 
-  //venue can be found from venue list
-  if (!DATA.find((venue) => venue["venueName"] == venueName)) {
-    return <h1>Venue not found. should route to 'wrong page' page </h1>;
-  }
+  // useEffect(() => {
+  //   window.addEventListener("resize", handleWindowSizeChange);
+  //   return () => {
+  //     window.removeEventListener("resize", handleWindowSizeChange);
+  //   };
+  // }, []);
 
   if (!isMobile) {
     return (
       <div className="mainContainer">
         <StatusBar stage={2} />
-        <h1 className="banner">{venueName}</h1>
+        <SubvenueSelector
+          subvenues={subvenues}
+          handleSubvenueSelection={handleSubvenueSelection}
+          selectedSubvenue={selectedSubvenue}
+          parentVenue={venue}
+        />
         <div className="scheduleAndCalendar">
           <div className="specificVenueLeftSide">
             <ModifiedCalendar
@@ -117,7 +125,7 @@ function SpecificVenue() {
           {selectedDate && selectedTimeslot.length > 0 ? (
             <Link
               to={{
-                pathname: `/vbs/${venueName}/bookingpage`,
+                pathname: `/vbs/${venueId}/bookingpage`,
                 state: { selectedDate, selectedTimeslot },
               }}
               className="submitButton enabled"
@@ -134,7 +142,7 @@ function SpecificVenue() {
     return (
       <div className="mainContainer">
         <StatusBar stage={2} />
-        <h1 className="banner">{venueName}</h1>
+        <h1 className="banner">{venueId}</h1>
         <div className="specifcVenueCalendarContainerMobile">
           <ModifiedCalendar
             selectedDate={selectedDate}
@@ -167,7 +175,7 @@ function SpecificVenue() {
             {selectedDate && selectedTimeslot.length > 0 ? (
               <Link
                 to={{
-                  pathname: `/vbs/${venueName}/bookingpage`,
+                  pathname: `/vbs/${venueId}/bookingpage`,
                   state: { selectedDate, selectedTimeslot },
                 }}
                 className="submitButtonMobile enabled "
