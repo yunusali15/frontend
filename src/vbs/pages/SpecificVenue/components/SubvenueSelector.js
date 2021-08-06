@@ -8,6 +8,7 @@ const SubvenueSelector = ({
   subvenues,
   handleSubvenueSelection,
   selectedSubvenue,
+  setSelectedSubvenue,
   parentVenue,
 }) => {
   var options = [];
@@ -15,7 +16,6 @@ const SubvenueSelector = ({
   subvenues.map((subvenue) =>
     options.push({ value: subvenue._id, label: subvenue.name })
   );
-  console.log(options);
 
   return (
     <Dropdown
@@ -40,6 +40,7 @@ const SubvenueSelector = ({
       options={options}
       value={selectedSubvenue}
       placeholder={`SELECT ${parentVenue.name.toUpperCase()} SEGMENT TO PROCEED`}
+      onChange={handleSubvenueSelection}
     />
   );
 };

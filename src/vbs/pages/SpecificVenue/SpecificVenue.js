@@ -8,29 +8,30 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import StatusBar from "../../shared/StatusBar";
 import "./SpecificVenue.css";
 import Modal from "react-modal";
+import axios from "axios";
 
 //data meant to be HTTP Requested from backend
 const TIMEDATA = [
   { id: 0, timeStart: "0900 ", timeEnd: "0930", booked: false },
   { id: 1, timeStart: "0930 ", timeEnd: "1000", booked: false },
-  { id: 2, timeStart: "1000 ", timeEnd: "1030", booked: true },
-  { id: 3, timeStart: "1030 ", timeEnd: "1100", booked: true },
-  { id: 4, timeStart: "1100 ", timeEnd: "1130", booked: true },
-  { id: 5, timeStart: "1130 ", timeEnd: "1200", booked: true },
+  { id: 2, timeStart: "1000 ", timeEnd: "1030", booked: false },
+  { id: 3, timeStart: "1030 ", timeEnd: "1100", booked: false },
+  { id: 4, timeStart: "1100 ", timeEnd: "1130", booked: false },
+  { id: 5, timeStart: "1130 ", timeEnd: "1200", booked: false },
   { id: 6, timeStart: "1200 ", timeEnd: "1230", booked: false },
   { id: 7, timeStart: "1230 ", timeEnd: "1300", booked: false },
   { id: 8, timeStart: "1300 ", timeEnd: "1330", booked: false },
   { id: 9, timeStart: "1330 ", timeEnd: "1400", booked: false },
-  { id: 10, timeStart: "1400", timeEnd: "1430", booked: true },
+  { id: 10, timeStart: "1400", timeEnd: "1430", booked: false },
   { id: 11, timeStart: "1430", timeEnd: "1500", booked: false },
   { id: 12, timeStart: "1500", timeEnd: "1530", booked: false },
   { id: 13, timeStart: "1530", timeEnd: "1600", booked: false },
-  { id: 14, timeStart: "1600", timeEnd: "1630", booked: true },
+  { id: 14, timeStart: "1600", timeEnd: "1630", booked: false },
   { id: 15, timeStart: "1630", timeEnd: "1700", booked: false },
-  { id: 16, timeStart: "1700", timeEnd: "1730", booked: true },
+  { id: 16, timeStart: "1700", timeEnd: "1730", booked: false },
   { id: 17, timeStart: "1730", timeEnd: "1800", booked: false },
   { id: 18, timeStart: "1800", timeEnd: "1830", booked: false },
-  { id: 19, timeStart: "1830", timeEnd: "1900", booked: true },
+  { id: 19, timeStart: "1830", timeEnd: "1900", booked: false },
   { id: 20, timeStart: "1900", timeEnd: "1930", booked: false },
   { id: 21, timeStart: "1930", timeEnd: "2000", booked: false },
   { id: 22, timeStart: "2000", timeEnd: "2030", booked: false },
@@ -49,13 +50,43 @@ function SpecificVenue() {
   const [selectedTimeslot, setSelectedTimeslot] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  var selectedSubvenue = undefined;
+  const [selectedSubvenue, setSelectedSubvenue] = useState(undefined);
+  const [bookedSlots, setBookedSlots] = useState(undefined);
   const venueId = useParams().venueId;
   const venue = useLocation().state.venue;
   const subvenues = venue.childVenues;
+  const api = axios.create({ baseURL: "https://britannic.herokuapp.com/" });
 
   function handleSubvenueSelection(e) {
-    selectedSubvenue = e.target.value;
+    setSelectedSubvenue(e);
+    api
+      .get(
+        `api/v1/booking/get?venueId=6100d84eb4051df2f0baef1f&startDate=20210809&endDate=20211225`
+      )
+      .then((res) => setBookedSlots(res.data.bookings));
+  }
+
+  function handleSelectedDateChange(selectedDate) {
+    console.log(bookedSlots);
+    setSelectedDate(selectedDate);
+    fetchAndSetTimeslots(selectedDate);
+  }
+
+  function fetchAndSetTimeslots(selectedDate) {
+    const parsedDate = parseSelectedDate(selectedDate);
+    const bookedArray = bookedSlots[`${parsedDate}`];
+    console.log(bookedArray);
+    TIMEDATA.map((i) => (i.booked = false));
+    bookedArray && bookedArray.map((i) => (TIMEDATA[i].booked = true));
+    setTimeslots(TIMEDATA);
+  }
+
+  function parseSelectedDate(selectedDate) {
+    return `${selectedDate.getFullYear()}/${
+      selectedDate.getMonth() < 9
+        ? "0" + (selectedDate.getMonth() + 1)
+        : selectedDate.getMonth() + 1
+    }/${selectedDate.getDate()}`;
   }
 
   const modalStyle = {
@@ -95,24 +126,32 @@ function SpecificVenue() {
           subvenues={subvenues}
           handleSubvenueSelection={handleSubvenueSelection}
           selectedSubvenue={selectedSubvenue}
+          setSelectedSubvenue={setSelectedSubvenue}
           parentVenue={venue}
         />
-        <div className="scheduleAndCalendar">
-          <div className="specificVenueLeftSide">
-            <ModifiedCalendar
+        {selectedSubvenue ? (
+          <div className="scheduleAndCalendar">
+            <div className="specificVenueLeftSide">
+              <ModifiedCalendar
+                selectedDate={selectedDate}
+                handleSelectedDateChange={handleSelectedDateChange}
+              />
+              <SelectedDisplay selectedTimeslot={selectedTimeslot} />
+            </div>
+            <ScheduleSelect
               selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
+              timeslots={timeslots}
+              setTimeslots={setTimeslots}
+              selectedTimeslot={selectedTimeslot}
+              setSelectedTimeslot={setSelectedTimeslot}
             />
-            <SelectedDisplay selectedTimeslot={selectedTimeslot} />
           </div>
-          <ScheduleSelect
-            selectedDate={selectedDate}
-            timeslots={timeslots}
-            setTimeslots={setTimeslots}
-            selectedTimeslot={selectedTimeslot}
-            setSelectedTimeslot={setSelectedTimeslot}
-          />
-        </div>
+        ) : (
+          <div className="scheduleAndCalendar blackout">
+            <p>Select Subvenue above to view schedule</p>
+          </div>
+        )}
+
         <div className="bottomNavigation">
           <Link className="backButton" to="/vbs">
             Back

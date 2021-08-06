@@ -21,6 +21,11 @@
   margin-top: 1%;
 }
 
+.blackout {
+  background-color: black;
+  color: white;
+}
+
 .specificVenueLeftSide {
   flex-direction: column;
   width: 70%;
