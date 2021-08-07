@@ -10,6 +10,7 @@ const ScheduleSelect = ({
   selectedTimeslot,
   setSelectedTimeslot,
   isMobile,
+  handleSelectedDateChange,
 }) => {
   const today = new Date();
   let minDate = new Date();
@@ -18,13 +19,13 @@ const ScheduleSelect = ({
   function handleBackButton() {
     let date = new Date(selectedDate);
     date.setDate(date.getDate() - 1);
-    setSelectedDate(date);
+    handleSelectedDateChange(date);
   }
 
   function handleForwardButton() {
     let date = new Date(selectedDate);
     date.setDate(date.getDate() + 1);
-    setSelectedDate(date);
+    handleSelectedDateChange(date);
   }
   return (
     <div
@@ -52,7 +53,7 @@ const ScheduleSelect = ({
           </p>
         </div>
       ) : (
-        <p class="selectedDateDisplay">
+        <p class="selectedDateDisplay blink">
           {selectedDate
             ? `${selectedDate.getDate()} ${selectedDate
                 .toDateString()
@@ -60,7 +61,9 @@ const ScheduleSelect = ({
             : "Select Date"}
         </p>
       )}
-      {selectedDate && <p class="schedulePreview">{"Select Timeslot(s)"}</p>}
+      {selectedDate && (
+        <p class="schedulePreview blink">{"Select Timeslot(s)"}</p>
+      )}
       <div class="timeSlotContainer">
         <div class="timeSlots">
           {selectedDate &&

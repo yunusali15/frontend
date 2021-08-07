@@ -19,7 +19,7 @@ const SubvenueSelector = ({
 
   return (
     <Dropdown
-      className="dropdown"
+      className="dropdown blink"
       controlClassName="dropdown__control"
       menuClassName="dropdown__menu"
       placeholderClassName="dropdown__placeholder"

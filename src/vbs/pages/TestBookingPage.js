@@ -21,6 +21,7 @@ const TestBookingPage = () => {
   const [cca, setCCA] = useState("");
   const [purpose, setPurpose] = useState("");
   const [isActive, setIsActive] = useState("");
+  const venue = useLocation().state.venue;
   const OnClick = () => setIsActive(!isActive);
 
   function handleTimeSelect(id) {
@@ -192,7 +193,10 @@ const TestBookingPage = () => {
         </div>
       </form>
       <div className="bottomNavigation">
-        <Link class="backButton" to={`/vbs/${venueName}`}>
+        <Link
+          class="backButton"
+          to={{ path: `/vbs/${venueName}`, state: { venue } }}
+        >
           Back
         </Link>
         {true ? (

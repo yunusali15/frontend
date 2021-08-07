@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 import ModifiedCalendar from "../../pages/SpecificVenue/components/Calendar";
 import ScheduleSelect from "../../pages/SpecificVenue/components/ScheduleSelect";
 import SelectedDisplay from "../../pages/SpecificVenue/components/SelectedDisplay";
 import SubvenueSelector from "./components/SubvenueSelector";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { ImArrowUp } from "react-icons/im";
+
 import StatusBar from "../../shared/StatusBar";
 import "./SpecificVenue.css";
 import Modal from "react-modal";
@@ -25,13 +26,12 @@ function SpecificVenue() {
   const api = axios.create({ baseURL: "https://britannic.herokuapp.com/" });
 
   function handleSubvenueSelection(e) {
-    setSelectedSubvenue(e);
-    console.log(e);
     api
       .get(
         `api/v1/booking/get?venueId=${e.value}&startDate=20210809&endDate=20211225`
       )
       .then((res) => {
+        setSelectedSubvenue(e);
         setBookedSlots(res.data.bookings);
         setSelectedTimeslot([]);
         setSelectedDate(null);
@@ -130,7 +130,11 @@ function SpecificVenue() {
           </div>
         ) : (
           <div className="scheduleAndCalendar blackout">
-            <p>Select Subvenue above to view schedule</p>
+            <p>
+              <ImArrowUp />
+              Select Subvenue above to view schedule
+              <ImArrowUp />
+            </p>
           </div>
         )}
 
@@ -147,7 +151,7 @@ function SpecificVenue() {
             <Link
               to={{
                 pathname: `/vbs/${venueId}/bookingpage`,
-                state: { selectedDate, selectedTimeslot },
+                state: { selectedDate, selectedTimeslot, venue },
               }}
               className="submitButton enabled"
             >
@@ -170,13 +174,18 @@ function SpecificVenue() {
           setSelectedSubvenue={setSelectedSubvenue}
           parentVenue={venue}
         />
-        <div className="specifcVenueCalendarContainerMobile">
-          <ModifiedCalendar
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-            isMobile={isMobile}
-          />
-        </div>
+        {selectedSubvenue ? (
+          <div className="specifcVenueCalendarContainerMobile">
+            <ModifiedCalendar
+              selectedDate={selectedDate}
+              handleSelectedDateChange={handleSelectedDateChange}
+              isMobile={isMobile}
+            />
+          </div>
+        ) : (
+          <div />
+        )}
+
         <Modal
           isOpen={isModalOpen}
           onRequestClose={() => setIsModalOpen(false)}
@@ -189,6 +198,7 @@ function SpecificVenue() {
             setTimeslots={setTimeslots}
             selectedTimeslot={selectedTimeslot}
             setSelectedTimeslot={setSelectedTimeslot}
+            handleSelectedDateChange={handleSelectedDateChange}
             isMobile={isMobile}
           />
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
@@ -214,22 +224,26 @@ function SpecificVenue() {
             )}
           </div>
         </Modal>
-        <div className="bottomNavigation">
-          <Link className="backButton buttonMobile" to="/vbs">
-            Back
-          </Link>
-          {selectedDate ? (
-            <div
-              className="submitButton enabled buttonMobile"
-              onClick={setIsModalOpen}
-            >
-              Next
-            </div>
-          ) : (
-            <div className="submitButton disabled buttonMobile">Next</div>
-          )}
-        </div>
-        {!selectedDate && <p className="selectDNT">Select Date to proceed</p>}
+        {selectedSubvenue && (
+          <div className="bottomNavigation">
+            <Link className="backButton buttonMobile" to="/vbs">
+              Back
+            </Link>
+            {selectedDate ? (
+              <div
+                className="submitButton enabled buttonMobile"
+                onClick={setIsModalOpen}
+              >
+                Next
+              </div>
+            ) : (
+              <div className="submitButton disabled buttonMobile">Next</div>
+            )}
+          </div>
+        )}
+        {selectedSubvenue && !selectedDate && (
+          <p className="selectDNT">Select Date to proceed</p>
+        )}
       </div>
     );
   }

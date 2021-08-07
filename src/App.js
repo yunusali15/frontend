@@ -72,12 +72,12 @@ const App = () => {
   //         <Signup />
   //       </Route>
   //       <Redirect to="/" />
-  //     </Switch>
+  //     </Switch>1
   //   );
   // }
 
   return (
-    <div>
+    <>
       <head>
         <style>
           @import
@@ -94,7 +94,7 @@ const App = () => {
           <main>{routes}</main>
         </Router>
       </LoginContext.Provider>
-    </div>
+    </>
   );
 };
 

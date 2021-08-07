@@ -22,8 +22,16 @@
 }
 
 .blackout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: black;
   color: white;
+}
+
+.blackout p {
+  font-size: 30px;
 }
 
 .specificVenueLeftSide {
@@ -181,5 +189,34 @@
     justify-content: center;
     width: 48%;
     height: 35px;
+  }
+}
+
+.blink {
+  animation: blink 1s ease-in alternate;
+}
+
+@keyframes blink {
+  0% {
+    transform: translateY(0);
+  }
+
+  14% {
+    transform: translateY(-10%);
+  }
+  28% {
+    transform: translateY(0);
+  }
+  42% {
+    transform: translateY(-10%);
+  }
+  66% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
