@@ -136,10 +136,17 @@ button a:visited {
     .contents{
         display:flex;
         flex-direction: column;
-        width:90%;
+        width:100%;
+        justify-items: center;
         background-color: #ECDBBA;
     }
     
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+    }     
     
     .Titles {
         color:#C84B31;
@@ -224,3 +231,4 @@ button a:visited {
         max-height: 40px;
     }
 }
+

@@ -51,7 +51,7 @@ const TestBookingPage = () => {
     }
     else {
       setEmail('');
-      setEmailError('Enter valid Email');
+      setEmailError('Enter valid Email!');
     }
   }
 
@@ -82,7 +82,8 @@ const TestBookingPage = () => {
             onChange= {(e) => emailValidator(e)}
             required
           ></input>
-          <span>{emailError}</span>
+          <br/>
+          <span style={{fontSize:'10px',color:'red'}}>&nbsp;{emailError}</span>
         </div>
 
         <div className="row">
