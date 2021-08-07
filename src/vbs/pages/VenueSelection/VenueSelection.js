@@ -13,17 +13,12 @@ const VenueSelection = () => {
   const [parentVenueArray, setParentVenueArray] = useState([]);
 
   //fetch list of parent venues upon opening
-  // useEffect(
-  //   () =>
-  //     api
-  //       .get("/api/v1/venue/search?isChildVenue=false")
-  //       .then((res) => setParentVenueArray(res.data.venues)),
-  //   []
-  // );
-
-  api
-    .get("/api/v1/venue/search?isChildVenue=false")
-    .then((res) => setParentVenueArray(res.data.venues));
+  useEffect(() => {
+    api
+      .get("/api/v1/venue/search?isChildVenue=false")
+      .then((res) => setParentVenueArray(res.data.venues));
+    return;
+  }, []);
 
   return (
     <div className="Venues-page">
