@@ -45,7 +45,6 @@ function SpecificVenue() {
   }
 
   function handleSelectedDateChange(selectedDate) {
-    console.log(bookedSlots);
     setSelectedDate(selectedDate);
     fetchAndSetTimeslots(selectedDate);
     setSelectedTimeslot([]);
@@ -190,7 +189,7 @@ function SpecificVenue() {
           setSelectedSubvenue={setSelectedSubvenue}
           parentVenue={venue}
         />
-        {selectedSubvenue ? (
+        {selectedSubvenue && !loading ? (
           <div className="specifcVenueCalendarContainerMobile">
             <ModifiedCalendar
               selectedDate={selectedDate}
@@ -250,7 +249,7 @@ function SpecificVenue() {
             )}
           </div>
         </Modal>
-        {selectedSubvenue && (
+        {selectedSubvenue && !loading && (
           <div className="bottomNavigation">
             <Link className="backButton buttonMobile" to="/vbs">
               Back
@@ -267,7 +266,7 @@ function SpecificVenue() {
             )}
           </div>
         )}
-        {selectedSubvenue && !selectedDate && (
+        {selectedSubvenue && !loading && !selectedDate && (
           <p className="selectDNT">Select Date to proceed</p>
         )}
       </div>

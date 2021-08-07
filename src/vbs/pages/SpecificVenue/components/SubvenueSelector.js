@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./SubvenueSelector.css";
@@ -11,11 +11,11 @@ const SubvenueSelector = ({
   setSelectedSubvenue,
   parentVenue,
 }) => {
-  var options = [];
+  var options = [{ value: parentVenue.id, label: "Whole Venue" }];
 
-  subvenues.map((subvenue) =>
-    options.push({ value: subvenue._id, label: subvenue.name })
-  );
+  subvenues.map((subvenue) => {
+    options.push({ value: subvenue._id, label: subvenue.name });
+  });
 
   return (
     <Dropdown
