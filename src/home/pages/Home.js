@@ -3,14 +3,25 @@ import React, { useContext } from "react";
 import "./Home.css";
 import keviilogo from "../../shared/Images/keviilogo.png";
 import { LoginContext } from "../../shared/context/LoginContext";
+import homepage from './homepage.png';
 
 const Home = (props) => {
   const auth = useContext(LoginContext);
   return (
     <React.Fragment>
-      <img className="logo" src={keviilogo} alt="Logo of KEVII Hall" />
-      <h2 className="title">This is home, truly</h2>
-      {auth.isLoggedIn && <h3>you are now logged in</h3>}
+      <div className="homeContainer">
+        <div className="ctaContainer">
+          <text className="title">
+          By KEVIIANS,
+          <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          For KEVIIANS
+          </text>
+          <a href='/vbs' className="cta">Try Our Venue Booking System</a>
+        </div>
+        <img src={homepage}/>
+      </div>
+      {/* {auth.isLoggedIn && <h3>you are now logged in</h3>} */}
     </React.Fragment>
   );
 };
