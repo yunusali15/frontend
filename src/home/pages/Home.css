@@ -3,8 +3,10 @@
   height: 90vh;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  align-content: space-around;
 }
 
 .logo {
@@ -20,8 +22,6 @@
   display: flex;
   font-size: 3.5em;
   font-weight: 800;
-  padding-top: 10vh;
-  padding-left: 10vw;
   line-height: 1.35em;
   flex-wrap: pre-wrap;
 }
@@ -31,24 +31,24 @@
   text-decoration: none;
   padding: 0.75em 2em;
   background-color: #ecdbba;
-  width: fit-content;
   border-radius: 5px;
   font-weight: 600;
   font-size: 1.25em;
   color: #c84b31;
-  margin-left: 10vw;
   margin-top: 5vh;
 }
 
 .homepageImage {
   display: flex;
   width: 36vw;
+  min-width: 400px;
   box-shadow: 2px 2px 0px #ecdbba;
 }
 
-@media (max-width: 720px) {
-  homepageImage {
-    display: none;
+@media (max-width: 800px) {
+  .homepageImage {
+    width: 90vw;
+    min-width: 300px;
   }
 
   .title {
@@ -58,13 +58,11 @@
   }
 
   .cta {
-    margin-top: 4vh;
-    margin-left: 0;
     padding: 0.5em;
   }
 }
 
-@media (max-width: 1080px) and (min-width: 720px) {
+@media (max-width: 1080px) and (min-width: 800px) {
   .title {
     font-size: 5vw;
   }
