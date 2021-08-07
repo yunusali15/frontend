@@ -16,11 +16,16 @@
 .contents{
     display:flex;
     flex-direction: column;
-    width:70%;
+    width:100%;
     background-color: #ECDBBA;
     margin-bottom: 4vh;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+} 
 
 .Titles {
     color:#C84B31;
@@ -97,24 +102,6 @@ input[name=Details] {
     max-height: 100px;
     
 }
-
-/* .sButton {
-    background-color:grey;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    height:8vh;
-    width:15vw;
-    text-align:center;
-} */
-
-/* .Buttonsection{
-    margin-top:2vh;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    width:70%;
-} */
 /* 
 .bButton{
     background-color:white;
@@ -130,8 +117,18 @@ input[name=Details] {
     text-align:center;
 } */
 
-a input [type=submit] {
+button{
     cursor: pointer;
+}
+
+button a {
+    padding: 0.5% 5%;
+    text-decoration: none; 
+    padding: inherit;
+}
+
+button a:visited {
+    color:inherit;
 }
 
 

@@ -16,6 +16,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.2.0",
     "react-transition-group": "^4.4.1",
+    "validator": "^13.6.0",
     "yarn": "^1.22.10",
     "yup": "^0.32.9"
   },
