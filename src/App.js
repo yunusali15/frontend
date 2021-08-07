@@ -37,7 +37,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/vbs" component={VenueSelection} />
         <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
-        <Route exact path="/vbs/:venueName" component={SpecificVenue} />
+        <Route exact path="/vbs/:venueId" component={SpecificVenue} />
         <Route
           exact
           path="/vbs/:venueName/bookingpage"
@@ -72,12 +72,12 @@ const App = () => {
   //         <Signup />
   //       </Route>
   //       <Redirect to="/" />
-  //     </Switch>
+  //     </Switch>1
   //   );
   // }
 
   return (
-    <div>
+    <>
       <head>
         <style>
           @import
@@ -94,7 +94,7 @@ const App = () => {
           <main>{routes}</main>
         </Router>
       </LoginContext.Provider>
-    </div>
+    </>
   );
 };
 

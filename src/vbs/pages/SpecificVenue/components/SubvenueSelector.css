@@ -1,0 +1,58 @@
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  width: 70%;
+  background-color: #ecdbba;
+  font-family: "Raleway", sans-serif;
+}
+
+.dropdown__placeholder {
+  font-weight: bold;
+  color: black !important;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown__control {
+  background-color: #ecdbba;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dropdown__menu {
+  background-color: #ecdbba;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dropdown__menu div {
+  background-color: #ecdbba !important;
+  color: black !important;
+  width: 97%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.arrow-open p,
+.arrow-closed p {
+  margin: 0 0;
+  font-size: 20px;
+  top: 30%;
+  position: absolute;
+}
+
+@media only screen and (max-width: 1200px) {
+  .dropdown {
+    width: 95%;
+  }
+}

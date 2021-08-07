@@ -28,6 +28,10 @@
   overflow-y: scroll;
 }
 
+.timeSlotContainer::-webkit-scrollbar {
+  display: none;
+}
+
 .schedulePreview {
   color: white;
   margin: 2% 0;
