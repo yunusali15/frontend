@@ -4,6 +4,7 @@ import ScheduleSelect from "../../pages/SpecificVenue/components/ScheduleSelect"
 import SelectedDisplay from "../../pages/SpecificVenue/components/SelectedDisplay";
 import SubvenueSelector from "./components/SubvenueSelector";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { BounceLoader, BeatLoader, BarLoader } from "react-spinners";
 import { ImArrowUp } from "react-icons/im";
 
 import StatusBar from "../../shared/StatusBar";
@@ -20,12 +21,14 @@ function SpecificVenue() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSubvenue, setSelectedSubvenue] = useState(undefined);
   const [bookedSlots, setBookedSlots] = useState(undefined);
+  const [loading, setLoading] = useState(false);
   const venueId = useParams().venueId;
   const venue = useLocation().state.venue;
   const subvenues = venue.childVenues;
   const api = axios.create({ baseURL: "https://britannic.herokuapp.com/" });
 
   function handleSubvenueSelection(e) {
+    setLoading(true);
     api
       .get(
         `api/v1/booking/get?venueId=${e.value}&startDate=20210809&endDate=20211225`
@@ -37,6 +40,7 @@ function SpecificVenue() {
         setSelectedDate(null);
         TIMEDATA.map((i) => (i.selected = false));
         setTimeslots(TIMEDATA);
+        setLoading(false);
       });
   }
 
@@ -130,11 +134,18 @@ function SpecificVenue() {
           </div>
         ) : (
           <div className="scheduleAndCalendar blackout">
-            <p>
-              <ImArrowUp />
-              Select Subvenue above to view schedule
-              <ImArrowUp />
-            </p>
+            {loading ? (
+              <>
+                <p>Loading</p>
+                <BeatLoader color="white" loading={true} />
+              </>
+            ) : (
+              <p>
+                <ImArrowUp />
+                Select Subvenue above to view schedule
+                <ImArrowUp />
+              </p>
+            )}
           </div>
         )}
 
@@ -151,7 +162,12 @@ function SpecificVenue() {
             <Link
               to={{
                 pathname: `/vbs/${venueId}/bookingpage`,
-                state: { selectedDate, selectedTimeslot, venue },
+                state: {
+                  selectedDate,
+                  selectedTimeslot,
+                  venue,
+                  selectedSubvenue,
+                },
               }}
               className="submitButton enabled"
             >
@@ -182,6 +198,11 @@ function SpecificVenue() {
               isMobile={isMobile}
             />
           </div>
+        ) : loading ? (
+          <>
+            <p>Loading</p>
+            <BeatLoader color="black" loading={true} />
+          </>
         ) : (
           <div />
         )}
@@ -213,7 +234,12 @@ function SpecificVenue() {
               <Link
                 to={{
                   pathname: `/vbs/${venueId}/bookingpage`,
-                  state: { selectedDate, selectedTimeslot },
+                  state: {
+                    selectedDate,
+                    selectedTimeslot,
+                    venue,
+                    selectedSubvenue,
+                  },
                 }}
                 className="submitButtonMobile enabled "
               >
