@@ -77,12 +77,6 @@ input[name=Email]{
 #HallCCA{
     height:5vh;
     width:100%;
-}
-
-input[name= VenueSize] {
-    height:5vh;
-    width:100%;
-    margin-top:1vh;
     margin-bottom:2vh;
 }
 
@@ -149,5 +143,16 @@ input[name= VenueSize] {
         flex-direction:row;
         width:85%;
         justify-content:space-around;
+    }
+
+    #HallCCA{
+        align-content:center;
+        margin-bottom:2vh;
+        width:80%;
+    }
+
+    #Details{
+        align-content:flex-start;
+        width:80%;
     }
 }

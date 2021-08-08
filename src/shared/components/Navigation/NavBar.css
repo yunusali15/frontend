@@ -8,6 +8,16 @@
   font-weight: 800;
   font-size: 42px;
   margin-left: 5vw;
+  text-decoration:none;
+}
+
+.KEWEB{
+  color: #ecdbba;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  text-decoration:none;
 }
 
 .NavbarItems {
@@ -52,26 +62,28 @@
   display:none;
 }
 
+
 @media screen and (max-width: 800px) {
   .NavbarItems {
     display: flex;
     flex-direction: column;
-    height: 10vh;
+    height: 15vh;
   }
 
   .navbar-name {
     display: flex;
     flex-direction: row;
     width: 80%;
-    height: 100%;
-    margin:2.5vh;
+    height: 15vh;
     justify-content: space-between;
     align-items: center;
+    margin-top:1.5vh;
+    margin-bottom:1.5vh;
   }
 
   .nav-menu {
-    display: none;
-    height:0vh;
+    overflow:hidden;
+    height:0px;
   }
 
   .menu-icon {
@@ -83,7 +95,7 @@
     text-align: center;
     width: 100%;
     display: flex;
-    transition: all 3s ease;
+    transition: height 1s ease;
     display: flex;
     flex-direction: column;
     background-color: #c84b31;

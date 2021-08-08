@@ -90,7 +90,7 @@ const TestBookingPage = () => {
         
         <div className="row">
           <h2 className="Titles" id = "Detail">DETAILS</h2>
-          <div className = "multipleRows">
+          <div className = "rows">
             {isActive && <div className = "active">
               <select
               id="HallCCA"
@@ -102,12 +102,12 @@ const TestBookingPage = () => {
               </select>
               </div>
             }
-            <input type="text" id="Details" name="VenueSize" placeholder="Venue Size" required />
+
             <div className="row" style={{ height: "10vh" }}>
               <textarea
               type="text"
               id="Details"
-              name="HallCCA"
+              name="Details"
               placeholder = "Details"
               required
               rows="4"
