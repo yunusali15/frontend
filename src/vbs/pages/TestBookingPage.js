@@ -1,9 +1,11 @@
 import "./TestBookingPage.css";
 import React, { useState } from "react";
-import { useRef } from "react";
-import { useLocation, useParams } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router";
 import StatusBar from "../shared/StatusBar";
 import { Link } from "react-router-dom";
+import ccaDATA from "./ccaDATA";
+import validator from "validator";
+import { required } from "yargs";
 
 const DATA = [
   { id: 0, timeStart: "08:00", timeEnd: "09:00", selected: false },
@@ -15,140 +17,150 @@ const DATA = [
 ];
 
 const TestBookingPage = () => {
+  const { selectedDate, selectedTimeslot, venue, selectedSubvenue } =
+    useLocation().state;
   const { venueName } = useParams();
-  const { selectedDate } = useLocation().state;
-  const [timeIntervals, setTimeIntervals] = useState(DATA);
-  const [cca, setCCA] = useState("");
+  const [email, setEmail] = useState("");
   const [purpose, setPurpose] = useState("");
   const [isActive, setIsActive] = useState("");
-  const OnClick = () => setIsActive(!isActive);
+  const [emailError, setEmailError] = useState("");
+  let history = useHistory();
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    history.push("/vbs/confirmation");
+  };
 
-  function handleTimeSelect(id) {
-    DATA[id].selected = !DATA[id].selected;
-    setTimeIntervals(DATA);
-    console.log(id);
-    console.log(DATA[id].selected);
-  }
+  const emailValidator = (e) => {
+    let email = e.target.value;
+    if (validator.isEmail(email)) {
+      setEmail(email);
+      setEmailError("Valid");
+    } else {
+      setEmail("");
+      setEmailError("Enter valid Email!");
+    }
+  };
 
   return (
-    <div class="mainDiv">
-      <div class="Statusbar">
+    <div className="mainDiv">
+      <div className="Statusbar">
         <StatusBar stage="3" />
       </div>
-      <form class="contents" action="">
-        <div class="row">
-          <h2 class="Titles">VENUE</h2>
-          <h3 class="black">{venueName}</h3>
-        </div>
-
-        <div class="row">
-          <h2 class="Titles">TIME</h2>
-          <h3 class="black">{selectedDate.toDateString()}</h3>
-        </div>
-
-        <div class="row">
-          <h2 class="Titles">EMAIL</h2>
-          <input
-            type="text"
-            id="Email"
-            name="Email"
-            placeholder="e0123456@u.nus.edu.sg"
-            required
-          ></input>
-        </div>
-
-        <div class="row">
-          <h2 class="Titles">PURPOSE</h2>
-          <div className = "radio">
-          <input
-            type="radio"
-            id="CCA"
-            name="Purpose"
-            value="CCA"
-            value={cca}
-            onChange={(event) => {
-              setPurpose(event.target.value);
-              OnClick();
-            }}
-          ></input>
-          <label for="CCA">CCA</label>
-          <input
-            type="radio"
-            id="Personal"
-            name="Purpose"
-            value="Personal"
-            value={purpose}
-            onChange={(event) => {
-              setPurpose(event.target.value);
-              OnClick();
-            }}
-          ></input>
-          <label for="Personal">Personal</label>
+      <form onSubmit={handleSubmit}>
+        <div className="contents">
+          <div className="row">
+            <h2 className="Titles">VENUE :</h2>
+            <h3 className="black">{venue.name}</h3>
           </div>
-        </div>
-        
-        <div className="row">
-          <h2 className="Titles" id = "Detail">DETAILS</h2>
-          <div className = "rows">
-            {isActive && <div className = "active">
-              <select
-              id="HallCCA"
-              name="HallCCA"
-              required
-              >
-                <option value='' disabled selected>Hall CCA</option>
-                <option>KE WEB</option>
-              </select>
-              </div>
-            }
 
-            <div className="row" style={{ height: "10vh" }}>
-              <textarea
-              type="text"
-              id="Details"
-              name="Details"
-              placeholder = "Details"
+          <div className="row">
+            <h2 className="Titles">TIME :</h2>
+            <h3 className="black">{selectedDate.toDateString()}</h3>
+          </div>
+
+          <div className="row">
+            <h2 className="Titles">EMAIL :</h2>
+            <input
+              type="email"
+              id="Email"
+              name="Email"
+              placeholder="e0123456@u.nus.edu.sg"
+              onChange={(e) => emailValidator(e)}
               required
-              rows="4"
-              cols="60"
-              style={{ height: "8vh" }}
-              />
+            ></input>
+            <br />
+            <span style={{ fontSize: "10px", color: "red" }}>
+              &nbsp;{emailError}
+            </span>
+          </div>
+
+          <div className="row">
+            <h2 className="Titles">PURPOSE :</h2>
+            <div className="ccaContainer">
+              <div className="radio-buttons">
+                <input
+                  type="radio"
+                  id="CCA"
+                  name="Purpose"
+                  value=""
+                  onChange={(event) => setPurpose(event.target.value)}
+                  onClick={() => setIsActive("active")}
+                ></input>
+                <label for="CCA">CCA</label>
+                <input
+                  type="radio"
+                  id="Personal"
+                  name="Purpose"
+                  value="Personal"
+                  onChange={(event) => setPurpose(event.target.value)}
+                  onClick={() => setIsActive("inactive")}
+                  required
+                ></input>
+                <label for="Personal">Personal</label>
+              </div>
+              <select
+                id="HallCCA"
+                name="HallCCA"
+                className={isActive ? isActive : "inactive"}
+                onChange={(e) => setPurpose(e.target.value)}
+              >
+                <option value="">Select a CCA</option>
+                {ccaDATA.map((cca) => (
+                  <option value={cca}>{cca}</option>
+                ))}
+              </select>
             </div>
           </div>
+          <div className="row">
+            <h2 className="Titles" />
+            <input type="text" id="Details" name="HallCCA" required />
+          </div>
+          <div className="row" style={{ height: "11vh" }}>
+            <h2 className="Titles" />
+            <textarea
+              type="text"
+              id="Details"
+              name="HallCCA"
+              required
+              rows="4"
+              cols="30"
+              style={{ height: "8vh" }}
+            />
+          </div>
         </div>
-     
-      </form>
-
-      <div className="bottomNavigation">
-        <Link class="backButton" to={`/vbs/${venueName}`}>
-          Back
-        </Link>
-        {true ? (
-          <p></p>
-        ) : (
-          <p
-            style={{
-              fontFamily: '"Roboto Condensed", sans-serif',
-              margin: "1% 0",
-            }}
-          >
-            Fill all fields to Submit
-          </p>
-        )}
-        {true ? (
+        <div className="bottomNavigation">
           <Link
-            to={{
-              pathname: `/vbs/confirmation`,
-            }}
-            class="submitButton enabled"
+            class="backButton"
+            to={{ path: `/vbs/${venueName}`, state: { venue } }}
           >
-            Submit
+            Back
           </Link>
-        ) : (
-          <div class="submitButton disabled">Submit</div>
-        )}
-      </div>
+          {true ? (
+            <p></p>
+          ) : (
+            <p
+              style={{
+                fontFamily: '"Roboto Condensed", sans-serif',
+                margin: "1% 0",
+              }}
+            >
+              Fill all fields to Submit
+            </p>
+          )}
+          {email && purpose ? (
+            <button
+              type="submit"
+              className="submitButton enabled"
+              style={{ border: 0 }}
+            >
+              Submit
+            </button>
+          ) : (
+            <div className="submitButton disabled">Submit</div>
+          )}
+        </div>
+      </form>
     </div>
   );
 };

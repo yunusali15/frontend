@@ -6,17 +6,16 @@ const TimeslotButton = ({
   selectedTimeslot,
   setSelectedTimeslot,
 }) => {
-  const [clicked, setClick] = useState(false);
   function handleButtonClick(time) {
     let temp = [...selectedTimeslot];
-    if (clicked) {
+    if (time.selected) {
       temp = temp.filter((i) => i["id"] != time["id"]);
     } else {
       temp.push(time);
     }
     temp.sort((e1, e2) => (e1.id > e2.id ? 1 : -1));
     setSelectedTimeslot(temp);
-    setClick(!clicked);
+    time.selected = !time.selected;
   }
 
   return time.booked ? (
@@ -28,7 +27,7 @@ const TimeslotButton = ({
       class="timeSlot timeSlotAvailable"
       onClick={() => handleButtonClick(time)}
       style={
-        !clicked
+        !time.selected
           ? { backgroundColor: "#346751" }
           : { backgroundColor: "#c84b31" }
       }

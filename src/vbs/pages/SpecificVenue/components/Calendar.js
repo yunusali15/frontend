@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "./Calendar.css";
 
-const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
+const ReactCalendar = ({ selectedDate, handleSelectedDateChange }) => {
   const minDate = new Date();
   minDate.setDate(new Date().getDate() + 3);
   //DATA here is for my own personal use and is only for reading purposes
@@ -34,7 +34,7 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
 
   //Sets the actual Date() and simplifiedDate()
   const onChange = (date) => {
-    setSelectedDate(date);
+    handleSelectedDateChange(date);
     setSimplifiedDate(date.getUTCDate() + 1 + "/" + (date.getUTCMonth() + 1));
   };
 
@@ -62,15 +62,27 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
 
   //Display label of react-calendar
   function displayLabel(date, label, locale, view) {
-    
-    const monthNamesFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    
+    const monthNamesFull = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
     var month = monthNamesFull[date.getMonth()];
     var year = date.getFullYear();
-    if (view === 'month') {
-      return `${month}`
+    if (view === "month") {
+      return `${month}`;
     }
-    return `${year}`
+    return `${year}`;
   }
 
   /*---------------------For tile contents*------------------*/
@@ -126,7 +138,9 @@ const ReactCalendar = ({ selectedDate, setSelectedDate }) => {
             }
           }
         }}
-        navigationLabel={({ date, label, locale, view }) => displayLabel(date, label, locale, view)}
+        navigationLabel={({ date, label, locale, view }) =>
+          displayLabel(date, label, locale, view)
+        }
         minDate={minDate}
         minDetail="year"
         nextLabel=">"
