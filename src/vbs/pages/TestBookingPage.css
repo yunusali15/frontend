@@ -9,98 +9,100 @@
     align-items:center;
 }
 
-.Statusbar{
-    flex-direction:center;
-    margin-left:5vw;
-    height:15vh;
+.Statusbar {
+    margin-left: 0;
 }
 
 .contents{
     display:flex;
     flex-direction: column;
-    width:70%;
+    width:100%;
     background-color: #ECDBBA;
-    justify-content: center;
+    margin-bottom: 4vh;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+} 
 
 .Titles {
     color:#C84B31;
     font-family:'Raleway', sans-serif;
     font-style:normal;
     font-weight:800;
-    font-size:24px;
-    margin-right:3vw;
+    font-size: 2.25vw;
+    margin-right:5vw;
+    margin-left: 3vw;
     text-align:right;
-    width:10vw;
+    width:12vw;
+    margin-bottom: 1vh;
 }
 
 .row {
     display:flex;
     flex-direction:row;
     align-items:center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.ccaContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    padding-bottom: 2vh;
+    padding-top: 10%;
+
 }
 
 .black{
     color:black;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight:300;
-    font-size:20px;
+    font-weight: 500;
+    font-size:1.35em;
+    margin-bottom: 1vh;
 }
 
 input[name=Email]{
     height:5vh;
-    width:50%;
+    width: 25vw;
+    max-height: 40px;
 }
 
 
 .active{
-    width:100%;
-    height:20vh;
-    visibility: visible;
-    display:flex;
-    flex-direction:column;
-    margin-left:13vw;
+    height:15vh;
+    width: 20vw;
+    margin-bottom: 3vh;
 }
 
 .inactive{
-    visibility: hidden;
+    display: none;
 }
 
-input[name= HallCCA] {
+select[name= HallCCA] {
     height:5vh;
-    width:50%;
+    width:25vw;
+    max-height: 40px;
 }
 
-input[name= VenueSize] {
-    height:5vh;
-    width:50%;
-}
 
 input[name=Details] {
-    height:10vh;
-    width:70%;
+    height:15vh;
+    width:60%;
+    margin-bottom: 3vh;
+    max-height: 100px;
+    
 }
-
-.sButton {
-    background-color:grey;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    height:8vh;
-    width:15vw;
-    text-align:center;
-}
-
-.Buttonsection{
-    margin-top:2vh;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    width:70%;
-}
-
+/* 
 .bButton{
     background-color:white;
     color:#C84B31;
@@ -113,11 +115,120 @@ input[name=Details] {
     align-items:center;
     border-style:solid;
     text-align:center;
+} */
+
+button{
+    cursor: pointer;
 }
 
-@media only screen and (max-width: 1000px) {
-    .Statusbar{
-        height:100%;
-        width:80%;
+button a {
+    padding: 0.5% 5%;
+    text-decoration: none; 
+    padding: inherit;
+}
+
+button a:visited {
+    color:inherit;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .contents{
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        justify-items: center;
+        background-color: #ECDBBA;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+    }     
+    
+    .Titles {
+        color:#C84B31;
+        font-family:'Raleway', sans-serif;
+        font-style:normal;
+        font-weight:800;
+        font-size: 16px;
+        margin-left: 3vw;
+        width:fit-content;
+    }
+    
+    .row {
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-bottom: 2vh;
+    }
+    
+    .ccaContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .radio-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items:center;
+        padding-bottom: 2vh;
+        padding-top: 10%;
+    
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    
+    .black{
+        color:black;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size:16px;
+        margin-bottom: 1vh;
+    }
+    
+    input[name=Email]{
+        height:7vh;
+        width: 25vw;
+        max-height: 40px;
+    }
+    
+    
+    .active{
+        height:10vh;
+        width: 30vw;
+        margin-bottom: 3vh;
+    }
+    
+    .inactive{
+        display: none;
+    }
+    
+    select[name= HallCCA] {
+        height:5vh;
+        width: 50vw;
+        max-height: 40px;
+        margin-left: unset;
+    }
+
+    select option {
+        width: 5vw;
+    }
+    
+    
+    input[name=Email]{
+        height:5vh;
+        width: 50vw;
+        max-height: 40px;
     }
 }
+
