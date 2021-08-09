@@ -8,16 +8,16 @@
   font-weight: 800;
   font-size: 42px;
   margin-left: 5vw;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-.KEWEB{
+.KEWEB {
   color: #ecdbba;
   font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 42px;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .NavbarItems {
@@ -33,11 +33,11 @@
 .nav-menu {
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
-  align-items:center;
-  width:50%;
-  list-style:none;
-  height:100%;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  list-style: none;
+  height: 100%;
 }
 
 .nav-links {
@@ -58,32 +58,41 @@
   border-bottom: 5px solid #ecdbba;
 }
 
-.menu-icon{
-  display:none;
+.menu-icon {
+  display: none;
 }
-
 
 @media screen and (max-width: 800px) {
   .NavbarItems {
     display: flex;
     flex-direction: column;
-    height: 15vh;
+    height: 10vh;
   }
 
   .navbar-name {
     display: flex;
     flex-direction: row;
     width: 80%;
-    height: 15vh;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
-    margin-top:1.5vh;
-    margin-bottom:1.5vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
   }
 
   .nav-menu {
-    overflow:hidden;
-    height:0px;
+    width: 100%;
+    height: 0px;
+    background-color: #c84b31;
+    overflow: hidden;
+    transition: height 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .active {
+    height: 15vh;
   }
 
   .menu-icon {
@@ -91,21 +100,10 @@
     color: #ecdbba;
   }
 
-  .nav-menu-active {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    transition: height 1s ease;
+  .nav-menu li {
     display: flex;
     flex-direction: column;
-    background-color: #c84b31;
-    list-style: none;
-    z-index: 1;
-    height: 20vh;
-
-  }
-
-  li{
-    margin-bottom:2vh;
+    justify-content: center;
+    height: 5vh;
   }
 }

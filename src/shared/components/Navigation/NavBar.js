@@ -11,15 +11,18 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="NavbarItems">
-        <div className="navbar-name">
-          <a className = "KEWEB" href = "/">KE WEB</a>
-          <div className="menu-icon" onClick={this.handleClick}>
-            <i className="fas fa-bars"></i>
+      <>
+        <nav className="NavbarItems">
+          <div className="navbar-name">
+            <a className="KEWEB" href="/">
+              KE WEB
+            </a>
+            <div className="menu-icon" onClick={this.handleClick}>
+              <i className="fas fa-bars"></i>
+            </div>
           </div>
-        </div>
-
-        <div className={this.state.clicked ? "nav-menu-active" : "nav-menu"}>
+        </nav>
+        <div className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
@@ -30,7 +33,7 @@ class Navbar extends Component {
             );
           })}
         </div>
-      </nav>
+      </>
     );
   }
 }
