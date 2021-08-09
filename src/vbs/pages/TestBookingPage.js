@@ -1,12 +1,9 @@
 import "./TestBookingPage.css";
 import React, { useState } from "react";
-import { useRef } from "react";
-import { useForm } from "react-hook-form";
 import { useHistory, useLocation, useParams } from "react-router";
 import StatusBar from "../shared/StatusBar";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ccaDATA from "./ccaDATA";
-import { tsNonNullExpression } from "@babel/types";
 import validator from "validator";
 import { required } from "yargs";
 
@@ -20,21 +17,14 @@ const DATA = [
 ];
 
 const TestBookingPage = () => {
+  const { selectedDate, selectedTimeslot, venue, selectedSubvenue } =
+    useLocation().state;
   const { venueName } = useParams();
-  const { selectedDate } = useLocation().state;
-  const [timeIntervals, setTimeIntervals] = useState(DATA);
   const [email, setEmail] = useState("");
   const [purpose, setPurpose] = useState("");
   const [isActive, setIsActive] = useState("");
-  const venue = useLocation().state.venue;
-  const OnClick = () => setIsActive(!isActive);
-
-  function handleTimeSelect(id) {
-    DATA[id].selected = !DATA[id].selected;
-    setTimeIntervals(DATA);
-    console.log(id);
-    console.log(DATA[id].selected);
-  }
+  const [emailError, setEmailError] = useState("");
+  let history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -61,7 +51,7 @@ const TestBookingPage = () => {
         <div className="contents">
           <div className="row">
             <h2 className="Titles">VENUE :</h2>
-            <h3 className="black">{venueName}</h3>
+            <h3 className="black">{venue.name}</h3>
           </div>
 
           <div className="row">
@@ -72,7 +62,7 @@ const TestBookingPage = () => {
           <div className="row">
             <h2 className="Titles">EMAIL :</h2>
             <input
-              type="text"
+              type="email"
               id="Email"
               name="Email"
               placeholder="e0123456@u.nus.edu.sg"
