@@ -4,18 +4,8 @@
   justify-content: flex-start;
   align-items: center;
   width: 100vw;
-  height: 100%;
+  height: 90vh;
   background-color: inherit;
-}
-
-.banner {
-  width: 70%;
-  background-color: #ecdbba;
-  text-align: center;
-  font-family: "Raleway", sans-serif;
-  margin: 0 0;
-  margin-bottom: 1%;
-  padding: 0.5%;
 }
 
 .vbs {
@@ -28,6 +18,20 @@
   justify-content: center;
   width: 70vw;
   height: 65vh;
+  margin-top: 1%;
+}
+
+.blackout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.blackout p {
+  font-size: 30px;
 }
 
 .specificVenueLeftSide {
@@ -105,6 +109,7 @@
 .specifcVenueCalendarContainerMobile {
   flex-direction: column;
   width: 95%;
+  margin-top: 1%;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -185,5 +190,34 @@
     justify-content: center;
     width: 48%;
     height: 35px;
+  }
+}
+
+.blink {
+  animation: blink 1s ease-in alternate;
+}
+
+@keyframes blink {
+  0% {
+    transform: translateY(0);
+  }
+
+  14% {
+    transform: translateY(-10%);
+  }
+  28% {
+    transform: translateY(0);
+  }
+  42% {
+    transform: translateY(-10%);
+  }
+  66% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

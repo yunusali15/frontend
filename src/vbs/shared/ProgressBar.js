@@ -35,7 +35,7 @@ function ProgressBar({ stage }) {
             DETAILS
           </Link>
         ) : (
-          <Link className="link">DETAILS</Link>
+          <Link className="link">DATE</Link>
         )}
         <Link className="link">DETAILS</Link>
         <Link className="link">SUBMIT</Link>
