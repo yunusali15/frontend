@@ -13,7 +13,7 @@ class Navbar extends Component {
     return (
       <nav className="NavbarItems">
         <div className="navbar-name">
-          <div className="KEWEB">KE WEB</div>
+          <a className = "KEWEB" href = "/">KE WEB</a>
           <div className="menu-icon" onClick={this.handleClick}>
             <i className="fas fa-bars"></i>
           </div>

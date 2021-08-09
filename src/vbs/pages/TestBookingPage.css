@@ -2,105 +2,105 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 .mainDiv {
-    flex-direction: column;
-    background-color: white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  flex-direction: column;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Statusbar {
-    margin-left: 0;
+  margin-left: 0;
 }
 
-.contents{
-    display:flex;
-    flex-direction: column;
-    width:100%;
-    background-color: #ECDBBA;
-    margin-bottom: 4vh;
+.contents {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ecdbba;
+  margin-bottom: 4vh;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-} 
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
 
 .Titles {
-    color:#C84B31;
-    font-family:'Raleway', sans-serif;
-    font-style:normal;
-    font-weight:800;
-    font-size: 2.25vw;
-    margin-right:5vw;
-    margin-left: 3vw;
-    text-align:right;
-    width:12vw;
-    margin-bottom: 1vh;
+  color: #c84b31;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2.25vw;
+  margin-right: 5vw;
+  margin-left: 3vw;
+  text-align: right;
+  width: 12vw;
+  margin-bottom: 1vh;
 }
 
 .row {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    flex-direction: row;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .ccaContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .radio-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items:center;
-    padding-bottom: 2vh;
-    padding-top: 10%;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 2vh;
+  padding-top: 10%;
 }
 
-.black{
-    color:black;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size:1.35em;
-    margin-bottom: 1vh;
+.black {
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.35em;
+  margin-bottom: 1vh;
 }
 
-input[name=Email]{
-    height:5vh;
-    width: 25vw;
-    max-height: 40px;
+input[name="Email"] {
+  height: 5vh;
+  width: 25vw;
+  max-height: 40px;
 }
 
-
-.active{
-    height:15vh;
-    width: 20vw;
-    margin-bottom: 3vh;
+#Detail {
+  align-items: flex-start;
 }
 
-.inactive{
-    display: none;
+.active {
+  height: 15vh;
+  width: 20vw;
+  margin-bottom: 3vh;
 }
 
-select[name= HallCCA] {
-    height:5vh;
-    width:25vw;
-    max-height: 40px;
+.inactive {
+  display: none;
 }
 
+select[name="HallCCA"] {
+  height: 5vh;
+  width: 25vw;
+  max-height: 40px;
+}
 
-input[name=Details] {
-    height:15vh;
-    width:60%;
-    margin-bottom: 3vh;
-    max-height: 100px;
-    
+input[name="Details"] {
+  height: 15vh;
+  width: 60%;
+  margin-bottom: 3vh;
+  max-height: 100px;
 }
 /* 
 .bButton{
@@ -117,118 +117,112 @@ input[name=Details] {
     text-align:center;
 } */
 
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
 button a {
-    padding: 0.5% 5%;
-    text-decoration: none; 
-    padding: inherit;
+  padding: 0.5% 5%;
+  text-decoration: none;
+  padding: inherit;
 }
 
 button a:visited {
-    color:inherit;
+  color: inherit;
 }
-
 
 @media only screen and (max-width: 800px) {
-    .contents{
-        display:flex;
-        flex-direction: column;
-        width:100%;
-        justify-items: center;
-        background-color: #ECDBBA;
-    }
-    
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-    }     
-    
-    .Titles {
-        color:#C84B31;
-        font-family:'Raleway', sans-serif;
-        font-style:normal;
-        font-weight:800;
-        font-size: 16px;
-        margin-left: 3vw;
-        width:fit-content;
-    }
-    
-    .row {
-        display:flex;
-        flex-direction:row;
-        align-items:center;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        margin-bottom: 2vh;
-    }
-    
-    .ccaContainer {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .radio-buttons {
-        display: flex;
-        flex-direction: row;
-        align-items:center;
-        padding-bottom: 2vh;
-        padding-top: 10%;
-    
-    }
+  .contents {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-items: center;
+    background-color: #ecdbba;
+  }
 
-    label {
-        font-size: 14px;
-        font-weight: 400;
-    }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
 
-    
-    .black{
-        color:black;
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        font-size:16px;
-        margin-bottom: 1vh;
-    }
-    
-    input[name=Email]{
-        height:7vh;
-        width: 25vw;
-        max-height: 40px;
-    }
-    
-    
-    .active{
-        height:10vh;
-        width: 30vw;
-        margin-bottom: 3vh;
-    }
-    
-    .inactive{
-        display: none;
-    }
-    
-    select[name= HallCCA] {
-        height:5vh;
-        width: 50vw;
-        max-height: 40px;
-        margin-left: unset;
-    }
+  .Titles {
+    color: #c84b31;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    margin-left: 3vw;
+    width: fit-content;
+  }
 
-    select option {
-        width: 5vw;
-    }
-    
-    
-    input[name=Email]{
-        height:5vh;
-        width: 50vw;
-        max-height: 40px;
-    }
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 2vh;
+  }
+
+  .ccaContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .radio-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 2vh;
+    padding-top: 10%;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .black {
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 1vh;
+  }
+
+  input[name="Email"] {
+    height: 7vh;
+    width: 25vw;
+    max-height: 40px;
+  }
+
+  .active {
+    height: 10vh;
+    width: 30vw;
+    margin-bottom: 3vh;
+  }
+
+  .inactive {
+    display: none;
+  }
+
+  select[name="HallCCA"] {
+    height: 5vh;
+    width: 50vw;
+    max-height: 40px;
+    margin-left: unset;
+  }
+
+  select option {
+    width: 5vw;
+  }
+
+  input[name="Email"] {
+    height: 5vh;
+    width: 50vw;
+    max-height: 40px;
+  }
 }
-
