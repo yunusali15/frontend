@@ -22,9 +22,11 @@ const TestBookingPage = () => {
   const { venueName } = useParams();
   const [email, setEmail] = useState("");
   const [purpose, setPurpose] = useState("");
-  const [isActive, setIsActive] = useState("");
+  const [isActive, setIsActive] = useState(false);
   const [emailError, setEmailError] = useState("");
   let history = useHistory();
+
+  console.log(selectedSubvenue);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,7 +53,7 @@ const TestBookingPage = () => {
         <div className="contents">
           <div className="row">
             <h2 className="Titles">VENUE :</h2>
-            <h3 className="black">{venue.name}</h3>
+            <h3 className="black">{selectedSubvenue.label}</h3>
           </div>
 
           <div className="row">
@@ -61,18 +63,19 @@ const TestBookingPage = () => {
 
           <div className="row">
             <h2 className="Titles">EMAIL :</h2>
-            <input
-              type="email"
-              id="Email"
-              name="Email"
-              placeholder="e0123456@u.nus.edu.sg"
-              onChange={(e) => emailValidator(e)}
-              required
-            ></input>
-            <br />
-            <span style={{ fontSize: "10px", color: "red" }}>
-              &nbsp;{emailError}
-            </span>
+            <div className="black">
+              <input
+                type="email"
+                id="Email"
+                name="Email"
+                placeholder="e0123456@u.nus.edu.sg"
+                onChange={(e) => emailValidator(e)}
+                required
+              ></input>
+              <span style={{ fontSize: "10px", color: "red" }}>
+                &nbsp;{emailError}
+              </span>
+            </div>
           </div>
 
           <div className="row">
@@ -85,7 +88,7 @@ const TestBookingPage = () => {
                   name="Purpose"
                   value=""
                   onChange={(event) => setPurpose(event.target.value)}
-                  onClick={() => setIsActive("active")}
+                  onClick={() => setIsActive(true)}
                 ></input>
                 <label for="CCA">CCA</label>
                 <input
@@ -94,73 +97,69 @@ const TestBookingPage = () => {
                   name="Purpose"
                   value="Personal"
                   onChange={(event) => setPurpose(event.target.value)}
-                  onClick={() => setIsActive("inactive")}
+                  onClick={() => setIsActive(false)}
                   required
                 ></input>
                 <label for="Personal">Personal</label>
               </div>
-              <select
-                id="HallCCA"
+              {isActive && (
+                <select
+                  id="HallCCA"
+                  name="HallCCA"
+                  className="active"
+                  onChange={(e) => setPurpose(e.target.value)}
+                >
+                  <option value="">Select a CCA</option>
+                  {ccaDATA.map((cca) => (
+                    <option value={cca}>{cca}</option>
+                  ))}
+                </select>
+              )}
+              <textarea
+                type="text"
+                id="Details"
                 name="HallCCA"
-                className={isActive ? isActive : "inactive"}
-                onChange={(e) => setPurpose(e.target.value)}
-              >
-                <option value="">Select a CCA</option>
-                {ccaDATA.map((cca) => (
-                  <option value={cca}>{cca}</option>
-                ))}
-              </select>
+                required
+                rows="4"
+                cols="30"
+                style={{ height: "8vh" }}
+                placeholder="Details"
+              />
             </div>
           </div>
-          <div className="row">
-            <h2 className="Titles" />
-            <input type="text" id="Details" name="HallCCA" required />
-          </div>
-          <div className="row" style={{ height: "11vh" }}>
-            <h2 className="Titles" />
-            <textarea
-              type="text"
-              id="Details"
-              name="HallCCA"
-              required
-              rows="4"
-              cols="30"
-              style={{ height: "8vh" }}
-            />
-          </div>
-        </div>
-        <div className="bottomNavigation">
-          <Link
-            class="backButton"
-            to={{ path: `/vbs/${venueName}`, state: { venue } }}
-          >
-            Back
-          </Link>
-          {true ? (
-            <p></p>
-          ) : (
-            <p
-              style={{
-                fontFamily: '"Roboto Condensed", sans-serif',
-                margin: "1% 0",
-              }}
-            >
-              Fill all fields to Submit
-            </p>
-          )}
-          {email && purpose ? (
-            <button
-              type="submit"
-              className="submitButton enabled"
-              style={{ border: 0 }}
-            >
-              Submit
-            </button>
-          ) : (
-            <div className="submitButton disabled">Submit</div>
-          )}
         </div>
       </form>
+      <div className="bottomNavigation">
+        <Link
+          class="backButton"
+          to={{ path: `/vbs/${venueName}`, state: { venue } }}
+        >
+          Back
+        </Link>
+        {true ? (
+          <p></p>
+        ) : (
+          <p
+            style={{
+              fontFamily: '"Roboto Condensed", sans-serif',
+              margin: "1% 0",
+            }}
+          >
+            Fill all fields to Submit
+          </p>
+        )}
+        {email && purpose ? (
+          <Link
+            className="submitButton enabled"
+            style={{ border: 0 }}
+            onClick={handleSubmit}
+          >
+            Submit
+          </Link>
+        ) : (
+          <div className="submitButton disabled">Submit</div>
+        )}
+      </div>
     </div>
   );
 };

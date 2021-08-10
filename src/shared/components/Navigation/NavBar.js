@@ -21,18 +21,18 @@ class Navbar extends Component {
               <i className="fas fa-bars"></i>
             </div>
           </div>
+          <div className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+            {MenuItems.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a className={item.cName} href={item.url}>
+                    {item.title}{" "}
+                  </a>
+                </li>
+              );
+            })}
+          </div>
         </nav>
-        <div className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-          {MenuItems.map((item, index) => {
-            return (
-              <li key={index}>
-                <a className={item.cName} href={item.url}>
-                  {item.title}{" "}
-                </a>
-              </li>
-            );
-          })}
-        </div>
       </>
     );
   }
