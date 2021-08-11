@@ -7,15 +7,6 @@ import ccaDATA from "./ccaDATA";
 import validator from "validator";
 import { required } from "yargs";
 
-const DATA = [
-  { id: 0, timeStart: "08:00", timeEnd: "09:00", selected: false },
-  { id: 1, timeStart: "09:00", timeEnd: "10:00", selected: false },
-  { id: 2, timeStart: "10:00", timeEnd: "11:00", selected: false },
-  { id: 3, timeStart: "11:00", timeEnd: "12:00", selected: false },
-  { id: 4, timeStart: "12:00", timeEnd: "13:00", selected: false },
-  { id: 4, timeStart: "13:00", timeEnd: "14:00", selected: false },
-];
-
 const TestBookingPage = () => {
   const { selectedDate, selectedTimeslot, venue, selectedSubvenue } =
     useLocation().state;
@@ -45,11 +36,11 @@ const TestBookingPage = () => {
   };
 
   return (
-    <div className="mainDiv">
+    <div className="BookingPageMainDiv">
       <div className="Statusbar">
         <StatusBar stage="3" />
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className="BookingPageForm" onSubmit={handleSubmit}>
         <div className="contents">
           <div className="row">
             <h2 className="Titles">VENUE :</h2>
@@ -58,7 +49,9 @@ const TestBookingPage = () => {
 
           <div className="row">
             <h2 className="Titles">TIME :</h2>
-            <h3 className="black">{selectedDate.toDateString()}</h3>
+            <h3 className="black">{`${selectedDate.toDateString()}: ${selectedTimeslot.map(
+              (timeslot) => timeslot.timeStart + " - " + timeslot.timeEnd
+            )}`}</h3>
           </div>
 
           <div className="row">
@@ -79,7 +72,9 @@ const TestBookingPage = () => {
           </div>
 
           <div className="row">
-            <h2 className="Titles">PURPOSE :</h2>
+            <h2 className="Titles" style={{ alignSelf: "flex-start" }}>
+              PURPOSE :
+            </h2>
             <div className="ccaContainer">
               <div className="radio-buttons">
                 <input
@@ -106,7 +101,7 @@ const TestBookingPage = () => {
                 <select
                   id="HallCCA"
                   name="HallCCA"
-                  className="active"
+                  className="bookingPageActive"
                   onChange={(e) => setPurpose(e.target.value)}
                 >
                   <option value="">Select a CCA</option>

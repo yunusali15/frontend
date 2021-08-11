@@ -32,7 +32,7 @@ function ProgressBar({ stage }) {
         )}
         {stage > 2 && stage < 4 ? (
           <Link className="link enabled" to={`/vbs/${venueName}`}>
-            DETAILS
+            DATE
           </Link>
         ) : (
           <Link className="link">DATE</Link>

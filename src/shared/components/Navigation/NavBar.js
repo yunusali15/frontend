@@ -12,7 +12,11 @@ class Navbar extends Component {
   render() {
     return (
       <>
-        <nav className="NavbarItems">
+        <nav
+          className={
+            this.state.clicked ? "NavbarItems NavbarItemsActive" : "NavbarItems"
+          }
+        >
           <div className="navbar-name">
             <a className="KEWEB" href="/">
               KE WEB
@@ -21,7 +25,7 @@ class Navbar extends Component {
               <i className="fas fa-bars"></i>
             </div>
           </div>
-          <div className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+          <div className="nav-menu">
             {MenuItems.map((item, index) => {
               return (
                 <li key={index}>
