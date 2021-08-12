@@ -9,7 +9,7 @@ import validator from "validator";
 const BookingPage = () => {
   const { selectedDate, selectedTimeslot, venue, selectedSubvenue } =
     useLocation().state;
-  const { venueName } = useParams();
+  const venueId = useParams().venueId;
   const [email, setEmail] = useState("");
   const [purpose, setPurpose] = useState("");
   const [isActive, setIsActive] = useState(false);
@@ -37,7 +37,7 @@ const BookingPage = () => {
   return (
     <div className="BookingPageMainDiv">
       <div className="Statusbar">
-        <StatusBar stage="3" />
+        <StatusBar stage="3" venue={venue} />
       </div>
       <form className="BookingPageForm" onSubmit={handleSubmit}>
         <div className="contents">
@@ -126,7 +126,7 @@ const BookingPage = () => {
       <div className="bottomNavigation">
         <Link
           class="backButton"
-          to={{ path: `/vbs/${venueName}`, state: { venue } }}
+          to={{ pathname: `/vbs/${venueId}`, state: { venue } }}
         >
           Back
         </Link>
