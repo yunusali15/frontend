@@ -10,12 +10,17 @@ const SubvenueSelector = ({
   selectedSubvenue,
   parentVenue,
 }) => {
-  var options = [{ value: parentVenue.id, label: "Whole Venue" }];
+  var options;
 
   if (subvenues.length > 1) {
+    options = [{ value: parentVenue.id, label: "Whole Venue" }];
     subvenues.map((subvenue) => {
       options.push({ value: subvenue._id, label: subvenue.name });
     });
+  } else {
+    options = [
+      { value: parentVenue.id, label: parentVenue.name + " - Whole Venue" },
+    ];
   }
 
   return (
