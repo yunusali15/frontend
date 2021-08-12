@@ -12,7 +12,7 @@ const SubvenueSelector = ({
 }) => {
   var options = [{ value: parentVenue.id, label: "Whole Venue" }];
 
-  if (subvenues.length > 0) {
+  if (subvenues.length > 1) {
     subvenues.map((subvenue) => {
       options.push({ value: subvenue._id, label: subvenue.name });
     });
