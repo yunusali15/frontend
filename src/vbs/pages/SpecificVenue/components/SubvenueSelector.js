@@ -8,14 +8,15 @@ const SubvenueSelector = ({
   subvenues,
   handleSubvenueSelection,
   selectedSubvenue,
-  setSelectedSubvenue,
   parentVenue,
 }) => {
   var options = [{ value: parentVenue.id, label: "Whole Venue" }];
 
-  subvenues.map((subvenue) => {
-    options.push({ value: subvenue._id, label: subvenue.name });
-  });
+  if (subvenues.length > 0) {
+    subvenues.map((subvenue) => {
+      options.push({ value: subvenue._id, label: subvenue.name });
+    });
+  }
 
   return (
     <Dropdown

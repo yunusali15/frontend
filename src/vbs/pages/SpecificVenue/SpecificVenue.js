@@ -96,12 +96,12 @@ function SpecificVenue() {
     setIsMobile(window.innerWidth <= 500);
   }
 
-  // useEffect(() => {
-  //   window.addEventListener("resize", handleWindowSizeChange);
-  //   return () => {
-  //     window.removeEventListener("resize", handleWindowSizeChange);
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
 
   if (!isMobile) {
     return (

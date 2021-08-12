@@ -38,11 +38,7 @@ const App = () => {
         <Route exact path="/vbs" component={VenueSelection} />
         <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
         <Route exact path="/vbs/:venueId" component={SpecificVenue} />
-        <Route
-          exact
-          path="/vbs/:venueName/bookingpage"
-          component={BookingPage}
-        />
+        <Route exact path="/vbs/:venueId/bookingpage" component={BookingPage} />
         <Router path="/Contacts" exact>
           <Contacts />
         </Router>
