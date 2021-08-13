@@ -4,6 +4,7 @@ import "./VenueSelection.css";
 import DATA from "./venueDATA";
 import StatusBar from "../../shared/StatusBar";
 import axios from "axios";
+import { BeatLoader } from "react-spinners";
 
 const BASEURL = "https://britannic.herokuapp.com/";
 
@@ -11,33 +12,43 @@ const api = axios.create({ baseURL: BASEURL });
 
 const VenueSelection = () => {
   const [parentVenueArray, setParentVenueArray] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   //fetch list of parent venues upon opening
   useEffect(() => {
+    setLoading(true);
     api
       .get("/api/v1/venue/search?isChildVenue=false")
-      .then((res) => setParentVenueArray(res.data.venues));
+      .then((res) => {
+        setParentVenueArray(res.data.venues);
+        setLoading(false);
+      });
     return;
   }, []);
 
   return (
-    <div className="Venues-page">
-      <StatusBar stage={1} />
-      <div className="venues-container">
+    <div className="VenueSelection-page">
+      <StatusBar stage={1} /> 
+      {loading? <>
+            <p>Loading</p>
+            <BeatLoader color="black" loading={true} />
+          </>
+          :(
+      <div className="VenueSelection-venuesContainer">
         {parentVenueArray.map((venue) => (
           <Link
-            className="venueLink"
+            className="VenueSelection-venueLink"
             to={{ pathname: `./vbs/${venue.id}`, state: { venue } }}
           >
             <div
-              className="venue"
+              className="VenueSelection-venue"
               style={{ backgroundImage: `url(${BASEURL + venue.image})` }}
             >
-              <div className="venueName">{venue.name}</div>
+              <div className="VenueSelection-venueName">{venue.name}</div>
             </div>
           </Link>
         ))}
       </div>
+      )}
     </div>
   );
 };
