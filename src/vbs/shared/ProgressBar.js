@@ -4,9 +4,9 @@ import "./ProgressBar.css";
 import { BsCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-function ProgressBar({ stage }) {
+function ProgressBar({ stage, venue }) {
   let history = useHistory();
-  let { venueName } = useParams("venueName");
+  const venueId = useParams().venueId;
   return (
     <div className="progressBarContainer">
       <div className="dotsAndLines">
@@ -31,8 +31,11 @@ function ProgressBar({ stage }) {
           <Link className="link">VENUE</Link>
         )}
         {stage > 2 && stage < 4 ? (
-          <Link className="link enabled" to={`/vbs/${venueName}`}>
-            DETAILS
+          <Link
+            className="link enabled"
+            to={{ pathname: `/vbs/${venueId}`, state: { venue } }}
+          >
+            DATE
           </Link>
         ) : (
           <Link className="link">DATE</Link>

@@ -4,7 +4,7 @@ import ScheduleSelect from "../../pages/SpecificVenue/components/ScheduleSelect"
 import SelectedDisplay from "../../pages/SpecificVenue/components/SelectedDisplay";
 import SubvenueSelector from "./components/SubvenueSelector";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { BounceLoader, BeatLoader, BarLoader } from "react-spinners";
+import { BeatLoader } from "react-spinners";
 import { ImArrowUp } from "react-icons/im";
 
 import StatusBar from "../../shared/StatusBar";
@@ -96,12 +96,12 @@ function SpecificVenue() {
     setIsMobile(window.innerWidth <= 500);
   }
 
-  // useEffect(() => {
-  //   window.addEventListener("resize", handleWindowSizeChange);
-  //   return () => {
-  //     window.removeEventListener("resize", handleWindowSizeChange);
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
 
   if (!isMobile) {
     return (
@@ -223,10 +223,7 @@ function SpecificVenue() {
           />
           <SelectedDisplay selectedTimeslot={selectedTimeslot} />
           <div className="bottomNavigationModal">
-            <div
-              className="backButton modal"
-              onClick={() => setIsModalOpen(false)}
-            >
+            <div className="backButton" onClick={() => setIsModalOpen(false)}>
               Back
             </div>
             {selectedDate && selectedTimeslot.length > 0 ? (
@@ -240,34 +237,33 @@ function SpecificVenue() {
                     selectedSubvenue,
                   },
                 }}
-                className="submitButtonMobile enabled "
+                className="submitButton enabled "
               >
                 Submit
               </Link>
             ) : (
-              <div className="submitButtonMobile disabled">Submit</div>
+              <div className="submitButton disabled">Submit</div>
             )}
           </div>
         </Modal>
         {selectedSubvenue && !loading && (
           <div className="bottomNavigation">
-            <Link className="backButton buttonMobile" to="/vbs">
+            <Link className="backButton" to="/vbs">
               Back
             </Link>
             {selectedDate ? (
-              <div
-                className="submitButton enabled buttonMobile"
-                onClick={setIsModalOpen}
-              >
+              <div className="submitButton enabled" onClick={setIsModalOpen}>
                 Next
               </div>
             ) : (
-              <div className="submitButton disabled buttonMobile">Next</div>
+              <div className="submitButton disabled">Next</div>
             )}
           </div>
         )}
-        {selectedSubvenue && !loading && !selectedDate && (
+        {selectedSubvenue && !loading && !selectedDate ? (
           <p className="selectDNT">Select Date to proceed</p>
+        ) : (
+          <p />
         )}
       </div>
     );

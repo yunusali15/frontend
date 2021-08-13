@@ -1,98 +1,212 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-.mainDiv {
+.BookingPageMainDiv {
   flex-direction: column;
   background-color: white;
-  height: 630px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Statusbar {
+  margin-left: 0;
 }
 
 .contents {
   display: flex;
-  flex-direction: row;
-  margin-top: 170px;
-  width: 90%;
+  flex-direction: column;
+  width: 100%;
   background-color: #ecdbba;
-  justify-content: center;
+  margin-bottom: 1vh;
+  padding: 3%;
 }
 
-.box {
+.BookingPageForm {
   display: flex;
   flex-direction: column;
   width: 70%;
-  padding: 15px;
-  margin-left: 20px;
 }
 
-.Venue {
-  font-family: Raleway, Light 300;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 36px;
-  float: left;
-  position: absolute;
-  left: 50px;
-  top: 100px;
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 2%;
 }
 
 .Titles {
   color: #c84b31;
-  font-family: Raleway, Light 300;
+  font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 16px;
-  margin-right: 15px;
+  font-size: 2.25vw;
   text-align: right;
-  width: 15%;
+  width: 20%;
+  height: 100%;
+  margin: 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
-h3 {
+.ccaContainer {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.radio-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+.black {
   color: black;
-  margin: 10px;
-}
-
-input[name="Email"] {
-  height: 30px;
-  width: 50%;
-}
-
-.Purpose {
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
-
-input[name="HallCCA"] {
-  width: 50%;
-  height: 30px;
-}
-
-input[name="Details"] {
-  height: 96px;
-}
-
-input[name="Submit"] {
-  background-color: grey;
-  color: white;
-  font-family: Roboto Light 300;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
-  margin: 10px;
-  height: 40px;
-  width: 200px;
-  right: 10px;
-  position: relative;
-  left: 80%;
+  font-weight: 500;
+  font-size: 1.35em;
+  width: 70%;
 }
 
-input[name="Back"] {
-  background-color: white;
-  color: #c84b31;
-  font-family: Roboto Light 300;
-  font-style: normal;
-  margin: 10px;
-  height: 40px;
-  width: 200px;
-  border-color: #c84b31;
-  position: relative;
-  left: -80%;
+#Email {
+  height: 5vh;
+  width: 70%;
+  max-height: 40px;
+}
+
+#Detail {
+  align-items: flex-start;
+}
+
+.bookingPageActive {
+  height: 15vh;
+  width: 20vw;
+  margin-bottom: 1%;
+}
+
+select[name="HallCCA"] {
+  height: 5vh;
+  width: 25vw;
+  max-height: 40px;
+}
+
+#Details {
+  height: 15vh;
+  width: 60%;
+  max-height: 100px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button a {
+  padding: 0.5% 5%;
+  text-decoration: none;
+  padding: inherit;
+}
+
+button a:visited {
+  color: inherit;
+}
+
+@media only screen and (max-width: 1200px) {
+  .BookingPageForm {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .contents {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-items: center;
+    background-color: #ecdbba;
+  }
+
+  .BookingPageForm {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    justify-content: center;
+  }
+
+  .Titles {
+    color: #c84b31;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    margin-left: 3vw;
+    width: fit-content;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 2vh;
+  }
+
+  .ccaContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .radio-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2%;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .black {
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 1vh;
+  }
+
+  input[name="Email"] {
+    height: 7vh;
+    width: 25vw;
+    max-height: 40px;
+  }
+
+  select[name="HallCCA"] {
+    height: 5vh;
+    width: 50vw;
+    max-height: 40px;
+    margin-bottom: 2%;
+  }
+
+  select option {
+    width: 5vw;
+  }
+
+  input[name="Email"] {
+    height: 5vh;
+    width: 50vw;
+    max-height: 40px;
+  }
 }

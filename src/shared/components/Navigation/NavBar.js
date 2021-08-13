@@ -11,26 +11,33 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="NavbarItems">
-        <div className="navbar-name">
-          <div className="KEWEB">KE WEB</div>
-          <div className="menu-icon" onClick={this.handleClick}>
-            <i className="fas fa-bars"></i>
+      <>
+        <nav
+          className={
+            this.state.clicked ? "NavbarItems NavbarItemsActive" : "NavbarItems"
+          }
+        >
+          <div className="navbar-name">
+            <a className="KEWEB" href="/">
+              KE WEB
+            </a>
+            <div className="menu-icon" onClick={this.handleClick}>
+              <i className="fas fa-bars"></i>
+            </div>
           </div>
-        </div>
-
-        <div className={this.state.clicked ? "nav-menu-active" : "nav-menu"}>
-          {MenuItems.map((item, index) => {
-            return (
-              <li key={index}>
-                <a className={item.cName} href={item.url}>
-                  {item.title}{" "}
-                </a>
-              </li>
-            );
-          })}
-        </div>
-      </nav>
+          <div className="nav-menu">
+            {MenuItems.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a className={item.cName} href={item.url}>
+                    {item.title}{" "}
+                  </a>
+                </li>
+              );
+            })}
+          </div>
+        </nav>
+      </>
     );
   }
 }

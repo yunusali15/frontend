@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
-const TimeslotButton = ({
-  time,
-  timeslots,
-  selectedTimeslot,
-  setSelectedTimeslot,
-}) => {
+const TimeslotButton = ({ time, selectedTimeslot, setSelectedTimeslot }) => {
   function handleButtonClick(time) {
     let temp = [...selectedTimeslot];
     if (time.selected) {
