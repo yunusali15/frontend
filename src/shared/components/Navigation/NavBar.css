@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-.navbar-name {
+.navbar {
   color: #ecdbba;
   font-family: "Raleway", sans-serif;
   font-style: normal;
@@ -11,7 +11,7 @@
   text-decoration: none;
 }
 
-.KEWEB {
+.navbar_KEWEB {
   color: #ecdbba;
   font-family: "Raleway", sans-serif;
   font-style: normal;
@@ -40,7 +40,7 @@
   height: 100%;
 }
 
-.nav-links {
+.nav-menu_nav-links {
   color: #ffffff;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -50,15 +50,15 @@
   text-decoration: none;
 }
 
-.nav-links:nth-of-type(2) {
+.nav-menu_nav-links:nth-of-type(2) {
   margin: 0 10%;
 }
 
-.nav-links:hover {
+.nav-menu_nav-links:hover {
   border-bottom: 5px solid #ecdbba;
 }
 
-.menu-icon {
+.navbar_menu-icon {
   display: none;
 }
 
@@ -73,7 +73,7 @@
     transition: height 0.5s ease;
   }
 
-  .navbar-name {
+  .navbar {
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -95,7 +95,7 @@
     height: 25vh;
   }
 
-  .menu-icon {
+  .navbar_menu-icon {
     display: flex;
     color: #ecdbba;
   }
