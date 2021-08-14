@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 
 import "./Home.css";
-import keviilogo from "../../shared/Images/keviilogo.png";
 import { LoginContext } from "../../shared/context/LoginContext";
 import homepage from "./homepage.png";
 
