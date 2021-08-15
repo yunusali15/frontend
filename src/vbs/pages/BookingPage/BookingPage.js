@@ -41,21 +41,21 @@ const BookingPage = () => {
       </div>
       <form className="BookingPageForm" onSubmit={handleSubmit}>
         <div className="contents">
-          <div className="row">
-            <h2 className="Titles">VENUE :</h2>
-            <h3 className="black">{selectedSubvenue.label}</h3>
+          <div className="BookingPageForm_row">
+            <h2 className="BookingPageForm_row_Titles">VENUE :</h2>
+            <h3 className="BookingPageForm_row_black">{selectedSubvenue.label}</h3>
           </div>
 
-          <div className="row">
-            <h2 className="Titles">TIME :</h2>
-            <h3 className="black">{`${selectedDate.toDateString()}: ${selectedTimeslot.map(
+          <div className="BookingPageForm_row">
+            <h2 className="BookingPageForm_row_Titles">TIME :</h2>
+            <h3 className="BookingPageForm_row_black">{`${selectedDate.toDateString()}: ${selectedTimeslot.map(
               (timeslot) => timeslot.timeStart + " - " + timeslot.timeEnd
             )}`}</h3>
           </div>
 
-          <div className="row">
-            <h2 className="Titles">EMAIL :</h2>
-            <div className="black">
+          <div className="BookingPageForm_row">
+            <h2 className="BookingPageForm_row_Titles">EMAIL :</h2>
+            <div className="BookingPageForm_row_black">
               <input
                 type="email"
                 id="Email"
@@ -70,12 +70,12 @@ const BookingPage = () => {
             </div>
           </div>
 
-          <div className="row">
-            <h2 className="Titles" style={{ alignSelf: "flex-start" }}>
+          <div className="BookingPageForm_row">
+            <h2 className="BookingPageForm_row_Titles" style={{ alignSelf: "flex-start" }}>
               PURPOSE :
             </h2>
-            <div className="ccaContainer">
-              <div className="radio-buttons">
+            <div className="BookingPageForm_row_ccaContainer">
+              <div className="BookingPageForm_row_ccaContainer_radio-buttons">
                 <input
                   type="radio"
                   id="CCA"
@@ -100,7 +100,7 @@ const BookingPage = () => {
                 <select
                   id="HallCCA"
                   name="HallCCA"
-                  className="bookingPageActive"
+                  className="BookingPageForm_row_bookingPageActive"
                   onChange={(e) => setPurpose(e.target.value)}
                 >
                   <option value="">Select a CCA</option>

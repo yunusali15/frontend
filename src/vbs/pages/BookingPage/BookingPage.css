@@ -28,17 +28,17 @@
   width: 70%;
 }
 
-.row {
+.BookingPageForm_row {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 2%;
+  margin: 2% 2%;
 }
 
-.Titles {
+.BookingPageForm_row_Titles {
   color: #c84b31;
   font-family: "Raleway", sans-serif;
   font-style: normal;
@@ -50,30 +50,31 @@
   margin: 0 0;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
 }
 
-.ccaContainer {
+.BookingPageForm_row_ccaContainer {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 75%;
 }
 
-.radio-buttons {
+.BookingPageForm_row_ccaContainer_radio-buttons {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 1%;
+  margin-bottom:3%;
 }
 
-.black {
+.BookingPageForm_row_black {
   color: black;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 1.35em;
-  width: 70%;
+  width: 75%;
+  margin: 0 0;
 }
 
 #Email {
@@ -86,7 +87,7 @@
   align-items: flex-start;
 }
 
-.bookingPageActive {
+.BookingPageForm_row_bookingPageActive {
   height: 15vh;
   width: 20vw;
   margin-bottom: 1%;
@@ -142,31 +143,31 @@ button a:visited {
     justify-content: center;
   }
 
-  .Titles {
+  .BookingPageForm_row_Titles {
     color: #c84b31;
     font-family: "Raleway", sans-serif;
     font-style: normal;
     font-weight: 800;
-    font-size: 16px;
+    font-size: 5vw;
     margin-left: 3vw;
     width: fit-content;
+    align-self:flex-start;
   }
 
-  .row {
+  .BookingPageForm_row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    flex-direction: row;
     flex-wrap: nowrap;
     margin-bottom: 2vh;
   }
 
-  .ccaContainer {
+  .BookingPageForm_row_ccaContainer {
     display: flex;
     flex-direction: column;
   }
 
-  .radio-buttons {
+  .BookingPageForm_row_ccaContainer_radio-buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -178,19 +179,19 @@ button a:visited {
     font-weight: 400;
   }
 
-  .black {
+  .BookingPageForm_row_black {
     color: black;
     font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    margin-bottom: 1vh;
   }
 
   input[name="Email"] {
     height: 7vh;
     width: 25vw;
     max-height: 40px;
+    margin-top:2%;
   }
 
   select[name="HallCCA"] {
