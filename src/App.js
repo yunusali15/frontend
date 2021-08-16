@@ -15,6 +15,7 @@ import BookingPage from "./vbs/pages/BookingPage/BookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage/ConfirmationPage";
 import Login from "./login/pages/Login";
 import AdminMain from "./admin/pages/AdminMain";
+import AdminView from "./admin/pages/AdminView";
 
 import Navbar from "./shared/components/Navigation/NavBar";
 import Contacts from "./contacts/pages/Contacts";
@@ -36,10 +37,12 @@ const App = () => {
     //routes when logged in
     routes = (
       <Switch>
-        <Route path="/login" exact>
+        <Route path="/admin" exact>
           <AdminMain />
         </Route>
-        
+        <Route path="/adminview" exact>
+          <AdminView />
+        </Route>
         <Redirect to="/" />
       </Switch>
     );
@@ -60,7 +63,7 @@ const App = () => {
           component={BookingPage}
         />
         <Router path="/Contacts" exact><Contacts /></Router>
-        <Route path="/login" exact>
+        <Route path="/admin" exact>
           <Login />
         </Route>
         {/* <Route path="/signup" exact>
