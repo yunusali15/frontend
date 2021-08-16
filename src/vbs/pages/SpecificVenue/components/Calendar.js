@@ -130,7 +130,7 @@ const ReactCalendar = ({ selectedDate, handleSelectedDateChange }) => {
 
           try {
             if (selectedDate.toDateString() === date.toDateString()) {
-              return "highlight"; // css class to highlight tile even after click away
+              return "react-calendar__tile--highlight"; // css class to highlight tile even after click away
             }
           } catch (err) {
             if (err instanceof TypeError) {
