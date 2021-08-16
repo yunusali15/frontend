@@ -13,13 +13,15 @@ import VenueSelection from "./vbs/pages/VenueSelection/VenueSelection";
 import SpecificVenue from "./vbs/pages/SpecificVenue/SpecificVenue";
 import BookingPage from "./vbs/pages/BookingPage/BookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage/ConfirmationPage";
+import Login from "./login/pages/Login";
+import AdminMain from "./admin/pages/AdminMain";
 
 import Navbar from "./shared/components/Navigation/NavBar";
 import Contacts from "./contacts/pages/Contacts";
 import { LoginContext } from "./shared/context/LoginContext";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   let routes;
 
   const login = useCallback(() => {
@@ -34,43 +36,40 @@ const App = () => {
     //routes when logged in
     routes = (
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/vbs" component={VenueSelection} />
-        <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
-        <Route exact path="/vbs/:venueId" component={SpecificVenue} />
-        <Route exact path="/vbs/:venueId/bookingpage" component={BookingPage} />
-        <Router path="/Contacts" exact>
-          <Contacts />
-        </Router>
+        <Route path="/login" exact>
+          <AdminMain />
+        </Route>
+        
         <Redirect to="/" />
       </Switch>
     );
-  }
-  // } else {
-  //   //routes when not logged in
-  //   routes = (
-  //     <Switch>
-  //       <Route exact path="/">
-  //         <Home />
-  //       </Route>
-  //       <Route exact path="/vbs" component={VenueSelection}></Route>
-  //       <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
-  //       <Route exact path="/vbs/:venueName" component={SpecificVenue} />
-  //       <Route
-  //         exact
-  //         path="/vbs/:venueName/bookingpage"
-  //         component={BookingPage}
-  //       />
-  //       <Route path="/login" exact>
-  //         <Login />
-  //       </Route>
-  //       <Route path="/signup" exact>
-  //         <Signup />
-  //       </Route>
-  //       <Redirect to="/" />
-  //     </Switch>1
-  //   );
-  // }
+  
+  } else {
+    //routes when not logged in
+    routes = (
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/vbs" component={VenueSelection}></Route>
+        <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
+        <Route exact path="/vbs/:venueName" component={SpecificVenue} />
+        <Route
+          exact
+          path="/vbs/:venueName/bookingpage"
+          component={BookingPage}
+        />
+        <Router path="/Contacts" exact><Contacts /></Router>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+        {/* <Route path="/signup" exact>
+          <Signup />
+        </Route> */}
+        <Redirect to="/" />
+      </Switch>
+    )
+  };
 
   return (
     <>
