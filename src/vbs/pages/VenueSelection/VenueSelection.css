@@ -1,11 +1,11 @@
-.Venues-page {
+.VenueSelection-page {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.venues-container {
+.VenueSelection-venuesContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -13,12 +13,12 @@
   justify-content: flex-start;
 }
 
-.venueLink:nth-of-type(3n-1) {
+.VenueSelection-venueLink:nth-of-type(3n-1) {
   margin: 0 5vw;
   margin-bottom: 2.5vh;
 }
 
-.venue {
+.VenueSelection-venue {
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -27,12 +27,12 @@
   height: 13vw;
 }
 
-.venueLink {
+.VenueSelection-venueLink {
   margin-bottom: 2.5vh;
   text-decoration: none;
 }
 
-.venueName {
+.VenueSelection-venueName {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -48,36 +48,36 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .venues-container {
+  .VenueSelection-venuesContainer {
     width: 95vw;
   }
-  .venue {
+  .VenueSelection-venue {
     width: 45vw;
     height: 30vw;
   }
 
-  .venueLink:nth-of-type(3n-1) {
+  .VenueSelection-venueLink:nth-of-type(3n-1) {
     margin: 0 0;
     margin-bottom: 2.5vh;
   }
 
-  .venueLink:nth-of-type(2n-1) {
+  .VenueSelection-venueLink:nth-of-type(2n-1) {
     margin-right: 5vw;
     margin-bottom: 2.5vh;
   }
 }
 
 @media (max-width: 500px) {
-  .venues-container {
+  .VenueSelection-venuesContainer {
     width: 80vw;
   }
 
-  .venue {
+  .VenueSelection-venue {
     width: 80vw;
     height: 53vw;
   }
 
-  .venueLink {
+  .VenueSelection-venueLink {
     margin-bottom: 2.5vh;
   }
 }
