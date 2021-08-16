@@ -9,8 +9,10 @@ const BASEURL = "https://britannic.herokuapp.com/";
 
 const api = axios.create({ baseURL: BASEURL });
 
+
 const VenueSelection = () => {
   const [parentVenueArray, setParentVenueArray] = useState([]);
+  
 
   //fetch list of parent venues upon opening
   useEffect(() => {
@@ -29,6 +31,7 @@ const VenueSelection = () => {
             className="venueLink"
             to={{ pathname: `./vbs/${venue.id}`, state: { venue } }}
           >
+
             <div
               className="venue"
               style={{ backgroundImage: `url(${BASEURL + venue.image})` }}
