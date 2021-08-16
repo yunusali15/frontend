@@ -194,7 +194,7 @@
   font-family: "Raleway", sans-serif;
 }
 
-.highlight {
+.react-calendar__tile--highlight {
   background: #ecdbba;
   color: black;
   font-weight: bold;

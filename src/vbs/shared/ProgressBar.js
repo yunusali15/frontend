@@ -38,10 +38,10 @@ function ProgressBar({ stage, venue }) {
             DATE
           </Link>
         ) : (
-          <Link className="link">DATE</Link>
+          <Link className="link" onClick={(e) => {e.preventDefault()}}>DATE</Link>
         )}
-        <Link className="link">DETAILS</Link>
-        <Link className="link">SUBMIT</Link>
+        <Link className="link" onClick={(e) => {e.preventDefault()}}>DETAILS</Link>
+        <Link className="link" onClick={(e) => {e.preventDefault()}}> SUBMIT</Link>
       </div>
     </div>
   );

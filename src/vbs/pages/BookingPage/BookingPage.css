@@ -7,19 +7,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2%;
 }
 
 .Statusbar {
   margin-left: 0;
 }
 
-.contents {
+.BookingPageFormContents {
   display: flex;
   flex-direction: column;
   width: 100%;
   background-color: #ecdbba;
-  margin-bottom: 1vh;
   padding: 3%;
+  padding-bottom: 0%;
 }
 
 .BookingPageForm {
@@ -28,17 +29,17 @@
   width: 70%;
 }
 
-.row {
+.BookingPageFormRow {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
 }
 
-.Titles {
+.BookingPageFormTitles {
   color: #c84b31;
   font-family: "Raleway", sans-serif;
   font-style: normal;
@@ -54,13 +55,13 @@
   justify-content: flex-end;
 }
 
-.ccaContainer {
+.BookingPageFormCcaContainer {
   display: flex;
   flex-direction: column;
   width: 70%;
 }
 
-.radio-buttons {
+.Bookingpageradio-buttons {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -74,6 +75,11 @@
   font-weight: 500;
   font-size: 1.35em;
   width: 70%;
+}
+
+h3 {
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 #Email {
@@ -96,6 +102,7 @@ select[name="HallCCA"] {
   height: 5vh;
   width: 25vw;
   max-height: 40px;
+  border: 0px;
 }
 
 #Details {
@@ -127,22 +134,29 @@ button a:visited {
 }
 
 @media only screen and (max-width: 800px) {
-  .contents {
+  .BookingPageFormContents {
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-items: center;
     background-color: #ecdbba;
+    padding-top: 5%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0%;
+    padding: 5% 0 0 0;
   }
 
   .BookingPageForm {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 96%;
     justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 12%;
   }
 
-  .Titles {
+  .BookingPageFormTitles {
     color: #c84b31;
     font-family: "Raleway", sans-serif;
     font-style: normal;
@@ -152,21 +166,20 @@ button a:visited {
     width: fit-content;
   }
 
-  .row {
+  .BookingPageFormRow {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-direction: row;
     flex-wrap: nowrap;
-    margin-bottom: 2vh;
+    margin-bottom:6%;
   }
 
-  .ccaContainer {
+  .BookingPageFormCcaContainer {
     display: flex;
     flex-direction: column;
   }
 
-  .radio-buttons {
+  .BookingPageradio-buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -198,15 +211,11 @@ button a:visited {
     width: 50vw;
     max-height: 40px;
     margin-bottom: 2%;
+    border: 0px;
   }
 
   select option {
     width: 5vw;
   }
 
-  input[name="Email"] {
-    height: 5vh;
-    width: 50vw;
-    max-height: 40px;
-  }
 }
