@@ -40,27 +40,28 @@ const BookingPage = () => {
         <StatusBar stage="3" venue={venue} />
       </div>
       <form className="BookingPageForm" onSubmit={handleSubmit}>
-        <div className="contents">
-          <div className="BookingPageForm_row">
-            <h2 className="BookingPageForm_row_Titles">VENUE :</h2>
-            <h3 className="BookingPageForm_row_black">{selectedSubvenue.label}</h3>
+        <div className="BookingPageFormContents">
+          <div className="BookingPageFormRow">
+            <h2 className="BookingPageFormTitles">VENUE :</h2>
+            <h3 className="black">{selectedSubvenue.label}</h3>
           </div>
 
-          <div className="BookingPageForm_row">
-            <h2 className="BookingPageForm_row_Titles">TIME :</h2>
-            <h3 className="BookingPageForm_row_black">{`${selectedDate.toDateString()}: ${selectedTimeslot.map(
+          <div className="BookingPageFormRow">
+            <h2 className="BookingPageFormTitles">TIME :</h2>
+            <h3 className="black">{`${selectedDate.toDateString()}: ${selectedTimeslot.map(
               (timeslot) => timeslot.timeStart + " - " + timeslot.timeEnd
             )}`}</h3>
           </div>
 
-          <div className="BookingPageForm_row">
-            <h2 className="BookingPageForm_row_Titles">EMAIL :</h2>
-            <div className="BookingPageForm_row_black">
+          <div className="BookingPageFormRow">
+            <h2 className="BookingPageFormTitles">EMAIL :</h2>
+            <div className="black">
               <input
                 type="email"
                 id="Email"
                 name="Email"
                 placeholder="e0123456@u.nus.edu.sg"
+                style={{border:'0'}}
                 onChange={(e) => emailValidator(e)}
                 required
               ></input>
@@ -70,12 +71,12 @@ const BookingPage = () => {
             </div>
           </div>
 
-          <div className="BookingPageForm_row">
-            <h2 className="BookingPageForm_row_Titles" style={{ alignSelf: "flex-start" }}>
-              PURPOSE :
+          <div className="BookingPageFormRow">
+            <h2 className="BookingPageFormTitles" style={{ alignSelf: "flex-start" }}>
+            PURPOSE :
             </h2>
-            <div className="BookingPageForm_row_ccaContainer">
-              <div className="BookingPageForm_row_ccaContainer_radio-buttons">
+            <div className="BookingPageFormCcaContainer">
+              <div className="BookingPageradio-buttons">
                 <input
                   type="radio"
                   id="CCA"
@@ -100,7 +101,7 @@ const BookingPage = () => {
                 <select
                   id="HallCCA"
                   name="HallCCA"
-                  className="BookingPageForm_row_bookingPageActive"
+                  className="bookingPageActive"
                   onChange={(e) => setPurpose(e.target.value)}
                 >
                   <option value="">Select a CCA</option>
@@ -116,7 +117,7 @@ const BookingPage = () => {
                 required
                 rows="4"
                 cols="30"
-                style={{ height: "8vh" }}
+                style={{ height: "8vh", border:'0' }}
                 placeholder="Details"
               />
             </div>
