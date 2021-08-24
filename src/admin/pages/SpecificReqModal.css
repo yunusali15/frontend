@@ -1,0 +1,20 @@
+.specificreqmodal__tablecontainer {
+    width: 100%;
+}
+
+.specificreqmodal__table {
+    width: 70%;
+}
+
+.specificreqmodal__table td,
+.specificreqmodal__table th{
+    padding: 10px;
+    border: 1px solid #ECDBBA;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+.specificreqmodal__td__bg {
+    background-color: #ECDBBA;
+}
+
