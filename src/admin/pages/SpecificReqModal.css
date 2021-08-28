@@ -1,9 +1,11 @@
 .specificreqmodal__tablecontainer {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .specificreqmodal__table {
-    width: 70%;
+    width: 100%;
 }
 
 .specificreqmodal__table td,

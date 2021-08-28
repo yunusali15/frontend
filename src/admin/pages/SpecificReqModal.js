@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SpecificReqModal.css";
 import axios from "axios";
 import Modal from "react-modal";
+import { date } from "yup";
 
 
 
@@ -15,11 +16,15 @@ function SpecificReqModal() {
     const [purpose, setPurpose] = useState();    
     const [venue, setVenue] = useState();
 
-    const api = axios.create({ baseURL: "https://britannic.herokuapp.com/" });
-    const token = 'KEVII1!';
+    const BASEURL = "https://britannic.herokuapp.com/";
+
+    const api = axios.create({ baseURL: BASEURL });
+    const token = "KEVII1!";
+
+    api.defaults.headers.common["Authorization"] = "KEVII1!";
 
 
-    function getDate(unix_date) {
+    function getUnixDate(unix_date) {
         var date = new Date(unix_date * 1000);
         var hours = date.getHours();
         var minutes = date.getMinutes();
@@ -27,29 +32,26 @@ function SpecificReqModal() {
         var formattedTime = hours + ":" + minutes.toString().substring(-2);
         setBookDate(formattedTime);
     }
+    
+    function getReqDate(req_date) {
+        var date = req_date.substring(0, 10);
+        var time = req_date.substring(11,16);
+        setReqDate(date + " " + time);
+    }
 
     function fetchData() {
-        // api
-        //     .get(
-        //         // `/api/v1/bookingreq/?bookingRequestId=610d6f6cf210a28425b80dea`
-        //         `/api/v1/bookingreq/intent?bookingRequestId=6108b789ef225d3be9e40e09`, {
-        //             headers: {
-        //                 Authorization: 'Bearer ' + token
-        //             }
-        //         }
-        //     )
-        axios.get('https://britannic.herokuapp.com//api/v1/bookingreq/intent?bookingRequestId=6108b789ef225d3be9e40e09', {
-            headers: {
-                'Authorization': `Basic + ${token}`
-            }
-            })
+        api
+            .get(
+                // `/api/v1/bookingreq/?bookingRequestId=610d6f6cf210a28425b80dea`
+                `/api/v1/bookingreq/intent?bookingRequestId=6108b789ef225d3be9e40e09`
+            )
             .then((res) => {
                 console.log(res, "Object retrieved");
                 setCCA(res.data.bookingRequest.cca);
                 setEmail(res.data.bookingRequest.email);
                 setID(res.data.bookingRequest._id);
-                setReqDate(res.data.bookingRequest.createdAt);
-                getDate(res.data.bookingRequest.date);
+                getReqDate(res.data.bookingRequest.createdAt);
+                getUnixDate(res.data.bookingRequest.date);
                 setPurpose(res.data.bookingRequest.notes);
                 setVenue(res.data.bookingRequest.venue.name);
             })
@@ -93,6 +95,7 @@ function SpecificReqModal() {
                 <button onClick={() => {closeModal()}}>Close</button>
                 <button onClick={() => {fetchData()}}>Fetch</button>
                 <div className="specificreqmodal__tablecontainer">
+                    <div>
                 <h2>{venue}</h2>
                 <table className="specificreqmodal__table" cellSpacing="0">
                     <tbody>
@@ -104,10 +107,10 @@ function SpecificReqModal() {
                             <td>{ CCA }</td>
                         </tr>
                         <tr>
-                            <td>Time booked</td>
+                            <td className="specificreqmodal__td__bg">Time booked</td>
                             <td>{ bookDate }</td>
-                            <td>"time slots go here"</td>
-                            <td>Email</td>
+                            <td>7.00pm - 7.30pm 7.30pm - 8.00pm</td>
+                            <td className="specificreqmodal__td__bg">Email</td>
                             <td>{ email }</td>
                         </tr>
                         <tr>
@@ -118,38 +121,47 @@ function SpecificReqModal() {
                 </table>
                 <h3>Booked Conflicts</h3>
                 <table className="specificreqmodal__table" cellSpacing="0">
-                    <tr className="specificreqmodal__td__bg">
-                        <th>Time</th>
-                        <th>CCA</th>
-                        <th>Time Booked</th>
-                        <th>Purpose</th>
-                        <th>Other Conflicts</th>
-                    </tr>
+                    <thead>    
+                        <tr className="specificreqmodal__td__bg">
+                            <th>Time</th>
+                            <th>CCA</th>
+                            <th>Time Booked</th>
+                            <th>Purpose</th>
+                            <th>Other Conflicts</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
                 <h3>Pending Conflicts</h3>
                 <table className="specificreqmodal__table" cellSpacing="0">
-                    <tr className="specificreqmodal__td__bg">
-                        <th>Time</th>
-                        <th>CCA</th>
-                        <th>Time Booked</th>
-                        <th>Purpose</th>
-                        <th>Other Conflicts</th>
-                    </tr>
+                    <thead>    
+                        <tr className="specificreqmodal__td__bg">
+                            <th>Time</th>
+                            <th>CCA</th>
+                            <th>Time Booked</th>
+                            <th>Purpose</th>
+                            <th>Other Conflicts</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
+                </div>
                 </div>
             </Modal>
         </div>
