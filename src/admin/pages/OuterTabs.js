@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./OuterTabs.css";
+import InnerTabs from "./InnerTabs.js";
 
 const OuterTabs = (props) => {
   const [selectedTab, setSelectedTab] = useState(1);
@@ -28,7 +29,6 @@ const OuterTabs = (props) => {
               : "outertabs__tab"
           }
         >
-          <h1>{"hello " + (props.children.indexOf(child) + 1)}</h1>
           {child}
         </div>
       ))}

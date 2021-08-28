@@ -1,0 +1,44 @@
+.innerTabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.innerTabs__tabSelector {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  height: 8%;
+  border: 1px solid black;
+}
+
+.innerTabs__tabSelector__tabSelection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  width: 30%;
+  height: 100%;
+  margin: 0 0;
+}
+
+.tabSelector__tabSelection__active {
+  border-bottom: 4px solid black;
+}
+
+.innerTabs__tabContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border: 1px solid blue;
+}
+
+.innerTabs__tabContent {
+  display: none;
+}
+
+.innerTabs__tabContent__active {
+  display: flex;
+}
