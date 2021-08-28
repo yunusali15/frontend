@@ -1,0 +1,32 @@
+
+table   {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 95%;
+}
+
+table  th {
+    border: 1px solid #ECDBBA;
+    padding: 8px;
+    background-color: #ECDBBA;
+}
+
+table   td {
+  padding: 8px;
+  font-size: 12px;
+}
+
+table   tr:hover {
+  border: 1px solid #ECDBBA;
+  background-color: #ECDBBA;
+}
+
+table   th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ECDBBA;
+  font-size: 12px;
+  color: #000;
+}
+
