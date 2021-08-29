@@ -14,6 +14,8 @@ import SpecificVenue from "./vbs/pages/SpecificVenue/SpecificVenue";
 import BookingPage from "./vbs/pages/BookingPage/BookingPage";
 import ConfirmationPage from "./vbs/pages/ConfirmationPage/ConfirmationPage";
 import Login from "./login/pages/Login";
+
+//VBS Admin
 import AdminMain from "./admin/pages/AdminMain";
 import AdminView from "./admin/pages/AdminView";
 
@@ -46,7 +48,6 @@ const App = () => {
         <Redirect to="/" />
       </Switch>
     );
-  
   } else {
     //routes when not logged in
     routes = (
@@ -62,7 +63,9 @@ const App = () => {
           path="/vbs/:venueName/bookingpage"
           component={BookingPage}
         />
-        <Router path="/Contacts" exact><Contacts /></Router>
+        <Router path="/Contacts" exact>
+          <Contacts />
+        </Router>
         <Route path="/admin" exact>
           <Login />
         </Route>
@@ -71,8 +74,8 @@ const App = () => {
         </Route> */}
         <Redirect to="/" />
       </Switch>
-    )
-  };
+    );
+  }
 
   return (
     <>
