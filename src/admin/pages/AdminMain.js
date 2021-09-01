@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AdminMain.css";
 import OuterTabs from "./OuterTabs";
-import BookingRequest from "./BookingRequest";
+import BookingRequest from "./BookingRequests/BookingRequest";
 import { useHistory } from "react-router-dom";
 
 const AdminMain = () => {
