@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import InnerTabs from "./InnerTabs";
+import FilterSort from "./FilterSort";
 import axios from "axios";
 
 const BookingRequest = () => {
@@ -19,6 +20,12 @@ const BookingRequest = () => {
 
   return (
     <InnerTabs>
+      <div>
+      
+          <FilterSort 
+            allRequests = {bookingRequest}></FilterSort>
+        
+      </div>
       <div tabName="Pending">
         {bookingRequest.map((req) => (
           <p>{req.id}</p>
