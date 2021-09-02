@@ -21,9 +21,10 @@ const BookingRequest = () => {
   return (
     <InnerTabs>
       <div>
-      
           <FilterSort 
-            allRequests = {bookingRequest}></FilterSort>
+            allRequests = {bookingRequest}/>
+
+          
         
       </div>
       <div tabName="Pending">

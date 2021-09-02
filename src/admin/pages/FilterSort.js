@@ -1,27 +1,62 @@
 import React, {useState, useEffect} from "react";
 import {useChecklist} from 'react-checklist'; 
 import "./FilterSort.css";
+import axios from "axios";
 
-const FilterSort = (props) => {
+const FilterSort = () => {
     const possiblevenues = new Set();
     const possibleCCAs = new Set();
     const possibleDates = new Set();
+    const BASEURL = "https://britannic.herokuapp.com/";
+    const [bookingRequest, setbookingRequest] = useState([]);
+
+  const api = axios.create({ baseURL: BASEURL });
+  api.defaults.headers.common["Authorization"] = "KEVII1!";
+
+  useEffect(() => {
+    api.get("/api/v1/bookingreq/all").then((res) => {
+      console.log(res);
+      setbookingRequest(res.data.bookingRequest.slice(0, 15));
+    });
+    return;
+  }, []);
 
     useEffect(() => {
-        props.allRequests.map((req) => {
-            possiblevenues.add({_id: req._id, label: req.venue.name});
-            possibleCCAs.add({_id: req._id, label: req.cca});
-            possibleDates.add({_id: req._id, label: req.date});
+        bookingRequest.map((req) => {
+            possiblevenues.add({_id:req.venue._id, label: req.venue.name});
+            possibleCCAs.add({_id: req.cca, label: req.cca});
+            possibleDates.add({_id: req.date, label: req.date});
         });
     }, []);
+    bookingRequest.map((req) => {
+        possiblevenues.add(req.venue.name);
+        possibleCCAs.add(req.cca);
+        possibleDates.add(req.date);
+    })
 
-    const {handlevenue, isvenueAll, venueItems} = useChecklist(possiblevenues, {key:'_id', keyType:'ObjectId'});
+    var listofVenue =[];
+    var listofCCA =[];
+    var listofDates =[];
+    for (let i = 0; i< possiblevenues.size; i++){
+        listofVenue.push({_id:i, label:Array.from(possiblevenues)[i]});
+    }
+    for (let i = 0; i< possibleCCAs.size; i++){
+        listofCCA.push({_id:i, label:Array.from(possibleCCAs)[i]});
+    }
+    for (let i = 0; i< possibleDates.size; i++){
+        listofDates.push({_id:i, label:Array.from(possibleDates)[i]});
+    }
+
+    
+    console.log(listofVenue);
+
+    const {handlevenue, isvenueAll, venueItems} = useChecklist(listofVenue, {key:'_id', keyType:'number'});
     console.log(venueItems);
 
-    const {handleCCA, isCCAAll, CCAItems} = useChecklist(possibleCCAs, {key:'_id',keyType: 'ObjectId'});
+    const {handleCCA, isCCAAll, CCAItems} = useChecklist(possibleCCAs, {key:'_id',keyType: 'number'});
     console.log(CCAItems);
 
-    const {handleDate, isDateAll, DatesItems} = useChecklist(possibleDates, {key:'_id', keyType: 'ObjectId'});
+    const {handleDate, isDateAll, DatesItems} = useChecklist(possibleDates, {key:'_id', keyType: 'number'});
     console.log(DatesItems);
 
     const handleRest = () => {
@@ -30,65 +65,60 @@ const FilterSort = (props) => {
         DatesItems = new Set();
     }
 
+    
+
     return (
         <div className = "maindiv">
-            <Form className = "filter">
+            <form className = "filter">
             <div className = "include">
                 Include
             </div>
             <div className = "list">
-                <ul>
-                <li>
-                    <input type = "checkbox" onChange={handlevenue} checked = {isvenueAll} />
+                <ul className = "list_content">
                     <label>Venue</label>
-                </li>
-                    {props.possiblevenues.map((venue, i) => (
-                        <li key= {i}>
+                    {listofVenue.map((obj) => (
+                        <li key= {obj._id}>
                             <input type = "checkbox" 
-                            data-key = {venue._id}
+                            data-key = {obj._id}
                             onChange = {handlevenue}
                             />
-                            <label>{venue.label}</label>
+                            <label>{obj.label}</label>
                         </li>
-                    ))};
+                    ))}
                 </ul>
 
-                <ul>
-                <li>
-                    <input type = "checkbox" onChange={handleCCA} checked = {isCCAAll} />
-                </li>
-                    {props.possiblevenues.map((CCA, i) => (
-                        <li key= {i}>
+                <ul className = "list_content">
+                    <label>CCA</label>
+                    {listofCCA.map((obj) => (
+                        <li key= {obj._id}>
                             <input type = "checkbox" 
-                            data-key = {CCA._id}
+                            data-key = {obj._id}
                             onChange = {handleCCA}
                             />
-                            <label>{CCA.label}</label>
+                            <label>{obj.label}</label>
                         </li>
-                    ))};
+                    ))}
                 </ul>
-                <ul>
-                <li>
-                    <input type = "checkbox" onChange={handleDate} checked = {isDateAll} />
-                </li>
-                    {props.possiblevenues.map((Date, i) => (
-                        <li key= {i}>
+                <ul className = "list_content">
+                    <label>Dates</label>
+                    {listofDates.map((obj) => (
+                        <li key= {obj._id}>
                             <input type = "checkbox" 
-                            data-key = {Date._id}
+                            data-key = {obj._id}
                             onChange = {handleDate}
                             />
-                            <label>{Date.label}</label>
+                            <label>{obj.label}</label>
                         </li>
-                    ))};
+                    ))}
                 </ul>
             </div>
-            </Form>
+            </form>
             <div className = "buttons">
                 <button onClick = {handleRest}>
                     Cancel
                 </button>
 
-                <button onClick = {() => FilterSortModal(false)}>
+                <button >
                     Submit
                 </button>
             </div>
