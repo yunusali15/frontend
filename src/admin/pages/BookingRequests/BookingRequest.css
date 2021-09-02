@@ -1,3 +1,18 @@
+.BookingRequestPageContainer{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.BookingRequestsPageSortBy {
+  margin-left:90%;
+  margin-top: -2.5%;
+  background-color: #ECDBBA;
+  padding:8px;
+  margin-bottom: 2%;
+  font-size: 16px;
+  font-family: Roboto Condensed;
+}
 
 table   {
   font-family: Arial, Helvetica, sans-serif;
