@@ -8,6 +8,7 @@ import { BeatLoader } from "react-spinners";
 const BASEURL = "https://britannic.herokuapp.com/";
 
 const api = axios.create({ baseURL: BASEURL });
+api.defaults.headers.common["Authorization"] = "KEVII1!";
 
 const VenueSelection = () => {
   const [parentVenueArray, setParentVenueArray] = useState([]);
