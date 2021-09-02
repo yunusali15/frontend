@@ -24,12 +24,19 @@ const FilterSort = (props) => {
     const {handleDate, isDateAll, DatesItems} = useChecklist(possibleDates, {key:'_id', keyType: 'ObjectId'});
     console.log(DatesItems);
 
+    const handleRest = () => {
+        venueItems = new Set();
+        CCAItems = new Set();
+        DatesItems = new Set();
+    }
+
     return (
         <div className = "maindiv">
+            <Form className = "filter">
             <div className = "include">
                 Include
             </div>
-            <div className = "filter">
+            <div className = "list">
                 <ul>
                 <li>
                     <input type = "checkbox" onChange={handlevenue} checked = {isvenueAll} />
@@ -74,6 +81,16 @@ const FilterSort = (props) => {
                         </li>
                     ))};
                 </ul>
+            </div>
+            </Form>
+            <div className = "buttons">
+                <button onClick = {handleRest}>
+                    Cancel
+                </button>
+
+                <button onClick = {() => FilterSortModal(false)}>
+                    Submit
+                </button>
             </div>
         </div>
     )
