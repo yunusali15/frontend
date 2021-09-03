@@ -5,8 +5,10 @@ import { BeatLoader } from "react-spinners";
 import ReactPaginate from "react-paginate";
 import {CheckBox} from './CheckBox.js'
 import { Link, Redirect } from "react-router-dom";
+import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
 
 const PendingRequest = () => {
+    const [modalIsOpen, setIsOpen] = useState(false);
     const [bookingRequest, setbookingRequest] = useState([])
     const [currentPage, setCurrentPage] = useState(0);
 
@@ -32,7 +34,11 @@ const PendingRequest = () => {
     const currentPageData = bookingRequest.slice(offset, offset + PER_PAGE);
     const pageCount = Math.ceil(bookingRequest.length / PER_PAGE);
   
-  
+    function openModal() {
+      // fetchData();
+      setIsOpen(true);
+    }
+
     function handlePageClick({ selected: selectedPage }) {
       setCurrentPage(selectedPage);
     }
@@ -64,12 +70,14 @@ const PendingRequest = () => {
                     )}</td>
                     <td>{req.notes}</td>
                     <td> 
-                        <Link className="adminBookingRequestApprove">
+                    <SpecificReqModal req={req} bookingRequests={bookingRequest}/>
+
+                        {/* <Link className="adminBookingRequestApprove" onClick={() => {openModal()}}>
                             Approve 
                         </Link>
                         <Link className="adminBookingRequestReject">
                             Reject
-                        </Link>
+                        </Link> */}
                     </td>
                     </tr>
                 </tbody>

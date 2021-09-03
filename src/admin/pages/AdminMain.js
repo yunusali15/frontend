@@ -3,7 +3,6 @@ import "./AdminMain.css";
 import OuterTabs from "./OuterTabs";
 import BookingRequest from "./BookingRequests/BookingRequest";
 import { useHistory } from "react-router-dom";
-import SpecificReqModal from "./SpecificReqModal.js";
 import { MdSettingsInputComponent } from "react-icons/md";
 
 

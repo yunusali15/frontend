@@ -88,23 +88,44 @@
     background-color: #993926;
 }
 
-.specificreqmodal__reviewbutton {
+.specificreqmodal__reviewbutton__container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.specificreqmodal__reviewbutton__accept {
     width: 30px;
-    border-radius: 5px;
-    border: 1px solid #c84b31;
-    color: #c84b31;
+    border: 1px solid #346751;
+    color: #346751;
     text-decoration: none;
     font-family: "Roboto Condensed", sans-serif;
-    padding: 1% 5%;
+    padding: 2px 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: white;
+    margin: 4px;
+}
+
+.specificreqmodal__reviewbutton__reject {
+    width: 30px;
+    border: 1px solid #c84b31;
+    color: #C84B31;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 2px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin: 4px;
 
 }
   
-.specificreqmodal__reviewbutton:hover {
+/* .specificreqmodal__reviewbutton:hover {
     background-color: #c84b31;
     color: white;
-}
+} */
