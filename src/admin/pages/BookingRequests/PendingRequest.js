@@ -71,13 +71,6 @@ const PendingRequest = () => {
                     <td>{req.notes}</td>
                     <td> 
                     <SpecificReqModal req={req} bookingRequests={bookingRequest}/>
-
-                        {/* <Link className="adminBookingRequestApprove" onClick={() => {openModal()}}>
-                            Approve 
-                        </Link>
-                        <Link className="adminBookingRequestReject">
-                            Reject
-                        </Link> */}
                     </td>
                     </tr>
                 </tbody>

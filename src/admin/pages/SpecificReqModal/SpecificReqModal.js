@@ -42,27 +42,27 @@ const SpecificReqModal = (props) => {
     const api = axios.create({ baseURL: BASEURL });
     api.defaults.headers.common["Authorization"] = "KEVII1!";
 
-    // function fetchData() {
-    //     api
-    //         .get(
-    //             // `/api/v1/bookingreq/?bookingRequestId=610d6f6cf210a28425b80dea`
-    //             `/api/v1/bookingreq/intent?bookingRequestId=611c93c6c27da22407d6cf6c`
-    //         )
-    //         .then((res) => {
-    //             console.log(res, "Object retrieved");
-    //             setCCA(res.data.bookingRequest.cca);
-    //             setEmail(res.data.bookingRequest.email);
-    //             setID(res.data.bookingRequest.id);
-    //             setTimeSlots(res.data.bookingRequest.timingSlots);
-    //             // getReqDate(res.data.bookingRequest.createdAt);
-    //             // getUnixDate(res.data.bookingRequest.date);
-    //             setBookDate(res.data.bookingRequest.date);
-    //             setPurpose(res.data.bookingRequest.notes);
-    //             setVenue(res.data.bookingRequest.venue.name);
-    //             setBookedConflicts(res.data.conflicts);
-    //         })
-    //         console.log(timeSlots);
-    // }
+    function fetchData() {
+        api
+            .get(
+                // `/api/v1/bookingreq/?bookingRequestId=610d6f6cf210a28425b80dea`
+                `/api/v1/bookingreq/intent?bookingRequestId=611c939ac27da22407d6cf69`
+            )
+            .then((res) => {
+                console.log(res, "Object retrieved");
+                // setCCA(res.data.bookingRequest.cca);
+                // setEmail(res.data.bookingRequest.email);
+                // setID(res.data.bookingRequest.id);
+                // setTimeSlots(res.data.bookingRequest.timingSlots);
+                // // getReqDate(res.data.bookingRequest.createdAt);
+                // // getUnixDate(res.data.bookingRequest.date);
+                // setBookDate(res.data.bookingRequest.date);
+                // setPurpose(res.data.bookingRequest.notes);
+                // setVenue(res.data.bookingRequest.venue.name);
+                // setBookedConflicts(res.data.conflicts);
+            })
+            // console.log(timeSlots);
+    }
 
 
     function approveIntent() {
@@ -110,6 +110,8 @@ const SpecificReqModal = (props) => {
 
     function openModal() {
         setIsOpen(true);
+        fetchData();
+        console.log(req);
     }
     
     function closeModal() {
