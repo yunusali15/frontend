@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const AdminView = () => {
   return (
     <div className="admin__view">
