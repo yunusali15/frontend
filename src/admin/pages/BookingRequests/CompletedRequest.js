@@ -1,30 +1,10 @@
 import React, { useState, useEffect } from "react";
-import InnerTabs from "../InnerTabs";
-import axios from "axios";
-import { BeatLoader } from "react-spinners";
 import ReactPaginate from "react-paginate";
 
-const CompletedRequest = () => {
-    const [bookingRequest, setbookingRequest] = useState([])
-    const [currentPage, setCurrentPage] = useState(0);
+const CompletedRequest = (props) => {
 
-    const BASEURL = "https://britannic.herokuapp.com/";
-  
-    const api = axios.create({ baseURL: BASEURL });
-    api.defaults.headers.common["Authorization"] = "KEVII1!";
-  
-    useEffect(() => {
-      fetchData();
-    }, []);
-  
-    const fetchData = () => {
-      api.get("/api/v1/bookingreq/all?q=APPROVED||REJECTED").then((res) => {
-        console.log(res);
-        setbookingRequest(res.data.bookingRequest.slice(0,res.data.bookingRequest.length));
-  
-      });
-    }
-  
+    const [currentPage, setCurrentPage] = useState(0);
+    const [bookingRequest, setBookingRequest] = useState(props.bookingRequest)
     const PER_PAGE = 10;
     const offset = currentPage * PER_PAGE;
     const currentPageData = bookingRequest.slice(offset, offset + PER_PAGE);

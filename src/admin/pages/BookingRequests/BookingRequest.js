@@ -1,33 +1,64 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import InnerTabs from "../InnerTabs";
 import Modal from "react-modal";
 import './BookingRequest.css'
 import PendingRequest from "./PendingRequest";
 import CompletedRequest from "./CompletedRequest";
+import SortAndFilter from "../SortAndFilter"
+import axios from "axios";
 
 const BookingRequest = () => {
   const [loading, setLoading] = useState(true); 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [ccaFilter, setCcaFilter] = useState([]);
+  const [venueFilter ,setVenueFilter] = useState([]);
+  const [dateFilter, setDateFilter] = useState([]);
+  const [sortBy, setSortBy] = useState([]);
+  const [pendingBookingRequest, setPendingBookingRequest] = useState([])
+  const [completedBookingRequest, setCompletedBookingRequest] = useState([])
+  const[fetchedCompletedRequest, setFetchedCompletedRequest] = useState(false);
+  const [fetchedPendingRequest, setFetchedPendingRequest] = useState(false);
+
+
+  const BASEURL = "https://britannic.herokuapp.com/";
+
+  const api = axios.create({ baseURL: BASEURL });
+  api.defaults.headers.common["Authorization"] = "KEVII1!";
+
+  useEffect(() => {
+    fetchData()
+  }, []);
+
+  const fetchData = () => {
+    api.get("/api/v1/bookingreq/all").then((res) => {
+      console.log(res);
+      setPendingBookingRequest(res.data.bookingRequest.slice(0,res.data.bookingRequest.length));
+      setFetchedPendingRequest(true);
+    });
+    api.get("/api/v1/bookingreq/all?APPROVED||REJECTED").then((res) => {
+      console.log(res);
+      setCompletedBookingRequest(res.data.bookingRequest);
+      setFetchedCompletedRequest(true);
+    });
+  }
 
   const modalStyle = {
     overlay: {
-      backgroundColor: "rgba(179, 179, 179, 0.74)",
+        backgroundColor: "rgba(255, 255, 255, 0.75)",
     },
     content: {
-      height:'300px',
-      width: '300px',
-      padding: "0 0",
-      border: "0 0",
-      backgroundColor: "black",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "space-evenly",
+        display: "flex",
+        flexDirection: "row",
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
     },
-  };
+}
 
   Modal.setAppElement("#root");
-  
   return (
     <div className='BookingRequestsPageContainer'>
     <InnerTabs>
@@ -35,13 +66,23 @@ const BookingRequest = () => {
     <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
       Sort By
     </div>
-        <PendingRequest/>
+    {fetchedCompletedRequest && fetchedPendingRequest  ? (
+        <PendingRequest bookingRequest={pendingBookingRequest}/>
+    ): (
+    <div>Loading...</div>
+    )}
     </div>
     <div tabName="Completed">
     <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
       Sort By
     </div>
-        <CompletedRequest/>
+    {fetchedCompletedRequest && fetchedPendingRequest ? 
+    (
+      <CompletedRequest bookingRequest={completedBookingRequest}/>
+    ): 
+    (
+      <div>Loading...</div>
+    )}
     </div>
     </InnerTabs>
     <Modal
@@ -49,11 +90,21 @@ const BookingRequest = () => {
           onRequestClose={() => setIsModalOpen(false)}
           style={modalStyle}
     >
-      <h1 style={{color:'white'}}>Modal</h1>
+      <div>Venue</div>
+      <div>Date</div>
+      <div>CCA</div>
+      {/* <SortAndFilter 
+        setCcaFilter={setCcaFilter}
+        setDateFilter={setDateFilter}
+        setVenueFilter= {setVenueFilter}
+        setSortBy={setSortBy}
+        setIsModalOpen={setIsModalOpen}
+        pendingBookingRequest={pendingBookingRequest}
+        completedBookingRequest={completedBookingRequest}
+      /> */}
     </Modal>
    </div>
   );
-  
 };
 
 export default BookingRequest;

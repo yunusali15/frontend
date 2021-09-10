@@ -1,34 +1,13 @@
-import React, { useState, useEffect } from "react";
-import InnerTabs from "../InnerTabs";
-import axios from "axios";
-import { BeatLoader } from "react-spinners";
+import React, { useState, useEffect} from "react";
 import ReactPaginate from "react-paginate";
 import {CheckBox} from './CheckBox.js'
-import { Link, Redirect } from "react-router-dom";
 import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
 
-const PendingRequest = () => {
+const PendingRequest = (props) => {
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [bookingRequest, setbookingRequest] = useState([])
+    const [bookingRequest, setbookingRequest] = useState(props.bookingRequest)
     const [currentPage, setCurrentPage] = useState(0);
 
-    const BASEURL = "https://britannic.herokuapp.com/";
-  
-    const api = axios.create({ baseURL: BASEURL });
-    api.defaults.headers.common["Authorization"] = "KEVII1!";
-  
-    useEffect(() => {
-      fetchData();
-    }, []);
-  
-    const fetchData = () => {
-      api.get("/api/v1/bookingreq/all").then((res) => {
-        console.log(res);
-        setbookingRequest(res.data.bookingRequest.slice(0,res.data.bookingRequest.length));
-  
-      });
-    }
-  
     const PER_PAGE = 10;
     const offset = currentPage * PER_PAGE;
     const currentPageData = bookingRequest.slice(offset, offset + PER_PAGE);
