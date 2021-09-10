@@ -5,6 +5,7 @@ import axios from "axios";
 
 const BookingRequest = () => {
   const [bookingRequest, setbookingRequest] = useState([]);
+  const [venueFilter, setVenueFilter] = useState([]);
   const BASEURL = "https://britannic.herokuapp.com/";
 
   const api = axios.create({ baseURL: BASEURL });
@@ -18,11 +19,13 @@ const BookingRequest = () => {
     return;
   }, []);
 
+
   return (
     <InnerTabs>
       <div>
           <FilterSort 
-            allRequests = {bookingRequest}/>
+            allRequests = {bookingRequest}
+            setVenueFilter = {setVenueFilter}/>
 
           
         

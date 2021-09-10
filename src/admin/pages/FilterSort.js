@@ -28,6 +28,7 @@ const FilterSort = () => {
             possibleDates.add({_id: req.date, label: req.date});
         });
     }, []);
+
     bookingRequest.map((req) => {
         possiblevenues.add(req.venue.name);
         possibleCCAs.add(req.cca);
@@ -50,13 +51,13 @@ const FilterSort = () => {
     
     console.log(listofVenue);
 
-    const {handlevenue, isvenueAll, venueItems} = useChecklist(listofVenue, {key:'_id', keyType:'number'});
+    const {handlevenue, venueItems} = useChecklist(listofVenue, {key:'_id', keyType:'number'});
     console.log(venueItems);
 
-    const {handleCCA, isCCAAll, CCAItems} = useChecklist(possibleCCAs, {key:'_id',keyType: 'number'});
+    const {handleCCA, CCAItems} = useChecklist(possibleCCAs, {key:'_id',keyType: 'number'});
     console.log(CCAItems);
 
-    const {handleDate, isDateAll, DatesItems} = useChecklist(possibleDates, {key:'_id', keyType: 'number'});
+    const {handleDate, DatesItems} = useChecklist(possibleDates, {key:'_id', keyType: 'number'});
     console.log(DatesItems);
 
     const handleRest = () => {
@@ -74,8 +75,9 @@ const FilterSort = () => {
                 Include
             </div>
             <div className = "list">
+                
+                <label>Venue</label>
                 <ul className = "list_content">
-                    <label>Venue</label>
                     {listofVenue.map((obj) => (
                         <li key= {obj._id}>
                             <input type = "checkbox" 
@@ -86,9 +88,10 @@ const FilterSort = () => {
                         </li>
                     ))}
                 </ul>
-
+                
+                <label>CCA</label>
                 <ul className = "list_content">
-                    <label>CCA</label>
+                    
                     {listofCCA.map((obj) => (
                         <li key= {obj._id}>
                             <input type = "checkbox" 
@@ -99,8 +102,10 @@ const FilterSort = () => {
                         </li>
                     ))}
                 </ul>
+                
+                <label>Dates</label>
                 <ul className = "list_content">
-                    <label>Dates</label>
+                    
                     {listofDates.map((obj) => (
                         <li key= {obj._id}>
                             <input type = "checkbox" 
@@ -110,17 +115,19 @@ const FilterSort = () => {
                             <label>{obj.label}</label>
                         </li>
                     ))}
-                </ul>
+                </ul>   
             </div>
             </form>
             <div className = "buttons">
-                <button onClick = {handleRest}>
+                <button className = "cancel" onClick = {handleRest}>
                     Cancel
                 </button>
 
-                <button >
+                <button className = "submit"
+                    >
                     Submit
                 </button>
+                
             </div>
         </div>
     )
