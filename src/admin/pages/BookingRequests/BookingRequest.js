@@ -60,9 +60,9 @@ const BookingRequest = () => {
 
   Modal.setAppElement("#root");
   return (
-    <div className='BookingRequestsPageContainer'>
+    <div className='BookingRequestPageContainer'>
     <InnerTabs>
-    <div tabName="Pending">
+    <div style={{width: "100%"}} tabName="Pending">
     <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
       Sort By
     </div>
@@ -72,7 +72,7 @@ const BookingRequest = () => {
     <div>Loading...</div>
     )}
     </div>
-    <div tabName="Completed">
+    <div tabName="Completed" style={{width: "100%"}} >
     <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
       Sort By
     </div>

@@ -26,7 +26,7 @@ const PendingRequest = (props) => {
     } 
     
     return (
-        <div>
+        <div style={{width: '100%'}}>
         <table>
             <thead>
                 <th><CheckBox></CheckBox></th>
