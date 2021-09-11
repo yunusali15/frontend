@@ -1,11 +1,11 @@
 import React from 'react';
 import './Contacts.css';
 
-const Contacts = (props) => {
+const Contacts = () => {
     return ( 
-    <div className="ContactsPageMainDiv">
-        <h2> Please send your queries to ke7webdev@gmail.com</h2> 
-    </div>
+    <h1 className='ContactsPageMainDiv'>
+        Please send your queries to ke7webdev@gmail.com 
+    </h1>
     );
 }
  

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+.specificreqmodal__closebutton {
+    display: flex; 
+    justify-content: right;
+    align-self: right;
+}
+
+.specificreqmodal__tablecontainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.specificreqmodal__tablecontainer h2{
+    font-family: 'Raleway', sans-serif;
+}
+
+.specificreqmodal__table {
+    width: 100%;
+    padding-bottom: 2%;
+}
+
+.specificreqmodal__table td,
+.specificreqmodal__table th{
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 10px;
+    border: 1px solid #ECDBBA;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+.specificreqmodal__table h5{
+    background-color: #ECDBBA;
+    margin-right: 90px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+.specificreqmodal__td__bg {
+    background-color: #ECDBBA;
+}
+
+.specificreqmodal__rejectbutton {
+    border-radius: 5px;
+    border: 1px solid #c84b31;
+    color: #c84b31;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 1% 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+  
+.specificreqmodal__rejectbutton:hover {
+    background-color: #c84b31;
+    color: white;
+}
+
+.bottomNavigation {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1% 0;
+    height: 40px;
+}
+
+.specificreqmodal__acceptbutton {
+    border-radius: 5px;
+    border: 1px solid #c84b31;
+    background-color: #c84b31;
+    color: white;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 1% 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.specificreqmodal__acceptbutton:hover {
+    background-color: #993926;
+}
+
+.specificreqmodal__reviewbutton__container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.specificreqmodal__reviewbutton__accept {
+    width: 30px;
+    border: 1px solid #346751;
+    color: #346751;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 2px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin: 4px;
+}
+
+.specificreqmodal__reviewbutton__reject {
+    width: 30px;
+    border: 1px solid #c84b31;
+    color: #C84B31;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 2px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin: 4px;
+
+}
+  
+/* .specificreqmodal__reviewbutton:hover {
+    background-color: #c84b31;
+    color: white;
+} */
