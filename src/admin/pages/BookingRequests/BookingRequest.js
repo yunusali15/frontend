@@ -94,6 +94,9 @@ const BookingRequest = () => {
         setCcaFilter={setCcaFilter}
         setDateFilter={setDateFilter}
         setVenueFilter= {setVenueFilter}
+        ccaFilter={ccaFilter}
+        dateFilter={dateFilter}
+        venueFilter= {venueFilter}
         setSortBy={setSortBy}
         setIsModalOpen={setIsModalOpen}
         pendingBookingRequest={pendingBookingRequest}

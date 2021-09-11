@@ -1,35 +1,21 @@
 import React, {useState, useEffect} from "react";
 import {useChecklist} from 'react-checklist'; 
 import "./FilterSort.css";
-import axios from "axios";
 
-const FilterSort = () => {
+const FilterSort = (props) => {
     const possiblevenues = new Set();
     const possibleCCAs = new Set();
     const possibleDates = new Set();
-    const BASEURL = "https://britannic.herokuapp.com/";
-    const [bookingRequest, setbookingRequest] = useState([]);
-
-  const api = axios.create({ baseURL: BASEURL });
-  api.defaults.headers.common["Authorization"] = "KEVII1!";
-
-  useEffect(() => {
-    api.get("/api/v1/bookingreq/all").then((res) => {
-      console.log(res);
-      setbookingRequest(res.data.bookingRequest.slice(0, 15));
-    });
-    return;
-  }, []);
 
     useEffect(() => {
-        bookingRequest.map((req) => {
+        props.pendingBookingRequest.map((req) => {
             possiblevenues.add({_id:req.venue._id, label: req.venue.name});
             possibleCCAs.add({_id: req.cca, label: req.cca});
             possibleDates.add({_id: req.date, label: req.date});
         });
     }, []);
 
-    bookingRequest.map((req) => {
+    props.pendingBookingRequest.map((req) => {
         possiblevenues.add(req.venue.name);
         possibleCCAs.add(req.cca);
         possibleDates.add(req.date);
@@ -61,9 +47,9 @@ const FilterSort = () => {
     console.log(DatesItems);
 
     const handleRest = () => {
-        venueItems = new Set();
-        CCAItems = new Set();
-        DatesItems = new Set();
+        props.setCcaFilter([]);
+        props.setDateFilter([]);
+        props.setVenueFilter ([]);
     }
 
     
@@ -82,7 +68,7 @@ const FilterSort = () => {
                         <li key= {obj._id}>
                             <input type = "checkbox" 
                             data-key = {obj._id}
-                            onChange = {handlevenue}
+                            onChange = {() => props.setVenueFilter(props.venueFilter.concat(obj.label))}
                             />
                             <label>{obj.label}</label>
                         </li>
@@ -96,7 +82,8 @@ const FilterSort = () => {
                         <li key= {obj._id}>
                             <input type = "checkbox" 
                             data-key = {obj._id}
-                            onChange = {handleCCA}
+                            onChange = {() => props.setCcaFilter(props.ccaFilter.concat(obj.label))
+                               }
                             />
                             <label>{obj.label}</label>
                         </li>
@@ -110,7 +97,9 @@ const FilterSort = () => {
                         <li key= {obj._id}>
                             <input type = "checkbox" 
                             data-key = {obj._id}
-                            onChange = {handleDate}
+                            onChange = { () => 
+                                props.setDateFilter(props.dateFilter.concat(obj.label))
+                               }
                             />
                             <label>{obj.label}</label>
                         </li>
@@ -119,11 +108,13 @@ const FilterSort = () => {
             </div>
             </form>
             <div className = "buttons">
-                <button className = "cancel" onClick = {handleRest}>
+                <button className = "cancel" onClick = {() => {handleRest(); 
+                props.setIsModalOpen(false)
+                }}>
                     Cancel
                 </button>
 
-                <button className = "submit"
+                <button className = "submit" onClick = {() => props.setIsModalOpen(false)}
                     >
                     Submit
                 </button>
