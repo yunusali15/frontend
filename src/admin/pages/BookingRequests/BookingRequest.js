@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import './BookingRequest.css'
 import PendingRequest from "./PendingRequest";
 import CompletedRequest from "./CompletedRequest";
-import SortAndFilter from "../SortAndFilter"
+import FilterSort from "./FilterSort"
 import axios from "axios";
 
 const BookingRequest = () => {
@@ -90,10 +90,7 @@ const BookingRequest = () => {
           onRequestClose={() => setIsModalOpen(false)}
           style={modalStyle}
     >
-      <div>Venue</div>
-      <div>Date</div>
-      <div>CCA</div>
-      {/* <SortAndFilter 
+      {<FilterSort
         setCcaFilter={setCcaFilter}
         setDateFilter={setDateFilter}
         setVenueFilter= {setVenueFilter}
@@ -101,7 +98,7 @@ const BookingRequest = () => {
         setIsModalOpen={setIsModalOpen}
         pendingBookingRequest={pendingBookingRequest}
         completedBookingRequest={completedBookingRequest}
-      /> */}
+      /> }
     </Modal>
    </div>
   );
