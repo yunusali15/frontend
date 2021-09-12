@@ -18,6 +18,7 @@ const BookingRequest = () => {
   const [completedBookingRequest, setCompletedBookingRequest] = useState([])
   const[fetchedCompletedRequest, setFetchedCompletedRequest] = useState(false);
   const [fetchedPendingRequest, setFetchedPendingRequest] = useState(false);
+  const [isPending, setPending] = useState(true);
 
 
   const BASEURL = "https://britannic.herokuapp.com/";
@@ -62,7 +63,7 @@ const BookingRequest = () => {
   return (
     <div className='BookingRequestPageContainer'>
     <InnerTabs>
-    <div style={{width: "100%"}} tabName="Pending">
+    <div style={{width: "100%"}} tabName="Pending" onClick = {() => setPending(true)}>
     <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
       Sort By
     </div>
@@ -72,7 +73,7 @@ const BookingRequest = () => {
     <div>Loading...</div>
     )}
     </div>
-    <div tabName="Completed" style={{width: "100%"}} >
+    <div tabName="Completed" style={{width: "100%"}} onClick = {() => setPending(false)} >
     <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
       Sort By
     </div>
@@ -98,6 +99,7 @@ const BookingRequest = () => {
         dateFilter={dateFilter}
         venueFilter= {venueFilter}
         setSortBy={setSortBy}
+        isPending = {isPending}
         setIsModalOpen={setIsModalOpen}
         pendingBookingRequest={pendingBookingRequest}
         completedBookingRequest={completedBookingRequest}

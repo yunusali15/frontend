@@ -7,19 +7,22 @@ const FilterSort = (props) => {
     const possibleCCAs = new Set();
     const possibleDates = new Set();
 
-    useEffect(() => {
+    if (props.isPending){
         props.pendingBookingRequest.map((req) => {
-            possiblevenues.add({_id:req.venue._id, label: req.venue.name});
-            possibleCCAs.add({_id: req.cca, label: req.cca});
-            possibleDates.add({_id: req.date, label: req.date});
-        });
-    }, []);
+            possiblevenues.add(req.venue.name);
+            possibleCCAs.add(req.cca);
+            possibleDates.add(req.date);
+        })
+    } {
+    
+        props.completedBookingRequest.map((req) => {
+            possiblevenues.add(req.venue.name);
+            possibleCCAs.add(req.cca);
+            possibleDates.add(req.date);
+        })
+    }
 
-    props.pendingBookingRequest.map((req) => {
-        possiblevenues.add(req.venue.name);
-        possibleCCAs.add(req.cca);
-        possibleDates.add(req.date);
-    })
+    
 
     var listofVenue =[];
     var listofCCA =[];
