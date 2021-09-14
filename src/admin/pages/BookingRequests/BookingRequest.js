@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import './BookingRequest.css'
 import PendingRequest from "./PendingRequest";
 import CompletedRequest from "./CompletedRequest";
-import SortAndFilter from "../SortAndFilter"
+import FilterSort from "./FilterSort"
 import axios from "axios";
 
 const BookingRequest = () => {
@@ -18,6 +18,7 @@ const BookingRequest = () => {
   const [completedBookingRequest, setCompletedBookingRequest] = useState([])
   const[fetchedCompletedRequest, setFetchedCompletedRequest] = useState(false);
   const [fetchedPendingRequest, setFetchedPendingRequest] = useState(false);
+  const [isPending, setPending] = useState(true);
 
 
   const BASEURL = "https://britannic.herokuapp.com/";
@@ -62,7 +63,7 @@ const BookingRequest = () => {
   return (
     <div className='BookingRequestPageContainer'>
     <InnerTabs>
-    <div style={{width: "100%"}} tabName="Pending">
+    <div style={{width: "100%"}} tabName="Pending" onClick = {() => setPending(true)}>
     <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
       Sort By
     </div>
@@ -72,7 +73,7 @@ const BookingRequest = () => {
     <div>Loading...</div>
     )}
     </div>
-    <div tabName="Completed" style={{width: "100%"}} >
+    <div tabName="Completed" style={{width: "100%"}} onClick = {() => setPending(false)} >
     <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
       Sort By
     </div>
@@ -90,18 +91,19 @@ const BookingRequest = () => {
           onRequestClose={() => setIsModalOpen(false)}
           style={modalStyle}
     >
-      <div>Venue</div>
-      <div>Date</div>
-      <div>CCA</div>
-      {/* <SortAndFilter 
+      {<FilterSort
         setCcaFilter={setCcaFilter}
         setDateFilter={setDateFilter}
         setVenueFilter= {setVenueFilter}
+        ccaFilter={ccaFilter}
+        dateFilter={dateFilter}
+        venueFilter= {venueFilter}
         setSortBy={setSortBy}
+        isPending = {isPending}
         setIsModalOpen={setIsModalOpen}
         pendingBookingRequest={pendingBookingRequest}
         completedBookingRequest={completedBookingRequest}
-      /> */}
+      /> }
     </Modal>
    </div>
   );

@@ -2,16 +2,16 @@ export const MenuItems = [
   {
     title: "HOME",
     url: "/",
-    cName: "nav-links",
+    cName: "nav-menu_nav-links",
   },
   {
     title: "VENUE BOOKING",
     url: "/vbs",
-    cName: "nav-links",
+    cName: "nav-menu_nav-links",
   },
   {
     title: "CONTACT",
     url: "/Contacts",
-    cName: "nav-links",
+    cName: "nav-menu_nav-links",
   },
 ];

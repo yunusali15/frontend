@@ -17,11 +17,11 @@ class Navbar extends Component {
             this.state.clicked ? "NavbarItems NavbarItemsActive" : "NavbarItems"
           }
         >
-          <div className="navbar-name">
-            <a className="KEWEB" href="/">
+          <div className="navbar">
+            <a className="navbar_KEWEB" href="/">
               KE WEB
             </a>
-            <div className="menu-icon" onClick={this.handleClick}>
+            <div className="navbar_menu-icon" onClick={this.handleClick}>
               <i className="fas fa-bars"></i>
             </div>
           </div>
