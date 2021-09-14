@@ -6,13 +6,13 @@ import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
 const PendingRequest = (props) => {
   const PER_PAGE = 10;
   const [currentPage, setCurrentPage] = useState(0);
+  // const [offset, setOffset] = useState(currentPage * PER_PAGE);
   const offset = currentPage * PER_PAGE;
-  const [bookingRequest, setbookingRequest] = useState(props.bookingRequest);
+  const bookingRequest = props.bookingRequest;
   const pageCount = Math.ceil(bookingRequest.length / PER_PAGE);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [currentPageData, setCurrentPageData] = useState(
-    bookingRequest.slice(offset, offset + PER_PAGE)
-  );
+  const [filteredData, setFilteredData] = useState(bookingRequest);
+  const displayedData = filteredData.slice(offset, offset + PER_PAGE);
 
   function openModal() {
     // fetchData();
@@ -26,18 +26,22 @@ const PendingRequest = (props) => {
   const handleRowCLick = (id) => {};
 
   useEffect(() => {
-    let finalData = [...currentPageData];
+    let finalData = [...bookingRequest];
+    console.log("change");
     if (props.ccaFilter.length != 0) {
       finalData.filter((req) => props.ccaFilter.includes(req.cca));
     }
     if (props.venueFilter.length != 0) {
-      finalData.filter((req) => props.venueFilter.includes(req.venue));
+      console.log("filtered " + props.venueFilter);
+      finalData = finalData.filter((req) =>
+        props.venueFilter.includes(req.venue.name)
+      );
+      console.log(finalData);
     }
     if (props.dateFilter.length != 0) {
       finalData.filter((req) => props.dateFilter.includes(req.date));
     }
-
-    setCurrentPageData(finalData);
+    setFilteredData(finalData);
   }, [props.ccaFilter, props.venueFilter, props.dateFilter]);
 
   return (
@@ -53,7 +57,7 @@ const PendingRequest = (props) => {
           <th className="BookingRequestPagePurposeHeader">Purpose</th>
           <th></th>
         </thead>
-        {currentPageData.map((req) => (
+        {displayedData.map((req) => (
           <tbody>
             <tr onClick={() => handleRowCLick(req.id)}>
               <td>
