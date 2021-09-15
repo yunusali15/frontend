@@ -2,13 +2,14 @@ import React, { useState, useEffect} from "react";
 import ReactPaginate from "react-paginate";
 import {CheckBox} from './CheckBox.js'
 import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
+import { render } from "react-dom";
 
 const PendingRequest = (props) => {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [bookingRequest, setbookingRequest] = useState(props.bookingRequest)
     const [currentPage, setCurrentPage] = useState(0);
 
-    const PER_PAGE = 10;
+    const PER_PAGE = 12;
     const offset = currentPage * PER_PAGE;
     const currentPageData = bookingRequest.slice(offset, offset + PER_PAGE);
     const pageCount = Math.ceil(bookingRequest.length / PER_PAGE);
@@ -22,14 +23,13 @@ const PendingRequest = (props) => {
       setCurrentPage(selectedPage);
     }
 
-    const handleRowCLick= (id) => {
+    const handleRowCLick= (req) => {
     } 
     
     return (
         <div style={{width: '100%'}}>
         <table>
-            <thead>
-                <th><CheckBox></CheckBox></th>
+            <thead style={{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid'}}>
                 <th className='BookingRequestPageVenueHeader'>Venue</th>
                 <th className='BookingRequestPageCCAHeader'>CCA</th>
                 <th className='BookingRequestPageTimeBookedHeader'>Time Booked</th>
@@ -38,25 +38,18 @@ const PendingRequest = (props) => {
             </thead>
                 {currentPageData.map((req) => 
                 <tbody>
-                    <tr onClick={() => handleRowCLick(req.id)}>
-                    <td><CheckBox></CheckBox></td>
+                    <tr onClick={() => handleRowCLick(req)}>
                     <td>{req.venue.name}</td> 
                     <td>{req.cca}</td>
-                    <td style={{display: 'inline-flex', justifyContent:"space-around"}}>{req.timingSlots.map((slot) =>
-                        <div style={{padding:'4px',marginRight:'4px',background: "#ECDBBA", borderRadius: '1px', fontWeight:'500'}}>
+                    <td style={{display: 'inline-flex'}}>
+                        {req.timingSlots.map((slot) =>
+                        <span style={{padding:'5px',marginRight:'4px',background: "#ECDBBA", borderRadius: '1px', fontWeight:'500'}}>
                             {slot}
-                        </div>
+                        </span>
                     )}</td>
                     <td>{req.notes}</td>
                     <td> 
                     <SpecificReqModal req={req} bookingRequests={bookingRequest}/>
-
-                        {/* <Link className="adminBookingRequestApprove" onClick={() => {openModal()}}>
-                            Approve 
-                        </Link>
-                        <Link className="adminBookingRequestReject">
-                            Reject
-                        </Link> */}
                     </td>
                     </tr>
                 </tbody>
