@@ -1,58 +1,64 @@
-.BookingRequestPageContainer{
+.pendingrequest__main__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.BookingRequestPageContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
 .BookingRequestsPageSortBy {
-  margin-left:90%;
+  margin-left: 90%;
   margin-top: -2.5%;
-  background-color: #ECDBBA;
-  padding:8px;
+  background-color: #ecdbba;
+  padding: 8px;
   margin-bottom: 2%;
   font-size: 16px;
   font-family: Roboto Condensed;
 }
 
-table   {
+table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   min-width: 100%;
-  justify-content: space-between;
+  height: 90%;
+  justify-content: flex-start;
 }
 
-table  th {
-    border: 1px solid #ECDBBA;
-    padding:8px;
-    height: 40px;
-    background-color: #ECDBBA;
-    font-family: Roboto Condensed;
+table th {
+  border: 1px solid #ecdbba;
+  padding: 8px;
+  height: 40px;
+  background-color: #ecdbba;
+  font-family: Roboto Condensed;
 }
 
-table   td {
+table td {
   padding: 8px;
   font-size: 12px;
   font-weight: 520;
   font-family: Roboto Condensed;
 }
 
-
-
-table   tr:hover {
-  border: 1px solid #ECDBBA;
-  background-color: #ECDBBA;
+table tr:hover {
+  border: 1px solid #ecdbba;
+  background-color: #ecdbba;
   cursor: pointer;
 }
 
-table   th {
+table th {
   padding-bottom: 12px;
   padding-top: 12px;
   text-align: left;
-  background-color: #ECDBBA;
+  background-color: #ecdbba;
   font-size: 12px;
   color: #000;
 }
-
 
 .pagination {
   display: flex;
@@ -60,6 +66,8 @@ table   th {
   list-style: none;
   cursor: pointer;
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 .pagination a {
@@ -78,7 +86,7 @@ table   th {
   color: #fff;
   background: #c84b31;
   padding: 5px;
-   font-family: Roboto Condensed;
+  font-family: Roboto Condensed;
 }
 
 .pagination__link--disabled a {
@@ -86,20 +94,20 @@ table   th {
   cursor: initial;
 }
 
-.BookingRequestPageVenueHeader{
+.BookingRequestPageVenueHeader {
   width: 15%;
 }
 
-.BookingRequestPageCCAHeader{
-  width:15%;
+.BookingRequestPageCCAHeader {
+  width: 15%;
 }
 
-.BookingRequestPageTimeBookedHeader{
+.BookingRequestPageTimeBookedHeader {
   width: 25%;
 }
 
-.BookingRequestPagePurposeHeader{
-  width:30%;
+.BookingRequestPagePurposeHeader {
+  width: 30%;
 }
 
 .adminBookingRequestApprove {
@@ -109,12 +117,11 @@ table   th {
   border: 1px solid #346751;
   padding: 8px;
   margin: 5px;
-
 }
 
 .adminBookingRequestReject {
   text-decoration: none;
-  color: #C84B31;
+  color: #c84b31;
   padding: 8px;
-  border: 1px solid #C84B31;
+  border: 1px solid #c84b31;
 }

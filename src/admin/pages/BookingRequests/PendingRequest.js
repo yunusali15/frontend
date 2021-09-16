@@ -5,14 +5,14 @@ import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
 import { render } from "react-dom";
 
 const PendingRequest = (props) => {
-  const PER_PAGE = 10;
+  const PER_PAGE = 15;
   const [currentPage, setCurrentPage] = useState(0);
   const offset = currentPage * PER_PAGE;
-  const bookingRequest = props.bookingRequest; //1
-  const [filteredData, setFilteredData] = useState(bookingRequest); //2
+  const bookingRequest = props.bookingRequest;
+  const [filteredData, setFilteredData] = useState(bookingRequest);
   const pageCount = Math.ceil(filteredData.length / PER_PAGE);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const displayedData = filteredData.slice(offset, offset + PER_PAGE); //3
+  const displayedData = filteredData.slice(offset, offset + PER_PAGE);
 
   function openModal() {
     // fetchData();
@@ -26,6 +26,7 @@ const PendingRequest = (props) => {
   const handleRowCLick = (id) => {};
 
   useEffect(() => {
+    setCurrentPage(0);
     let finalData = [...bookingRequest];
     if (props.ccaFilter.length != 0) {
       console.log(props.ccaFilter);
@@ -48,50 +49,62 @@ const PendingRequest = (props) => {
     setFilteredData(finalData);
   }, [props.ccaFilter, props.venueFilter, props.dateFilter]);
 
-    const handleRowCLick= (req) => {
-    } 
-    
-    return (
-        <div style={{width: '100%'}}>
-        <table>
-            <thead style={{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid'}}>
-                <th className='BookingRequestPageVenueHeader'>Venue</th>
-                <th className='BookingRequestPageCCAHeader'>CCA</th>
-                <th className='BookingRequestPageTimeBookedHeader'>Time Booked</th>
-                <th className='BookingRequestPagePurposeHeader'>Purpose</th>
-                <th></th>
-            </thead>
-                {currentPageData.map((req) => 
-                <tbody>
-                    <tr onClick={() => handleRowCLick(req)}>
-                    <td>{req.venue.name}</td> 
-                    <td>{req.cca}</td>
-                    <td style={{display: 'inline-flex'}}>
-                        {req.timingSlots.map((slot) =>
-                        <span style={{padding:'5px',marginRight:'4px',background: "#ECDBBA", borderRadius: '1px', fontWeight:'500'}}>
-                            {slot}
-                        </span>
-                    )}</td>
-                    <td>{req.notes}</td>
-                    <td> 
-                    <SpecificReqModal req={req} bookingRequests={bookingRequest}/>
-                    </td>
-                    </tr>
-                </tbody>
-                )}
-        </table>
-        
-        <ReactPaginate
-          previousLabel={"←"}
-          nextLabel={"→"}
-          pageCount={pageCount}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          previousLinkClassName={"pagination__link"}
-          nextLinkClassName={"pagination__link"}
-          disabledClassName={"pagination__link--disabled"}
-          activeClassName={"pagination__link--active"}
-        />
+  return (
+    <div className="pendingrequest__main__container">
+      <table>
+        <thead
+          style={{
+            borderWidth: "1px",
+            borderColor: "#aaaaaa",
+            borderStyle: "solid",
+          }}
+        >
+          <th className="BookingRequestPageVenueHeader">Venue</th>
+          <th className="BookingRequestPageCCAHeader">CCA</th>
+          <th className="BookingRequestPageTimeBookedHeader">Time Booked</th>
+          <th className="BookingRequestPagePurposeHeader">Purpose</th>
+          <th></th>
+        </thead>
+        {displayedData.map((req) => (
+          <tbody>
+            <tr onClick={() => handleRowCLick(req)}>
+              <td>{req.venue.name}</td>
+              <td>{req.cca}</td>
+              <td style={{ display: "inline-flex" }}>
+                {req.timingSlots.map((slot) => (
+                  <span
+                    style={{
+                      padding: "5px",
+                      marginRight: "4px",
+                      background: "#ECDBBA",
+                      borderRadius: "1px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {slot}
+                  </span>
+                ))}
+              </td>
+              <td>{req.notes}</td>
+              <td>
+                <SpecificReqModal req={req} bookingRequests={bookingRequest} />
+              </td>
+            </tr>
+          </tbody>
+        ))}
+      </table>
+
+      <ReactPaginate
+        previousLabel={"←"}
+        nextLabel={"→"}
+        pageCount={pageCount}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        previousLinkClassName={"pagination__link"}
+        nextLinkClassName={"pagination__link"}
+        disabledClassName={"pagination__link--disabled"}
+        activeClassName={"pagination__link--active"}
+      />
     </div>
   );
 };
