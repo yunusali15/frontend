@@ -6,13 +6,12 @@ import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
 const PendingRequest = (props) => {
   const PER_PAGE = 10;
   const [currentPage, setCurrentPage] = useState(0);
-  // const [offset, setOffset] = useState(currentPage * PER_PAGE);
   const offset = currentPage * PER_PAGE;
-  const bookingRequest = props.bookingRequest;
-  const pageCount = Math.ceil(bookingRequest.length / PER_PAGE);
+  const bookingRequest = props.bookingRequest; //1
+  const [filteredData, setFilteredData] = useState(bookingRequest); //2
+  const pageCount = Math.ceil(filteredData.length / PER_PAGE);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [filteredData, setFilteredData] = useState(bookingRequest);
-  const displayedData = filteredData.slice(offset, offset + PER_PAGE);
+  const displayedData = filteredData.slice(offset, offset + PER_PAGE); //3
 
   function openModal() {
     // fetchData();
@@ -27,19 +26,23 @@ const PendingRequest = (props) => {
 
   useEffect(() => {
     let finalData = [...bookingRequest];
-    console.log("change");
     if (props.ccaFilter.length != 0) {
-      finalData.filter((req) => props.ccaFilter.includes(req.cca));
+      console.log(props.ccaFilter);
+      finalData = finalData.filter((req) => props.ccaFilter.includes(req.cca));
     }
     if (props.venueFilter.length != 0) {
-      console.log("filtered " + props.venueFilter);
+      console.log(props.venueFilter);
+
       finalData = finalData.filter((req) =>
         props.venueFilter.includes(req.venue.name)
       );
       console.log(finalData);
     }
     if (props.dateFilter.length != 0) {
-      finalData.filter((req) => props.dateFilter.includes(req.date));
+      console.log(props.dateFilter);
+      finalData = finalData.filter((req) =>
+        props.dateFilter.includes(req.date)
+      );
     }
     setFilteredData(finalData);
   }, [props.ccaFilter, props.venueFilter, props.dateFilter]);
