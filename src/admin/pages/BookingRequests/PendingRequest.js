@@ -1,27 +1,52 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import {CheckBox} from './CheckBox.js'
+import { CheckBox } from "./CheckBox.js";
 import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
 import { render } from "react-dom";
 
 const PendingRequest = (props) => {
-    const [modalIsOpen, setIsOpen] = useState(false);
-    const [bookingRequest, setbookingRequest] = useState(props.bookingRequest)
-    const [currentPage, setCurrentPage] = useState(0);
+  const PER_PAGE = 10;
+  const [currentPage, setCurrentPage] = useState(0);
+  const offset = currentPage * PER_PAGE;
+  const bookingRequest = props.bookingRequest; //1
+  const [filteredData, setFilteredData] = useState(bookingRequest); //2
+  const pageCount = Math.ceil(filteredData.length / PER_PAGE);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const displayedData = filteredData.slice(offset, offset + PER_PAGE); //3
 
-    const PER_PAGE = 12;
-    const offset = currentPage * PER_PAGE;
-    const currentPageData = bookingRequest.slice(offset, offset + PER_PAGE);
-    const pageCount = Math.ceil(bookingRequest.length / PER_PAGE);
-  
-    function openModal() {
-      // fetchData();
-      setIsOpen(true);
-    }
+  function openModal() {
+    // fetchData();
+    setIsOpen(true);
+  }
 
-    function handlePageClick({ selected: selectedPage }) {
-      setCurrentPage(selectedPage);
+  function handlePageClick({ selected: selectedPage }) {
+    setCurrentPage(selectedPage);
+  }
+
+  const handleRowCLick = (id) => {};
+
+  useEffect(() => {
+    let finalData = [...bookingRequest];
+    if (props.ccaFilter.length != 0) {
+      console.log(props.ccaFilter);
+      finalData = finalData.filter((req) => props.ccaFilter.includes(req.cca));
     }
+    if (props.venueFilter.length != 0) {
+      console.log(props.venueFilter);
+
+      finalData = finalData.filter((req) =>
+        props.venueFilter.includes(req.venue.name)
+      );
+      console.log(finalData);
+    }
+    if (props.dateFilter.length != 0) {
+      console.log(props.dateFilter);
+      finalData = finalData.filter((req) =>
+        props.dateFilter.includes(req.date)
+      );
+    }
+    setFilteredData(finalData);
+  }, [props.ccaFilter, props.venueFilter, props.dateFilter]);
 
     const handleRowCLick= (req) => {
     } 
@@ -68,7 +93,7 @@ const PendingRequest = (props) => {
           activeClassName={"pagination__link--active"}
         />
     </div>
-    )
-}
+  );
+};
 
-export default PendingRequest
+export default PendingRequest;
