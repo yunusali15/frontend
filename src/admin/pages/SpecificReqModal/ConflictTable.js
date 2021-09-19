@@ -83,7 +83,7 @@ const ConflictTable = (props) => {
                     return (
                     <tr key={ key } >
                         <td>{ item.time }</td>
-                        <td>{ item.ccaname }</td>
+                        <td>{ item.cca }</td>
                         <td>{ getFormattedDateAndSlots(item.date, item.timingSlots) }</td>
                         <td>{ item.notes }</td>
                         <td>{ item.others }</td>

@@ -48,7 +48,6 @@ const PendingRequest = (props) => {
     }
     setFilteredData(finalData);
   }, [props.ccaFilter, props.venueFilter, props.dateFilter]);
-
   return (
     <div className="pendingrequest__main__container">
       <table>
