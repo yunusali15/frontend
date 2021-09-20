@@ -13,6 +13,7 @@ const PendingRequest = (props) => {
   const pageCount = Math.ceil(filteredData.length / PER_PAGE);
   const [modalIsOpen, setIsOpen] = useState(false);
   const displayedData = filteredData.slice(offset, offset + PER_PAGE);
+  const Months = props.Months;
 
   function openModal() {
     // fetchData();
@@ -51,7 +52,7 @@ const PendingRequest = (props) => {
 
   return (
     <div className="pendingrequest__main__container">
-      <table>
+      <table className='BookingRequestTable'>
         <thead
           style={{
             borderWidth: "1px",
@@ -70,20 +71,9 @@ const PendingRequest = (props) => {
             <tr onClick={() => handleRowCLick(req)}>
               <td>{req.venue.name}</td>
               <td>{req.cca}</td>
-              <td style={{ display: "inline-flex" }}>
-                {req.timingSlots.map((slot) => (
-                  <span
-                    style={{
-                      padding: "5px",
-                      marginRight: "4px",
-                      background: "#ECDBBA",
-                      borderRadius: "1px",
-                      fontWeight: "500",
-                    }}
-                  >
-                    {slot}
-                  </span>
-                ))}
+              <td>
+              {Months[new Date(req.date).getMonth()]} {new Date(req.date).getDate()} {" | "}
+              {req.timingSlots[0].split(" ")[0]} - {req.timingSlots[req.timingSlots.length-1].split(" ")[2]}
               </td>
               <td>{req.notes}</td>
               <td>
@@ -99,11 +89,11 @@ const PendingRequest = (props) => {
         nextLabel={"→"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        previousLinkClassName={"pagination__link"}
-        nextLinkClassName={"pagination__link"}
-        disabledClassName={"pagination__link--disabled"}
-        activeClassName={"pagination__link--active"}
+        containerClassName={"BookingRequestpagination"}
+        previousLinkClassName={"BookingRequestpagination__link"}
+        nextLinkClassName={"BookingRequestpagination__link"}
+        disabledClassName={"BookingRequestpagination__link--disabled"}
+        activeClassName={"BookingRequestpagination__link--active"}
       />
     </div>
   );

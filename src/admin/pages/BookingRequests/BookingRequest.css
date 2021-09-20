@@ -6,6 +6,14 @@
   justify-content: space-around;
 }
 
+.completedrequest__main__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .BookingRequestPageContainer {
   display: flex;
   flex-direction: row;
@@ -22,7 +30,7 @@
   font-family: Roboto Condensed;
 }
 
-table {
+.BookingRequestTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   min-width: 100%;
@@ -30,7 +38,7 @@ table {
   justify-content: flex-start;
 }
 
-table th {
+.BookingRequestTable th {
   border: 1px solid #ecdbba;
   padding: 8px;
   height: 40px;
@@ -38,20 +46,21 @@ table th {
   font-family: Roboto Condensed;
 }
 
-table td {
+.BookingRequestTable td {
   padding: 8px;
   font-size: 12px;
   font-weight: 520;
   font-family: Roboto Condensed;
+  border-bottom: 1px solid #ecdbba;
 }
 
-table tr:hover {
+.BookingRequestTable tr:hover {
   border: 1px solid #ecdbba;
   background-color: #ecdbba;
   cursor: pointer;
 }
 
-table th {
+.BookingRequestTable th {
   padding-bottom: 12px;
   padding-top: 12px;
   text-align: left;
@@ -60,17 +69,17 @@ table th {
   color: #000;
 }
 
-.pagination {
+.BookingRequestpagination {
   display: flex;
   justify-content: center;
   list-style: none;
   cursor: pointer;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: -7%;
 }
 
-.pagination a {
+.BookingRequestpagination a {
   padding: 8px;
   color: #c84b31;
   font-size: 16px;
@@ -78,18 +87,18 @@ table th {
   font-weight: 500;
 }
 
-.pagination__link {
+.BookingRequestpagination__link {
   font-weight: bold;
 }
 
-.pagination__link--active a {
+.BookingRequestpagination__link--active a {
   color: #fff;
   background: #c84b31;
   padding: 5px;
   font-family: Roboto Condensed;
 }
 
-.pagination__link--disabled a {
+.BookingRequestpagination__link--disabled a {
   color: #c84b31;
   cursor: initial;
 }
@@ -103,25 +112,11 @@ table th {
 }
 
 .BookingRequestPageTimeBookedHeader {
-  width: 25%;
+  width: 20%;
 }
 
 .BookingRequestPagePurposeHeader {
-  width: 30%;
+  width: 40%;
 }
 
-.adminBookingRequestApprove {
-  text-decoration: none;
-  color: #346751;
-  font-size: 12px;
-  border: 1px solid #346751;
-  padding: 8px;
-  margin: 5px;
-}
 
-.adminBookingRequestReject {
-  text-decoration: none;
-  color: #c84b31;
-  padding: 8px;
-  border: 1px solid #c84b31;
-}

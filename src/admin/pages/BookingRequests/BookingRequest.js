@@ -19,6 +19,7 @@ const BookingRequest = () => {
   const [fetchedCompletedRequest, setFetchedCompletedRequest] = useState(false);
   const [fetchedPendingRequest, setFetchedPendingRequest] = useState(false);
   const [isPending, setPending] = useState(true);
+  const Months = {1:'Jan',2: 'Feb', 3: 'Mar', 4:'Apr', 5:'May', 6: 'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
 
   const BASEURL = "https://britannic.herokuapp.com/";
 
@@ -81,6 +82,7 @@ const BookingRequest = () => {
               ccaFilter={ccaFilter}
               dateFilter={dateFilter}
               venueFilter={venueFilter}
+              Months={Months}
             />
           ) : (
             <div>Loading...</div>
@@ -98,7 +100,7 @@ const BookingRequest = () => {
             Sort By
           </div>
           {fetchedCompletedRequest && fetchedPendingRequest ? (
-            <CompletedRequest bookingRequest={completedBookingRequest} />
+            <CompletedRequest bookingRequest={completedBookingRequest} Months={Months} />
           ) : (
             <div>Loading...</div>
           )}
@@ -122,6 +124,7 @@ const BookingRequest = () => {
             setIsModalOpen={setIsModalOpen}
             pendingBookingRequest={pendingBookingRequest}
             completedBookingRequest={completedBookingRequest}
+            Months={Months}
           />
         }
       </Modal>
