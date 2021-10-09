@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { CheckBox } from "./CheckBox.js";
 import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
+import { ApproveReject } from "./ApproveReject.js";
 import { render } from "react-dom";
 
 const PendingRequest = (props) => {
@@ -11,19 +12,20 @@ const PendingRequest = (props) => {
   const bookingRequest = props.bookingRequest;
   const [filteredData, setFilteredData] = useState(bookingRequest);
   const pageCount = Math.ceil(filteredData.length / PER_PAGE);
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const displayedData = filteredData.slice(offset, offset + PER_PAGE);
 
   function openModal() {
-    // fetchData();
-    setIsOpen(true);
+    setModalOpen(true);
   }
 
   function handlePageClick({ selected: selectedPage }) {
     setCurrentPage(selectedPage);
   }
 
-  const handleRowCLick = (id) => {};
+  const handleRowCLick = (id) => {
+    openModal();
+  };
 
   useEffect(() => {
     setCurrentPage(0);
@@ -48,10 +50,9 @@ const PendingRequest = (props) => {
     }
     setFilteredData(finalData);
   }, [props.ccaFilter, props.venueFilter, props.dateFilter]);
-
   return (
     <div className="pendingrequest__main__container">
-      <table>
+      <table className="pendingreq__table">
         <thead
           style={{
             borderWidth: "1px",
@@ -67,6 +68,7 @@ const PendingRequest = (props) => {
         </thead>
         {displayedData.map((req) => (
           <tbody>
+            <SpecificReqModal req={req} bookingRequests={bookingRequest} modalOpen={modalOpen} setModalOpen={setModalOpen} />
             <tr onClick={() => handleRowCLick(req)}>
               <td>{req.venue.name}</td>
               <td>{req.cca}</td>
@@ -87,7 +89,7 @@ const PendingRequest = (props) => {
               </td>
               <td>{req.notes}</td>
               <td>
-                <SpecificReqModal req={req} bookingRequests={bookingRequest} />
+                <ApproveReject props={req}></ApproveReject>
               </td>
             </tr>
           </tbody>

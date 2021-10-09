@@ -7,6 +7,7 @@ import ConflictTable from "./ConflictTable";
 import { Conflict } from "http-errors";
 
 const SpecificReqModal = (props) => {
+
   const [modalIsOpen, setIsOpen] = useState(false);
   const [req, setReqData] = useState(props.req);
   const [CCA, setCCA] = useState();
@@ -86,6 +87,7 @@ const SpecificReqModal = (props) => {
       backgroundColor: "rgba(255, 255, 255, 0.75)",
     },
     content: {
+      position: "fixed",
       display: "flex",
       flexDirection: "row",
       top: "50%",
@@ -94,6 +96,8 @@ const SpecificReqModal = (props) => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      overflow: "auto",
+      WebkitOverflowScrolling: 'touch',
     },
   };
 
@@ -108,36 +112,14 @@ const SpecificReqModal = (props) => {
     outline: "none",
   };
 
-  function openModal() {
-    setIsOpen(true);
-  }
-
   function closeModal() {
-    setIsOpen(false);
+    props.setModalOpen(false);
   }
 
   return (
-    <div>
-      <div className="specificreqmodal__reviewbutton__container">
-        <button
-          className="specificreqmodal__reviewbutton__accept"
-          onClick={() => {
-            openModal();
-          }}
-        >
-          Approve
-        </button>
-        <button
-          className="specificreqmodal__reviewbutton__reject"
-          onClick={() => {
-            openModal();
-          }}
-        >
-          Reject
-        </button>
-      </div>
+    <div className="specificreqmodal__container">
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={props.modalOpen}
         onRequestClose={closeModal}
         style={modalStyle}
       >
@@ -168,9 +150,11 @@ const SpecificReqModal = (props) => {
                   <td>{req.date}</td>
                   <td>
                     <ul>
-                      {req.timingSlots.map((item) => {
-                        return <h5 key={item.toString()}>{item}</h5>;
-                      })}
+                    {req.timingSlots.map((slot) => (
+                      <span>
+                        {slot}
+                      </span>
+                    ))}
                     </ul>
                   </td>
                   <td className="specificreqmodal__td__bg">Email</td>
