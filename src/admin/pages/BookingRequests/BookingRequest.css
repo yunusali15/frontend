@@ -22,7 +22,7 @@
   font-family: Roboto Condensed;
 }
 
-table {
+.pendingreq__table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   min-width: 100%;
@@ -30,7 +30,7 @@ table {
   justify-content: flex-start;
 }
 
-table th {
+.pendingreq__table th {
   border: 1px solid #ecdbba;
   padding: 8px;
   height: 40px;
@@ -38,20 +38,20 @@ table th {
   font-family: Roboto Condensed;
 }
 
-table td {
+.pendingreq__table td {
   padding: 8px;
   font-size: 12px;
   font-weight: 520;
   font-family: Roboto Condensed;
 }
 
-table tr:hover {
+.pendingreq__table tr:hover {
   border: 1px solid #ecdbba;
   background-color: #ecdbba;
   cursor: pointer;
 }
 
-table th {
+.pendingreq__table th {
   padding-bottom: 12px;
   padding-top: 12px;
   text-align: left;

@@ -27,7 +27,7 @@ const ConflictTable = (props) => {
             slotString += slots[i] + ' ';
         }                     
           return (
-            <p>{day + ' ' + monthNames[month] + ' ||'} { slotString }</p>
+            <p>{day + ' ' + monthNames[month] + ' |'} { slotString }</p>
         );
     }
 
