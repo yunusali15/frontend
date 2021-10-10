@@ -37,9 +37,6 @@ const FilterSort = (props) => {
         listofDates.push({_id:i, label:Array.from(possibleDates)[i]});
     }
 
-    
-    console.log(listofVenue);
-
     const {handlevenue, venueItems} = useChecklist(listofVenue, {key:'_id', keyType:'number'});
     console.log(venueItems);
 
@@ -55,7 +52,7 @@ const FilterSort = (props) => {
         props.setVenueFilter ([]);
     }
 
-    
+    console.log(props.dateFilter);
 
     return (
         <div className = "maindiv">

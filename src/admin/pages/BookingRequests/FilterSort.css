@@ -32,6 +32,7 @@
     background-color:white;
     margin:0vh;
     width:100%;
+    column-count:2;
 }
 
 .buttons{

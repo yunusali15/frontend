@@ -59,12 +59,25 @@ const BookingRequest = () => {
     },
 }
 
+console.log(dateFilter);
+
+const handleRest = () => {
+  setCcaFilter([]);
+  setDateFilter([]);
+  setVenueFilter ([]);
+}
+
+const openModal = () => {
+  setIsModalOpen(true);
+  handleRest();
+}
+
   Modal.setAppElement("#root");
   return (
     <div className='BookingRequestPageContainer'>
     <InnerTabs>
     <div style={{width: "100%"}} tabName="Pending" onClick = {() => setPending(true)}>
-    <div className='BookingRequestsPageSortBy' onClick={ ()=> setIsModalOpen(true)}>
+    <div className='BookingRequestsPageSortBy' onClick={ openModal}>
       Sort By
     </div>
     {fetchedCompletedRequest && fetchedPendingRequest  ? (
@@ -103,6 +116,7 @@ const BookingRequest = () => {
         setIsModalOpen={setIsModalOpen}
         pendingBookingRequest={pendingBookingRequest}
         completedBookingRequest={completedBookingRequest}
+        
       /> }
     </Modal>
    </div>

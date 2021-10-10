@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./AdminMain.css";
 import OuterTabs from "./OuterTabs";
 import BookingRequest from "./BookingRequests/BookingRequest";
+import RecurringRequest from "./RecurringBooking/RecurringRequest";
 import { useHistory } from "react-router-dom";
 import { MdSettingsInputComponent } from "react-icons/md";
 
@@ -19,6 +20,7 @@ const AdminMain = () => {
         <div tabName="Venue Management">Venue Management</div>
         <BookingRequest tabName="Booking Request" />
         <div tabName="Recurring Booking"> Recurring Booking</div>
+        <RecurringRequest tabName = "Recurring" />
         <div tabName="Calendar View">Calendar View</div>
       </OuterTabs>
     </div>

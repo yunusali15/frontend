@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
-import InnerTabs from "./InnerTabs";
-import FilterSort from "./FilterSort";
+import InnerTabs from "../InnerTabs";
+import NewRecurring from "./NewRecurring";
 import axios from "axios";
 
-const BookingRequest = () => {
+const RecurringRequest = () => {
   const [bookingRequest, setbookingRequest] = useState([]);
   const [venueFilter, setVenueFilter] = useState([]);
+  const [allVenue, setAllVenue] = useState([]);
   const BASEURL = "https://britannic.herokuapp.com/";
 
   const api = axios.create({ baseURL: BASEURL });
   api.defaults.headers.common["Authorization"] = "KEVII1!";
 
   useEffect(() => {
-    api.get("/api/v1/bookingreq/all").then((res) => {
+    api.get("/api/v1/venue/admin/search").then((res) => {
       console.log(res);
-      setbookingRequest(res.data.bookingRequest.slice(0, 15));
+      setbookingRequest(res.data.venues.slice(0, 15));
     });
     return;
   }, []);
@@ -22,22 +23,12 @@ const BookingRequest = () => {
 
   return (
     <InnerTabs>
-      <div>
-          <FilterSort 
-            allRequests = {bookingRequest}
-            setVenueFilter = {setVenueFilter}/>
-
-          
-        
-      </div>
       <div tabName="Pending">
-        {bookingRequest.map((req) => (
-          <p>{req.id}</p>
-        ))}
+      <NewRecurring/>
       </div>
       <h1 tabName="Hello 1">Hello 1 Content</h1>
     </InnerTabs>
   );
 };
 
-export default BookingRequest;
+export default RecurringRequest;
