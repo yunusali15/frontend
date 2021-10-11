@@ -51,7 +51,7 @@ const OngoingRecurring = (props) => {
 
   return (
     <div className="ongoingrequest__main__container">
-      <table className='BookingRequestTable'>
+      <table className='RecurringBookingTable'>
         <thead
           style={{
             borderWidth: "1px",
@@ -59,11 +59,11 @@ const OngoingRecurring = (props) => {
             borderStyle: "solid",
           }}
         >
-          <th className="BookingRequestPageVenueHeader">Venue</th>
-          <th className="BookingRequestPageCCAHeader">CCA</th>
+          <th className="RecurringBookingPageVenueHeader">Venue</th>
+          <th className="RecurringBookingPageCCAHeader">CCA</th>
           <th className='RecurringBookingTerminationDateHeader'>Termination Date</th>
-          <th className="BookingRequestPageTimeBookedHeader">Time Booked</th>
-          <th className="BookingRequestPagePurposeHeader">Purpose</th>
+          <th className="RecurringBookingPageTimeBookedHeader">Time Booked</th>
+          <th className="RecurringBookingPagePurposeHeader">Purpose</th>
         </thead>
         {displayedData.map((req) => (
           <tbody>
@@ -85,11 +85,11 @@ const OngoingRecurring = (props) => {
         nextLabel={"→"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
-        containerClassName={"BookingRequestpagination"}
-        previousLinkClassName={"BookingRequestpagination__link"}
-        nextLinkClassName={"BookingRequestpagination__link"}
-        disabledClassName={"BookingRequestpagination__link--disabled"}
-        activeClassName={"BookingRequestpagination__link--active"}
+        containerClassName={"RecurringBookingpagination"}
+        previousLinkClassName={"RecurringBookingpagination__link"}
+        nextLinkClassName={"RecurringBookingpagination__link"}
+        disabledClassName={"RecurringBookingpagination__link--disabled"}
+        activeClassName={"RecurringBookingpagination__link--active"}
       />
     </div>
   );

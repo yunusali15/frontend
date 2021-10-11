@@ -30,7 +30,7 @@
   font-family: Roboto Condensed;
 }
 
-.BookingRequestTable {
+.pendingreq__table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   min-width: 100%;
@@ -38,7 +38,7 @@
   justify-content: flex-start;
 }
 
-.BookingRequestTable th {
+.pendingreq__table  th {
   border: 1px solid #ecdbba;
   padding: 8px;
   height: 40px;
@@ -46,7 +46,7 @@
   font-family: Roboto Condensed;
 }
 
-.BookingRequestTable td {
+.pendingreq__table  td {
   padding: 8px;
   font-size: 12px;
   font-weight: 520;
@@ -54,13 +54,13 @@
   border-bottom: 1px solid #ecdbba;
 }
 
-.BookingRequestTable tr:hover {
+.pendingreq__table tr:hover {
   border: 1px solid #ecdbba;
   background-color: #ecdbba;
   cursor: pointer;
 }
 
-.BookingRequestTable th {
+.pendingreq__table  th {
   padding-bottom: 12px;
   padding-top: 12px;
   text-align: left;

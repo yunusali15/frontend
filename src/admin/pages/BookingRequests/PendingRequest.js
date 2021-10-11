@@ -52,7 +52,7 @@ const PendingRequest = (props) => {
 
   return (
     <div className="pendingrequest__main__container">
-      <table className='BookingRequestTable'>
+      <table className='pendingreq__table'>
         <thead
           style={{
             borderWidth: "1px",

@@ -18,7 +18,7 @@ const CompletedRequest = (props) => {
     
     return (
         <div className='completedrequest__main__container'>
-        <table className='BookingRequestTable'>
+        <table className='pendingreq__table '>
             <thead>
                 <th className='BookingRequestPageVenueHeader'>Venue</th>
                 <th className='BookingRequestPageCCAHeader'>CCA</th>
