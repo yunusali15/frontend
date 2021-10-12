@@ -38,7 +38,7 @@
   justify-content: flex-start;
 }
 
-.pendingreq__table  th {
+.pendingreq__table th {
   border: 1px solid #ecdbba;
   padding: 8px;
   height: 40px;
@@ -46,7 +46,7 @@
   font-family: Roboto Condensed;
 }
 
-.pendingreq__table  td {
+.pendingreq__table td {
   padding: 8px;
   font-size: 12px;
   font-weight: 520;
@@ -60,7 +60,7 @@
   cursor: pointer;
 }
 
-.pendingreq__table  th {
+.pendingreq__table th {
   padding-bottom: 12px;
   padding-top: 12px;
   text-align: left;

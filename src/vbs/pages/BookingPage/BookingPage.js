@@ -61,7 +61,7 @@ const BookingPage = () => {
                 id="Email"
                 name="Email"
                 placeholder="e0123456@u.nus.edu.sg"
-                style={{border:'0'}}
+                style={{ border: "0" }}
                 onChange={(e) => emailValidator(e)}
                 required
               ></input>
@@ -72,8 +72,11 @@ const BookingPage = () => {
           </div>
 
           <div className="BookingPageFormRow">
-            <h2 className="BookingPageFormTitles" style={{ alignSelf: "flex-start" }}>
-            PURPOSE :
+            <h2
+              className="BookingPageFormTitles"
+              style={{ alignSelf: "flex-start" }}
+            >
+              PURPOSE :
             </h2>
             <div className="BookingPageFormCcaContainer">
               <div className="BookingPageradio-buttons">
@@ -117,7 +120,7 @@ const BookingPage = () => {
                 required
                 rows="4"
                 cols="30"
-                style={{ height: "8vh", border:'0' }}
+                style={{ height: "8vh", border: "0" }}
                 placeholder="Details"
               />
             </div>
