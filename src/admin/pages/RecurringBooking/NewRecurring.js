@@ -18,6 +18,19 @@ const NewRecurring = (props) => {
     const [emailError, setEmailError] = useState("");
     const [allVenue, setAllVenue] = useState([]);
 
+    let valueTobePassed = [email, CCA, Venue, Day, Starttime, Endtime, StartDate, EndDate, purpose];
+    const handleReset = () => {
+      setEmail([]);
+      setCCA([]);
+      setVenue([]);
+      setDay([]);
+      setStime([]);
+      setEtime([]);
+      setSdate([]);
+      setEdate([]);
+      setPurpose([]);
+    }
+
     const BASEURL = "https://britannic.herokuapp.com/";
 
     const api = axios.create({ baseURL: BASEURL });
@@ -30,7 +43,7 @@ const NewRecurring = (props) => {
     const fetchData = () => {
       api.get("/api/v1/venue/admin/search").then((res) => {
         console.log(res.data.venues);
-        setAllVenue(res.data.venues)
+        setAllVenue(res.data.venues);
       });
     }
 
@@ -45,7 +58,13 @@ const NewRecurring = (props) => {
         }
       };
     
-    const DayOptions = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']  
+    const DayOptions = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    
+    const handleSubmit = () => {
+      if(true){
+        axios.push(valueTobePassed);
+      }
+    }
 
 
       return (
@@ -170,14 +189,21 @@ const NewRecurring = (props) => {
                 </div>
               </div>
             </div> 
-            <div className = "buttons">
-                <button className = "cancel">
+            <div className = "Recurring-buttons">
+                <button className = "Recurring-cancel" OnClick = {handleReset}>
                     Cancel
                 </button>
-
-                <button className = "submit" >
-                    Submit
-                </button>
+                {email && CCA && Venue && Day && Starttime && Endtime && StartDate && EndDate && purpose ? (
+              <div
+                className="Recurring-submit enabled"
+                style={{ border: 0 }}
+                onClick={handleSubmit}
+              >
+                Submit
+              </div>
+              ) : (
+              <div className="Recurring-submit disabled">Submit</div>
+              )}
                 
             </div>
           </div>
