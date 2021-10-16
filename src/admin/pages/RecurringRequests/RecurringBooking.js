@@ -9,6 +9,7 @@ import axios from "axios";
 
 const RecurringBooking = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddNewBookingModalOpen, setIsAddNewBookingModalOpen] = useState(false);
   const [ccaFilter, setCcaFilter] = useState([]);
   const [venueFilter, setVenueFilter] = useState([]);
   const [dateFilter, setDateFilter] = useState([]);
@@ -29,7 +30,7 @@ const RecurringBooking = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   const fetchData = () => {
     api.get("/api/v1/recurringBooking/search").then((res) => {
       console.log(res);
@@ -69,7 +70,13 @@ const RecurringBooking = () => {
           style={{ width: "100%" }}
           tabName="Ongoing"
           onClick={() => setPending(true)}
-        >
+        > 
+          <div
+            className="RecurringBookingsAddNewBooking"
+            onClick={() => setIsAddNewBookingModalOpen(true)}
+          >
+            Add New Booking
+          </div>
           <div
             className="RecurringBookingsPageSortBy"
             onClick={() => setIsModalOpen(true)}
@@ -132,6 +139,15 @@ const RecurringBooking = () => {
             completedBookingRequest={terminatedRecurring}
             Months={Months}
           />
+        }
+      </Modal>
+      <Modal
+        isOpen={isAddNewBookingModalOpen  }
+        onRequestClose={() => setIsAddNewBookingModalOpen(false)}
+        style={modalStyle}
+      >
+        {
+          <div>Add New Booking</div>
         }
       </Modal>
     </div>
