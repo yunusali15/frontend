@@ -61,6 +61,19 @@ const BookingRequest = () => {
     },
   };
 
+console.log(dateFilter);
+
+const handleRest = () => {
+  setCcaFilter([]);
+  setDateFilter([]);
+  setVenueFilter ([]);
+}
+
+const openModal = () => {
+  setIsModalOpen(true);
+  handleRest();
+}
+
   Modal.setAppElement("#root");
   return (
     <div className="BookingRequestPageContainer">
