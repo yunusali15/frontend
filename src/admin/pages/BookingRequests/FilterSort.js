@@ -40,8 +40,7 @@ const FilterSort = (props) => {
     keyType: "number",
   });
 
-    const {handlevenue, venueItems} = useChecklist(listofVenue, {key:'_id', keyType:'number'});
-    console.log(venueItems);
+  console.log(venueItems);
 
   const handleRest = () => {
     props.setCcaFilter([]);
@@ -69,7 +68,6 @@ const FilterSort = (props) => {
               </li>
             ))}
           </ul>
-
           <label>CCA</label>
           <ul className="list_content">
             {listofCCA.map((obj) => (
@@ -85,13 +83,15 @@ const FilterSort = (props) => {
               </li>
             ))}
           </ul>
-
-    console.log(props.dateFilter);
-
-        <button className="submit" onClick={() => props.setIsModalOpen(false)}>
-          Submit
-        </button>
-      </div>
+          console.log(props.dateFilter);
+          <button
+            className="submit"
+            onClick={() => props.setIsModalOpen(false)}
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

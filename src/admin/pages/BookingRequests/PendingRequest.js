@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { CheckBox } from "./CheckBox.js";
 import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
-import { ApproveReject } from "./ApproveReject.js";
 import { render } from "react-dom";
 
 const PendingRequest = (props) => {
@@ -69,18 +68,22 @@ const PendingRequest = (props) => {
         </thead>
         {displayedData.map((req) => (
           <tbody>
-            <SpecificReqModal req={req} bookingRequests={bookingRequest} modalOpen={modalOpen} setModalOpen={setModalOpen} />
+            <SpecificReqModal
+              req={req}
+              bookingRequests={bookingRequest}
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+            />
             <tr onClick={() => handleRowCLick(req)}>
               <td>{req.venue.name}</td>
               <td>{req.cca}</td>
               <td>
-              {Months[new Date(req.date).getMonth()]} {new Date(req.date).getDate()} {" | "}
-              {req.timingSlots[0].split(" ")[0]} - {req.timingSlots[req.timingSlots.length-1].split(" ")[2]}
+                {Months[new Date(req.date).getMonth()]}{" "}
+                {new Date(req.date).getDate()} {" | "}
+                {req.timingSlots[0].split(" ")[0]} -{" "}
+                {req.timingSlots[req.timingSlots.length - 1].split(" ")[2]}
               </td>
               <td>{req.notes}</td>
-              <td>
-                <ApproveReject props={req}></ApproveReject>
-              </td>
             </tr>
           </tbody>
         ))}
