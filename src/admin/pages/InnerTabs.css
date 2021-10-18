@@ -7,9 +7,9 @@
 .innerTabs__tabSelector {
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width: 50%;
   height: 8%;
-  border: 1px solid black;
+  cursor: pointer;
 }
 
 .innerTabs__tabSelector__tabSelection {
@@ -17,13 +17,14 @@
   justify-content: center;
   align-items: center;
   font-family: "Roboto Condensed", sans-serif;
-  width: 30%;
+  width: 40%;
   height: 100%;
   margin: 0 0;
 }
 
 .tabSelector__tabSelection__active {
-  border-bottom: 4px solid black;
+  color: #c84b31;
+  border-bottom: 4px solid #c84b31;
 }
 
 .innerTabs__tabContent {
@@ -32,7 +33,6 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  border: 1px solid blue;
 }
 
 .innerTabs__tabContent {
@@ -47,4 +47,5 @@
   align-items: flex-start;
   margin: 0 0;
   padding: 0 0;
+  position: relative;
 }

@@ -5,6 +5,8 @@ import BookingRequest from "./BookingRequests/BookingRequest";
 import RecurringRequest from "./RecurringBooking/RecurringRequest";
 import { useHistory } from "react-router-dom";
 import { MdSettingsInputComponent } from "react-icons/md";
+import RecurringRequest from "./RecurringRequests/RecurringBooking";
+import RecurringBooking from "./RecurringRequests/RecurringBooking";
 
 
 const AdminMain = () => {
