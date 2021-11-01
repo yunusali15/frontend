@@ -68,10 +68,6 @@ const Login = () => {
       <button type="submit" className="login-btn">
         Log in
       </button>
-      <br/>
-      <br/>
-      <br/>
-      <p> use: test@123, 123456</p>
     </form>
   );
 };
