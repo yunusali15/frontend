@@ -23,7 +23,7 @@ const Login = () => {
       }),
       onSubmit: ({ email, password }) => {
         // alert(`Email: ${email}, password: ${password}`);
-        if (email === "test@123" && password === "123456") {
+        if (email === process.env.REACT_APP_ADMIN_EMAIL && password === process.env.REACT_APP_ADMIN_PASSWORD) {
           auth.login();
         } else {
           alert('Wrong account');
