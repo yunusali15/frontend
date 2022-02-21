@@ -18,6 +18,7 @@ import Login from "./login/pages/Login";
 //VBS Admin
 import AdminMain from "./admin/pages/AdminMain";
 import AdminView from "./admin/pages/AdminView";
+import CcaSelection from "./ccaAttendance/CcaSelection";
 
 import Navbar from "./shared/components/Navigation/NavBar";
 import Contacts from "./contacts/pages/Contacts";
@@ -55,6 +56,7 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
+        <Route exact path="/cca" component={CcaSelection}></Route>
         <Route exact path="/vbs" component={VenueSelection}></Route>
         <Route exact path="/vbs/confirmation" component={ConfirmationPage} />
         <Route exact path="/vbs/:venueName" component={SpecificVenue} />
