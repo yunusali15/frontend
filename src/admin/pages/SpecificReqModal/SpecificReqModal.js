@@ -87,7 +87,17 @@ const SpecificReqModal = (props) => {
       backgroundColor: "rgba(255, 255, 255, 0.75)",
     },
     content: {
-      position: "fixed",
+      // position: "relative",
+      // display: "flex",
+      // flexDirection: "row",
+      // top: "50%",
+      // left: "50%",
+      // right: "auto",
+      // bottom: "auto",
+      // marginRight: "-50%",
+      // transform: "translate(-50%, -50%)",
+      // overflow: "scroll",
+      // WebkitOverflowScrolling: 'touch',
       display: "flex",
       flexDirection: "row",
       top: "50%",
@@ -96,8 +106,6 @@ const SpecificReqModal = (props) => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      overflow: "auto",
-      WebkitOverflowScrolling: 'touch',
     },
   };
 
